@@ -6,25 +6,201 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>839</width>
+    <height>445</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="verticalGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>101</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>71</width>
+      <height>381</height>
+     </size>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	font: 290 9pt &quot;微软雅黑 Light&quot;;
+    border: none; /* 控件本身无边框 */
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+}
+
+QPushButton:hover {
+    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
+    color: #1e92ff; /* 文字颜色变浅 */
+}
+
+QPushButton:pressed {
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 5px; /* 边框圆角 */
+}
+</string>
+       </property>
+       <property name="text">
+        <string>新增账目</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	font: 290 9pt &quot;微软雅黑 Light&quot;;
+    border: none; /* 控件本身无边框 */
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+}
+
+QPushButton:hover {
+    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
+    color: #1e92ff; /* 文字颜色变浅 */
+}
+
+QPushButton:pressed {
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 5px; /* 边框圆角 */
+}
+</string>
+       </property>
+       <property name="text">
+        <string>管理账目</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	font: 290 9pt &quot;微软雅黑 Light&quot;;
+    border: none; /* 控件本身无边框 */
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+}
+
+QPushButton:hover {
+    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
+    color: #1e92ff; /* 文字颜色变浅 */
+}
+
+QPushButton:pressed {
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 5px; /* 边框圆角 */
+}
+</string>
+       </property>
+       <property name="text">
+        <string>数据分析</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	font: 290 9pt &quot;微软雅黑 Light&quot;;
+    border: none; /* 控件本身无边框 */
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+}
+
+QPushButton:hover {
+    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
+    color: #1e92ff; /* 文字颜色变浅 */
+}
+
+QPushButton:pressed {
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 5px; /* 边框圆角 */
+}
+</string>
+       </property>
+       <property name="text">
+        <string>用户帮助</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	font: 290 9pt &quot;微软雅黑 Light&quot;;
+    border: none; /* 控件本身无边框 */
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+}
+
+QPushButton:hover {
+    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
+    color: #1e92ff; /* 文字颜色变浅 */
+}
+
+QPushButton:pressed {
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 5px; /* 边框圆角 */
+}
+</string>
+       </property>
+       <property name="text">
+        <string>小提示</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>21</height>
+     <width>839</width>
+     <height>17</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>水库</string>
+    </property>
+    <addaction name="actionsetting"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionsetting">
+   <property name="text">
+    <string>setting</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
