@@ -1,0 +1,1 @@
+## [【QT】史上最全最详细的QSS样式表用法及用例说明_qt qss-CSDN博客](https://blog.csdn.net/WL0616/article/details/129118087)
