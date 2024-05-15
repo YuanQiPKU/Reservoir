@@ -23,14 +23,17 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Reservoir
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+
         README.md
-                transaction.h transaction.cpp
-                time_.h time_.cpp
-                enumerations.h
-                kind.h
-                includes.h
-        README.md
-        image.qrc
+        transaction.h transaction.cpp
+        time_.h time_.cpp
+        enumerations.h
+        learn.md
+        uncrustify.cfg
+        kind.h
+        includes.h
+
+
 
     )
 # Define target properties for Android with Qt 6 as:
