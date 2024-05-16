@@ -11,11 +11,11 @@ main_page::main_page(QTabWidget* all_page,QWidget *parent)
     this->setMinimumSize(QSize(960, 540)); // 固定窗口大小
     this->setMaximumSize(QSize(960, 540)); // 固定窗口大小
     // 注意,动态创建的控件在ui中
-    connect(ui->btnAddAccount,&QPushButton::clicked, this,&main_page::on_btnAddAccount_clicked);
-    connect(ui->btnManageAccount,&QPushButton::clicked, this,&main_page::on_btnManageAccount_clicked);
-    connect(ui->btnDataAnalysis,&QPushButton::clicked, this,&main_page::on_btnDataAnalysis_clicked);
-    connect(ui->btnUserHelp,&QPushButton::clicked, this,&main_page::on_btnUserHelp_clicked);
-    connect(ui->btnSettings,&QPushButton::clicked, this,&main_page::on_btnSettings_clicked);
+    connect(ui->btnAddAccount,&::QPushButton::pressed, this,&main_page::on_btnAddAccount_clicked);
+    connect(ui->btnManageAccount,&::QPushButton::pressed, this,&main_page::on_btnManageAccount_clicked);
+    connect(ui->btnDataAnalysis,&::QPushButton::pressed, this,&main_page::on_btnDataAnalysis_clicked);
+    connect(ui->btnUserHelp,&::QPushButton::pressed, this,&main_page::on_btnUserHelp_clicked);
+    connect(ui->btnSettings,&::QPushButton::pressed, this,&main_page::on_btnSettings_clicked);
 }
 
 main_page::~main_page()

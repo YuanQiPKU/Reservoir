@@ -11,13 +11,14 @@
 #include <QVector>
 #include <QWidget>
 #include <QMessageBox>
+#include"password.h"
 #endif // PAGES_H
 
 // 页面生成器的声明
 class pages_creator {
 public:
-    static QWidget *first_time_page(QTabWidget* all_page);
-    static QWidget *login_page(QTabWidget* all_page);
+    static QWidget *first_time_page(QTabWidget* all_page,password* my_password);
+    static QWidget *login_page(QTabWidget* all_page,password* my_password);
     static QWidget *only_main_page(QTabWidget* all_page);
   static QWidget *add_account_page(QTabWidget* all_page);
   static QWidget *manage_account_page(QTabWidget* all_page);

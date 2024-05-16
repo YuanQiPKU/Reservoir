@@ -1,5 +1,6 @@
 #include "widget.h"
 #include "./ui_widget.h"
+#include"pages.h"
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent), ui(new Ui::Widget), all_page(new QTabWidget),creator(new pages_creator) {
@@ -16,20 +17,17 @@ Widget::Widget(QWidget *parent)
   tabBar->setStyleSheet("QTabBar::tab{color: white;background: #5c8dff;border: 1px solid #73b7ff;min-width: 20ex;min-height: 4ex;}");
   tabBar->setStyleSheet(tabBar->styleSheet() +"QTabBar::tab:selected{background: #505cff;margin-top: 2ex;}");
   tabBar->setStyleSheet(tabBar->styleSheet() +"QTabBar::close-button:hover{background: red;}");
-  // // 如果是第一次使用, 生成“新的开始”页面
-  // QWidget *first_time_page = creator->first_time_page(all_page);
-  // all_page->addTab(first_time_page , "新的开始");
-  // all_page->setCurrentWidget(first_time_page); // 跳转新建到的页面
-  // // 生成“登录”页面
-  // QWidget *login_page = creator->login_page(all_page);
-  // all_page->addTab(login_page, "登录");
-  // all_page->setCurrentWidget(login_page); // 跳转新建到的页面
-  // // 生成"主页面"页面
-  QWidget* main_page = creator->only_main_page(all_page);
-  all_page->addTab(main_page, "登录");
-   all_page->setCurrentWidget(main_page); // 跳转新建到的页面
+  if(password::password_count>0){
+      QWidget* login_page = pages_creator::login_page(all_page,my_password);
+      all_page->addTab(login_page,"登录");
+      all_page->setCurrentWidget(login_page);
+  }else{
+      // 如果是第一次使用, 生成“新的开始”页面
+      QWidget *first_time_page = creator->first_time_page(all_page,my_password);
+      all_page->addTab(first_time_page , "新的开始");
+      all_page->setCurrentWidget(first_time_page); // 跳转新建到的页面
+  }
 }
-
 Widget::~Widget() { delete ui; }
 
 // 用于删除标签页的槽函数

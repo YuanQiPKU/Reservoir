@@ -23,5 +23,6 @@ private:
 public:
   QTabWidget *all_page; // 设置QTabWeight用于管理页面
   pages_creator * creator; // 页面生成器
+  password* my_password = nullptr;
 };
 #endif // WIDGET_H
