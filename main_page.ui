@@ -25,119 +25,40 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QGroupBox" name="verticalGroupBox">
+  <property name="windowIcon">
+   <iconset theme="appointment-new"/>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">alternate-background-color: rgb(169, 170, 165);
+background-color: rgb(255, 228, 215);</string>
+  </property>
+  <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>100</width>
-     <height>450</height>
+     <x>40</x>
+     <y>100</y>
+     <width>206</width>
+     <height>311</height>
     </rect>
    </property>
-   <property name="minimumSize">
-    <size>
-     <width>100</width>
-     <height>450</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>100</width>
-     <height>450</height>
-    </size>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QPushButton" name="btnAddAccount">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	font: 290 9pt &quot;微软雅黑 Light&quot;;
-    border: none; /* 控件本身无边框 */
-    color: #000000; /* 文字颜色 */
-    font-weight: normal;
-    padding: 5px; /* 按需调整内边距 */
-}
-
-QPushButton:hover {
-    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
-    color: #1e92ff; /* 文字颜色变浅 */
-}
-
-QPushButton:pressed {
-    border-style: solid; /* 按下时边框样式 */
-    border-width: 1px; /* 按下时边框宽度 */
-    border-color: #8c8884; /* 按下时边框颜色 */
-    border-radius: 5px; /* 边框圆角 */
-}
-</string>
-      </property>
-      <property name="text">
-       <string>新增账目</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnManageAccount">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	font: 290 9pt &quot;微软雅黑 Light&quot;;
-    border: none; /* 控件本身无边框 */
-    color: #000000; /* 文字颜色 */
-    font-weight: normal;
-    padding: 5px; /* 按需调整内边距 */
-}
-
-QPushButton:hover {
-    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
-    color: #1e92ff; /* 文字颜色变浅 */
-}
-
-QPushButton:pressed {
-    border-style: solid; /* 按下时边框样式 */
-    border-width: 1px; /* 按下时边框宽度 */
-    border-color: #8c8884; /* 按下时边框颜色 */
-    border-radius: 5px; /* 边框圆角 */
-}
-</string>
-      </property>
-      <property name="text">
-       <string>管理账目</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnDataAnalysis">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	font: 290 9pt &quot;微软雅黑 Light&quot;;
-    border: none; /* 控件本身无边框 */
-    color: #000000; /* 文字颜色 */
-    font-weight: normal;
-    padding: 5px; /* 按需调整内边距 */
-}
-
-QPushButton:hover {
-    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
-    color: #1e92ff; /* 文字颜色变浅 */
-}
-
-QPushButton:pressed {
-    border-style: solid; /* 按下时边框样式 */
-    border-width: 1px; /* 按下时边框宽度 */
-    border-color: #8c8884; /* 按下时边框颜色 */
-    border-radius: 5px; /* 边框圆角 */
-}
-</string>
-      </property>
-      <property name="text">
-       <string>数据分析</string>
-      </property>
-     </widget>
-    </item>
-    <item>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="1">
      <widget class="QPushButton" name="btnUserHelp">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
+	background-color: rgba(227, 255, 133, 125);
 	font: 290 9pt &quot;微软雅黑 Light&quot;;
     border: none; /* 控件本身无边框 */
     color: #000000; /* 文字颜色 */
@@ -163,10 +84,23 @@ QPushButton:pressed {
       </property>
      </widget>
     </item>
-    <item>
+    <item row="3" column="0">
      <widget class="QPushButton" name="btnSettings">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
+	background-color: rgba(233, 202, 255, 125);
 	font: 290 9pt &quot;微软雅黑 Light&quot;;
     border: none; /* 控件本身无边框 */
     color: #000000; /* 文字颜色 */
@@ -189,6 +123,181 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>设置</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="btnManageAccount">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgba(188, 255, 236, 125);
+	font: 290 9pt &quot;微软雅黑 Light&quot;;
+    border: none; /* 控件本身无边框 */
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+}
+
+QPushButton:hover {
+    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
+    color: #1e92ff; /* 文字颜色变浅 */
+}
+
+QPushButton:pressed {
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 5px; /* 边框圆角 */
+}
+</string>
+      </property>
+      <property name="text">
+       <string>管理账目</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="btnDataAnalysis">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+   	
+	background-color: rgba(255, 179, 0, 125);
+	font: 290 9pt &quot;微软雅黑 Light&quot;;
+    border: none; /* 控件本身无边框 */
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+}
+
+QPushButton:hover {
+    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
+    color: #1e92ff; /* 文字颜色变浅 */
+}
+
+QPushButton:pressed {
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 5px; /* 边框圆角 */
+}
+</string>
+      </property>
+      <property name="text">
+       <string>数据分析</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="btnTip">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(255, 255, 129);
+	font: 290 9pt &quot;微软雅黑 Light&quot;;
+    border: none; /* 控件本身无边框 */
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+}
+
+QPushButton:hover {
+    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
+    color: #1e92ff; /* 文字颜色变浅 */
+}
+
+QPushButton:pressed {
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 5px; /* 边框圆角 */
+}
+</string>
+      </property>
+      <property name="text">
+       <string>小提示</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="btnAddAccount">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgba(61, 203, 255, 125);
+	font: 290 9pt &quot;微软雅黑 Light&quot;;
+    border: none; /* 控件本身无边框 */
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+}
+
+QPushButton:hover {
+    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
+    color: #1e92ff; /* 文字颜色变浅 */
+}
+
+QPushButton:pressed {
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 5px; /* 边框圆角 */
+}
+</string>
+      </property>
+      <property name="text">
+       <string>新增账目</string>
       </property>
      </widget>
     </item>
