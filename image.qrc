@@ -1,5 +1,6 @@
 <RCC>
-    <qresource prefix="/new/prefix1">
-        <file>runningdata/main_page.png</file>
+    <qresource prefix="/pages/main_page">
+        <file>image/main_page.png</file>
     </qresource>
+    <qresource prefix="/new/prefix1"/>
 </RCC>

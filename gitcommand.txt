@@ -1,0 +1,2 @@
+git remote add origin git@github.com:YuanQiPKU/Reservoir.git
+git remote add origin https://github.com/YuanQiPKU/Reservoir.git

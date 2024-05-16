@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Reservoir VERSION 0.1 LANGUAGES CXX)
+project(my_ui VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -14,52 +14,56 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+        widget.cpp
+        widget.h
+        widget.ui
+        data_overview.cpp
+        data_overview.h
+        transaction.cpp
+        transaction.h
+        time_.cpp
+        time_.h
+        enumerations.h
+        includes.h
+        kind.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(Reservoir
+    qt_add_executable(my_ui
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        README.md
-                transaction.h transaction.cpp
-                time_.h time_.cpp
-                enumerations.h
-                kind.h
-                includes.h
-        README.md
+        pages.h
+        pages.cpp
         image.qrc
-
+        CMakeLists.txt CMakeLists.txt.user data_overview.cpp data_overview.h enumerations.h image.qrc includes.h kind.h learn.md main.cpp pages.cpp pages.h README.md time_.cpp time_.h transaction.cpp transaction.h widget.cpp widget.h widget.ui yuanqi.md
     )
 # Define target properties for Android with Qt 6 as:
-#    set_property(TARGET Reservoir APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+#    set_property(TARGET my_ui APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(Reservoir SHARED
+        add_library(my_ui SHARED
             ${PROJECT_SOURCES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(Reservoir
+        add_executable(my_ui
             ${PROJECT_SOURCES}
         )
     endif()
 endif()
 
-target_link_libraries(Reservoir PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(my_ui PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
 if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Reservoir)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.my_ui)
 endif()
-set_target_properties(Reservoir PROPERTIES
+set_target_properties(my_ui PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -68,12 +72,12 @@ set_target_properties(Reservoir PROPERTIES
 )
 
 include(GNUInstallDirs)
-install(TARGETS Reservoir
+install(TARGETS my_ui
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(Reservoir)
+    qt_finalize_executable(my_ui)
 endif()
