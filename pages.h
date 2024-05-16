@@ -11,15 +11,17 @@
 #include <QVector>
 #include <QWidget>
 #include <QMessageBox>
-
 #endif // PAGES_H
 
 // 页面生成器的声明
 class pages_creator {
 public:
-  QWidget *add_account_page(QTabWidget* all_page);
-  QWidget *manage_account_page(QTabWidget* all_page);
-  QWidget *data_analysis_page(QTabWidget* all_page);
-  QWidget *user_help_page(QTabWidget* all_page);
-  QWidget *setting_page(QTabWidget* all_page);
+
+    static QWidget *only_main_page(QTabWidget* all_page);
+  static QWidget *add_account_page(QTabWidget* all_page);
+  static QWidget *manage_account_page(QTabWidget* all_page);
+  static QWidget *data_analysis_page(QTabWidget* all_page);
+ static  QWidget *user_help_page(QTabWidget* all_page);
+  static QWidget *setting_page(QTabWidget* all_page);
+
 };

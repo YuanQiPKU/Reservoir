@@ -12,11 +12,6 @@ class Widget : public QWidget {
   Q_OBJECT
   // 槽函数的声明
 public slots:
-  void onAddAccountClicked();
-  void onManageAccountClicked();
-  void onDataAnalysisClicked();
-  void onUserHelpClicked();
-  void onSettingsClicked();
   void closeTab();
   // 构造函数和析构函数
 public:
@@ -25,9 +20,6 @@ public:
 
 private:
   Ui::Widget *ui;
-
-
-
 public:
   QTabWidget *all_page; // 设置QTabWeight用于管理页面
   pages_creator * creator; // 页面生成器
