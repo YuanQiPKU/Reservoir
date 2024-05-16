@@ -29,14 +29,13 @@
    <iconset theme="appointment-new"/>
   </property>
   <property name="styleSheet">
-   <string notr="true">alternate-background-color: rgb(169, 170, 165);
-background-color: rgb(255, 228, 215);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>100</y>
+     <x>60</x>
+     <y>90</y>
      <width>206</width>
      <height>311</height>
     </rect>
@@ -59,8 +58,7 @@ background-color: rgb(255, 228, 215);</string>
       <property name="styleSheet">
        <string notr="true">QPushButton {
 	background-color: rgba(227, 255, 133, 125);
-	font: 290 9pt &quot;微软雅黑 Light&quot;;
-    border: none; /* 控件本身无边框 */
+	font: 290 14pt &quot;幼圆&quot;;
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
@@ -101,8 +99,7 @@ QPushButton:pressed {
       <property name="styleSheet">
        <string notr="true">QPushButton {
 	background-color: rgba(233, 202, 255, 125);
-	font: 290 9pt &quot;微软雅黑 Light&quot;;
-    border: none; /* 控件本身无边框 */
+	font: 290 14pt &quot;幼圆&quot;;
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
@@ -146,8 +143,7 @@ QPushButton:pressed {
       <property name="styleSheet">
        <string notr="true">QPushButton {
 	background-color: rgba(188, 255, 236, 125);
-	font: 290 9pt &quot;微软雅黑 Light&quot;;
-    border: none; /* 控件本身无边框 */
+	font: 290 14pt &quot;幼圆&quot;;
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
@@ -189,8 +185,7 @@ QPushButton:pressed {
        <string notr="true">QPushButton {
    	
 	background-color: rgba(255, 179, 0, 125);
-	font: 290 9pt &quot;微软雅黑 Light&quot;;
-    border: none; /* 控件本身无边框 */
+	font: 290 14pt &quot;幼圆&quot;;
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
@@ -231,8 +226,7 @@ QPushButton:pressed {
       <property name="styleSheet">
        <string notr="true">QPushButton {
 	background-color: rgb(255, 255, 129);
-	font: 290 9pt &quot;微软雅黑 Light&quot;;
-    border: none; /* 控件本身无边框 */
+	font: 290 14pt &quot;幼圆&quot;;
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
@@ -270,14 +264,23 @@ QPushButton:pressed {
         <height>100</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <family>幼圆</family>
+        <pointsize>14</pointsize>
+        <italic>false</italic>
+        <bold>false</bold>
+        <strikeout>false</strikeout>
+        <kerning>false</kerning>
+       </font>
+      </property>
       <property name="contextMenuPolicy">
        <enum>Qt::DefaultContextMenu</enum>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
 	background-color: rgba(61, 203, 255, 125);
-	font: 290 9pt &quot;微软雅黑 Light&quot;;
-    border: none; /* 控件本身无边框 */
+	font: 290 14pt &quot;幼圆&quot;;
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
@@ -302,7 +305,48 @@ QPushButton:pressed {
      </widget>
     </item>
    </layout>
+   <zorder>btnAddAccount</zorder>
+   <zorder>btnDataAnalysis</zorder>
+   <zorder>btnManageAccount</zorder>
+   <zorder>btnSettings</zorder>
+   <zorder>btnTip</zorder>
+   <zorder>btnUserHelp</zorder>
   </widget>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>960</width>
+     <height>540</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>960</width>
+     <height>540</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>960</width>
+     <height>540</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>幼圆</family>
+     <pointsize>15</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+background-image: url(:/pages/main_page/image/background_page.png);</string>
+   </property>
+  </widget>
+  <zorder>widget</zorder>
+  <zorder>gridLayoutWidget</zorder>
  </widget>
  <resources/>
  <connections/>

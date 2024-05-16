@@ -37,6 +37,14 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         image.qrc
         CMakeLists.txt CMakeLists.txt.user data_overview.cpp data_overview.h enumerations.h image.qrc includes.h kind.h learn.md main.cpp pages.cpp pages.h README.md time_.cpp time_.h transaction.cpp transaction.h widget.cpp widget.h widget.ui yuanqi.md
         main_page.h main_page.cpp main_page.ui
+        data_analysis_page.h data_analysis_page.cpp data_analysis_page.ui
+
+        user_help_page.h user_help_page.cpp user_help_page.ui
+        setting_page.h setting_page.cpp setting_page.ui
+        manage_account_page.h manage_account_page.cpp manage_account_page.ui
+        add_account_page.h add_account_page.cpp add_account_page.ui
+        login_page.h login_page.cpp login_page.ui
+        first_time_page.h first_time_page.cpp first_time_page.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET my_ui APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

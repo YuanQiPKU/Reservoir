@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>login_page</class>
+ <widget class="QWidget" name="login_page">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>914</width>
+    <height>506</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>260</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnLogin">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>250</y>
+     <width>50</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>50</width>
+     <height>50</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>50</width>
+     <height>50</height>
+    </size>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	background-color: rgb(255, 157, 133);
+	background-color: rgba(61, 203, 255, 125);
+	font: 290 9pt &quot;微软雅黑 Light&quot;;
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+}
+
+QPushButton:hover {
+    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
+    color: #1e92ff; /* 文字颜色变浅 */
+}
+
+QPushButton:pressed {
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 5px; /* 边框圆角 */
+}
+</string>
+   </property>
+   <property name="text">
+    <string>IN</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>960</width>
+     <height>540</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>960</width>
+     <height>540</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>960</width>
+     <height>540</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/pages/main_page/image/main_page.png);</string>
+   </property>
+  </widget>
+  <zorder>widget</zorder>
+  <zorder>lineEdit</zorder>
+  <zorder>btnLogin</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
