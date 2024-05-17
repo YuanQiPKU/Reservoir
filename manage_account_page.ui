@@ -22,59 +22,84 @@
     <height>540</height>
    </size>
   </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>70</y>
-     <width>800</width>
-     <height>400</height>
+     <x>60</x>
+     <y>160</y>
+     <width>851</width>
+     <height>371</height>
     </rect>
    </property>
-   <property name="minimumSize">
-    <size>
-     <width>800</width>
-     <height>400</height>
-    </size>
+   <property name="cursor" stdset="0">
+    <cursorShape>ArrowCursor</cursorShape>
    </property>
-   <property name="maximumSize">
-    <size>
-     <width>800</width>
-     <height>400</height>
-    </size>
+   <property name="mouseTracking">
+    <bool>false</bool>
+   </property>
+   <property name="tabletTracking">
+    <bool>false</bool>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(119, 170, 149, 125);</string>
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="widgetResizable">
     <bool>true</bool>
    </property>
-   <widget class="QWidget" name="scrollAreaWidgetContents">
+   <widget class="QWidget" name="widget">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-1995</y>
-      <width>780</width>
-      <height>2400</height>
+      <y>0</y>
+      <width>828</width>
+      <height>1000</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>780</width>
-      <height>2400</height>
+      <width>450</width>
+      <height>1000</height>
      </size>
     </property>
-    <property name="maximumSize">
-     <size>
-      <width>780</width>
-      <height>2400</height>
-     </size>
+    <property name="mouseTracking">
+     <bool>true</bool>
     </property>
+    <property name="tabletTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(217, 254, 255, 125);</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout"/>
    </widget>
   </widget>
+  <widget class="QWidget" name="widget_2" native="true">
+   <property name="geometry">
+    <rect>
+     <x>-1</x>
+     <y>-1</y>
+     <width>961</width>
+     <height>541</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/pages/main_page/image/add_account_page.png);</string>
+   </property>
+  </widget>
+  <zorder>widget_2</zorder>
+  <zorder>scrollArea</zorder>
  </widget>
  <resources/>
  <connections/>
