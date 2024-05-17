@@ -47,6 +47,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         first_time_page.h first_time_page.cpp first_time_page.ui
         password.h
         account_item.h account_item.cpp account_item.ui
+        io.h
 
 
     )
