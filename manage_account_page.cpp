@@ -8,6 +8,7 @@ manage_account_page::manage_account_page(QTabWidget* all_page,QWidget *parent)
     ui->setupUi(this);
     this->setMinimumSize(QSize(960, 540)); // 固定窗口大小
     this->setMaximumSize(QSize(960, 540)); // 固定窗口大小
+    ui->
 }
 
 manage_account_page::~manage_account_page()
