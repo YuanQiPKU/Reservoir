@@ -1,7 +1,6 @@
 #ifndef PASSWORD_H
 #define PASSWORD_H
 #include<QString>
-#endif // PASSWORD_H
 // 密码应当在程序运行之初于文件中读取
 class password{
 private:
@@ -28,5 +27,5 @@ public:
         return attempt_password.size()*10;
     }
 };
-
+#endif // PASSWORD_H
 

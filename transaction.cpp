@@ -7,19 +7,19 @@ Transaction::Transaction(QString name,Time_ t,Kind k,double cost):
 
     }
 
-Transaction::Transaction(QString input){
+Transaction::Transaction(QString input){//从字符串初始化
     auto inputs = input.split(",",Qt::SkipEmptyParts);
     this->transaction_time_ = Time_(inputs[0]);
-    this->transaction_kind_ = kind::get_kind(inputs[1],inputs[2]);
+    this->transaction_kind_ = kind::get_kind(inputs[1],inputs[2]);//从支付对象和描述得到类型
     this->name_ = inputs[3];
-    QRegularExpression mo("¥(\\d*\\.\\d*)");
+    QRegularExpression mo("¥(\\d*\\.\\d*)");//钱的格式
     QRegularExpressionMatch match = mo.match(inputs[5]);
     if(match.hasMatch())
         money_ = match.captured().toDouble();
     else
     {
         qDebug() << "money mismatch \n" << input;
-        throw "MoneyMismatchError";
+        throw "MoneyMismatchError";//报错：money格式错误
     }
     if(inputs[4] == u"收入")
         money_ = money_;
@@ -28,7 +28,7 @@ Transaction::Transaction(QString input){
     else
     {
         qDebug() << "Unexpected in/out kind\n" << input <<"\n" << inputs[4];
-        throw "in/outKindMismatchError";
+        throw "in/outKindMismatchError";//报错：收支不正确
     }
 }
 QString Transaction::get_name()const{

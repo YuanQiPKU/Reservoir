@@ -21,5 +21,43 @@ Time_::Time_(QString str) {
 }
 Time_::Time_(int a, int b, int c, int d, int e, int f)
     : year(a), month(b), day(c), hour(d), minute(e), second(f){
+};
 
-                                                     };
+bool Time_::operator<(Time_ a)
+{
+    if(this->year != a.year)
+        return this->year < a.year;
+    if(this->month != a.month)
+        return this->month < a.month;
+    if(this->day != a.day)
+        return this->day < a.day;
+    if(this->hour != a.hour)
+        return this->hour < a.hour;
+    if(this->minute != a.minute)
+        return this->minute < a.minute;
+    if(this->second != a.second)
+        return this->second < a.second;
+    return false;
+}
+
+bool Time_::operator>(Time_ a)
+{
+    if(this->year != a.year)
+        return this->year > a.year;
+    if(this->month != a.month)
+        return this->month > a.month;
+    if(this->day != a.day)
+        return this->day > a.day;
+    if(this->hour != a.hour)
+        return this->hour > a.hour;
+    if(this->minute != a.minute)
+        return this->minute > a.minute;
+    if(this->second != a.second)
+        return this->second > a.second;
+    return false;
+}
+
+bool Time_::operator==(Time_ a)
+{
+    return !((*this) > a) && !((*this) < a);
+}

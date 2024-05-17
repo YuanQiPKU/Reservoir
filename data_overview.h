@@ -8,7 +8,7 @@
 #ifndef DATA_OVERVIEW_H
 #define DATA_OVERVIEW_H
 #include "transaction.h"
-#endif // DATA_OVERVIEW_H
+
 class Data_overview { // 数据分析类，用于对数据进行排序和统计分析
 private:
 public:
@@ -17,3 +17,4 @@ public:
   bool name_compare(const Transaction &a, const Transaction &b);
   bool kind_compare(const Transaction &a, const Transaction &b);
 };
+#endif // DATA_OVERVIEW_H

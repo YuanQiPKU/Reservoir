@@ -12,6 +12,12 @@
 #include "enumerations.h"
 class Transaction
 {
+/******
+ * 交易记录类
+ * 成员变量：（私有）QString name_:交易的名称；Time_ transaction_time_交易时间；
+ *                Kind transaction_kind_交易类型；double money 交易金额，正为收入，负为支出
+ * 成员函数：get_... 获得某个变量的值（read only） change_...改变某个变量的值
+ ******/
 private:
     QString name_;
     Time_ transaction_time_;
