@@ -1,6 +1,6 @@
 #include "data_analysis_page.h"
 #include "ui_data_analysis_page.h"
-#include"account_item.h""
+#include "account_item.h"
 
 data_analysis_page::data_analysis_page(QTabWidget* all_page,QWidget *parent)
     : all_page(all_page),QWidget(parent)
