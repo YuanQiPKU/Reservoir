@@ -15,7 +15,7 @@ public slots:
   void closeTab();
   // 构造函数和析构函数
 public:
-  Widget(QWidget *parent = nullptr);
+  Widget(password*my_password,QWidget *parent = nullptr);
   ~Widget();
 
 private:

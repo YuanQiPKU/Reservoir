@@ -4,6 +4,9 @@
         <file>image/first_time_page.png</file>
         <file>image/background_page.png</file>
         <file>image/add_account_page.png</file>
+        <file>image/page1.png</file>
+        <file>image/page2.png</file>
+        <file>image/page3.png</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
 </RCC>

@@ -12,7 +12,7 @@ login_page::login_page(QTabWidget* all_page,password* my_password,QWidget *paren
     this->setMaximumSize(QSize(960, 540)); // 固定窗口大小
     ui->lineEdit->setEchoMode(QLineEdit::Password);
     // 最大输入限制
-    // ui->lineEdit->setMaxLength(my_password->password_size());
+    ui->lineEdit->setMaxLength(16); // 最大输入长度为16
     ui->lineEdit->setPlaceholderText("请输入密码");
     connect( ui->lineEdit,&QLineEdit::editingFinished, this, &login_page::on_lineEdit_editingFinished);
 }

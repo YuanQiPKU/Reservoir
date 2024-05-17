@@ -2,8 +2,8 @@
 #include "./ui_widget.h"
 #include"pages.h"
 
-Widget::Widget(QWidget *parent)
-    : QWidget(parent), ui(new Ui::Widget), all_page(new QTabWidget),creator(new pages_creator) {
+Widget::Widget(password* my_password,QWidget *parent)
+    : QWidget(parent),my_password(my_password), ui(new Ui::Widget), all_page(new QTabWidget),creator(new pages_creator) {
   ui->setupUi(this);
   this->setMinimumSize(QSize(960, 540)); // 固定窗口大小
   this->setMaximumSize(QSize(960, 540)); // 固定窗口大小

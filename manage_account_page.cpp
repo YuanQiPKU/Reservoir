@@ -12,8 +12,8 @@ manage_account_page::manage_account_page(QTabWidget* all_page, QWidget *parent)
     this->setMaximumSize(QSize(960, 540)); // 固定窗口大小
 
     // 获取scrollArea的子小部件
-    QWidget* scrollAreaWidget = new QWidget;
-    ui->scrollArea->setWidget(scrollAreaWidget);
+    QWidget* scrollAreaWidget = new QWidget; // 创建了一个新的QWidget对象，QWidget是Qt中所有控件的基类。这个对象将作为滚动区域（scrollArea）的子部件。
+    ui->scrollArea->setWidget(scrollAreaWidget); //setWidget()函数将新创建的scrollAreaWidget设置为滚动区域的子部件。
     ui->scrollArea->setWidgetResizable(true); // 使scrollArea内容随内容大小变化
 
     QVBoxLayout *mainLayout = new QVBoxLayout(scrollAreaWidget); // 设置垂直布局到scrollArea的子小部件

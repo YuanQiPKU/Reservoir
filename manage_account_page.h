@@ -21,3 +21,4 @@ private:
 };
 
 #endif // MANAGE_ACCOUNT_PAGE_H
+// 账目的查询,修改和删除

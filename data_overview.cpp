@@ -14,3 +14,4 @@ bool Data_overview::name_compare(const Transaction &a, const Transaction &b) {
 bool Data_overview::kind_compare(const Transaction &a, const Transaction &b) {
   return a.get_kind() < b.get_kind(); // 内置枚举类型，直接比较
 }
+// 数据处理和临时存储相关

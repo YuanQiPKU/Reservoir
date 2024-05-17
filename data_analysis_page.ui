@@ -25,66 +25,30 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QScrollArea" name="scrollArea">
+  <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>80</y>
-     <width>540</width>
-     <height>300</height>
+     <x>0</x>
+     <y>0</y>
+     <width>960</width>
+     <height>540</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>540</width>
-     <height>300</height>
+     <width>960</width>
+     <height>540</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>540</width>
-     <height>300</height>
+     <width>960</width>
+     <height>540</height>
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(119, 170, 149, 125);</string>
+    <string notr="true">background-image: url(:/pages/main_page/image/page2.png);</string>
    </property>
-   <property name="widgetResizable">
-    <bool>true</bool>
-   </property>
-   <widget class="QWidget" name="scrollAreaWidgetContents">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>520</width>
-      <height>2400</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>520</width>
-      <height>2400</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>520</width>
-      <height>2400</height>
-     </size>
-    </property>
-    <widget class="QWidget" name="verticalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>522</width>
-       <height>371</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout"/>
-    </widget>
-   </widget>
   </widget>
  </widget>
  <resources/>
