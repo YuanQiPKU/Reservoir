@@ -47,6 +47,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         first_time_page.h first_time_page.cpp first_time_page.ui
         password.h
         account_item.h account_item.cpp account_item.ui
+        qcustomplot.h
+        qcustomplot.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET my_ui APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
