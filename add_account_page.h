@@ -13,8 +13,13 @@ class add_account_page : public QWidget
 
 public:
     QTabWidget* all_page;
+    QString file_address;
     explicit add_account_page(QTabWidget* all_page,QWidget *parent = nullptr);
     ~add_account_page();
+
+private slots:
+
+    void on_btnYes_clicked();
 
 private:
     Ui::add_account_page *ui;
