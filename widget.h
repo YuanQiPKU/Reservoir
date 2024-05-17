@@ -21,8 +21,11 @@ public:
 private:
   Ui::Widget *ui;
 public:
-  QTabWidget *all_page; // 设置QTabWeight用于管理页面
-  pages_creator * creator; // 页面生成器
+  // 设置QTabWeight用于管理页面
+  QTabWidget *all_page;
+// 页面生成器
+  pages_creator * creator;
+  // 密码
   password* my_password = nullptr;
 };
 #endif // WIDGET_H

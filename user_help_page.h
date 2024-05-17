@@ -1,7 +1,5 @@
 #ifndef USER_HELP_PAGE_H
 #define USER_HELP_PAGE_H
-
-
 #include"pages.h"
 
 namespace Ui {

@@ -70,11 +70,14 @@
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
+   border-radius: 15px; /* 边框圆角 */
 }
 
 QPushButton:hover {
-    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
-    color: #1e92ff; /* 文字颜色变浅 */
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 15px; /* 边框圆角 */
 }
 
 QPushButton:pressed {
@@ -105,7 +108,7 @@ QPushButton:pressed {
     </size>
    </property>
    <property name="value">
-    <number>24</number>
+    <number>0</number>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">

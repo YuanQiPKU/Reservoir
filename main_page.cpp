@@ -11,11 +11,25 @@ main_page::main_page(QTabWidget* all_page,QWidget *parent)
     this->setMinimumSize(QSize(960, 540)); // 固定窗口大小
     this->setMaximumSize(QSize(960, 540)); // 固定窗口大小
     // 注意,动态创建的控件在ui中
-    connect(ui->btnAddAccount,&::QPushButton::pressed, this,&main_page::on_btnAddAccount_clicked);
-    connect(ui->btnManageAccount,&::QPushButton::pressed, this,&main_page::on_btnManageAccount_clicked);
-    connect(ui->btnDataAnalysis,&::QPushButton::pressed, this,&main_page::on_btnDataAnalysis_clicked);
-    connect(ui->btnUserHelp,&::QPushButton::pressed, this,&main_page::on_btnUserHelp_clicked);
-    connect(ui->btnSettings,&::QPushButton::pressed, this,&main_page::on_btnSettings_clicked);
+    // connect(ui->btnAddAccount,&QPushButton::clicked, this,&main_page::on_btnAddAccount_clicked);
+    // connect(ui->btnManageAccount,&QPushButton::clicked, this,&main_page::on_btnManageAccount_clicked);
+    // connect(ui->btnDataAnalysis,&QPushButton::clicked, this,&main_page::on_btnDataAnalysis_clicked);
+    // connect(ui->btnUserHelp,&QPushButton::clicked, this,&main_page::on_btnUserHelp_clicked);
+    // connect(ui->btnSettings,&QPushButton::clicked, this,&main_page::on_btnSettings_clicked);
+
+/*
+ QT翻译器的问题
+如果用官方的写法on_btn_pressed()可以不用写connect函数，可以直接触发槽函数。如果此时用connect再次连接的话，就会导致on_btn_pressed()被执行两次。
+
+解决办法为：
+可能有问题的代码，会被执行两次
+connect(ui->btn,signal(pressed()),this,slot(on_btn_pressed()));
+规则强制指定
+要么改为：connect(ui->btn,signal(pressed()),this,slot(on_btn_pressed()),qt::uniqueconnection);
+修改槽函数形式
+要么改为：connect(ui->btn,signal(pressed()),this,slot(btn_pressed()));
+通过修改名字避免QT翻译器翻译成两次执行.
+*/
 }
 
 main_page::~main_page()
@@ -25,6 +39,7 @@ main_page::~main_page()
 void main_page::on_btnAddAccount_clicked()
 {
     // 点击生成“新增账目”页面
+    qDebug()<<"新增页面被触发";
     QWidget *add_account = pages_creator::add_account_page(all_page);
     all_page->addTab(add_account, "新增账目");
     all_page->setCurrentWidget(add_account); // 跳转新建到的页面
@@ -32,6 +47,7 @@ void main_page::on_btnAddAccount_clicked()
 void main_page::on_btnDataAnalysis_clicked()
 {
     // 点击生成“数据分析”页面
+    qDebug()<<"数据分析被触发";
     QWidget *data_analysis = pages_creator::data_analysis_page(all_page);
     all_page->addTab(data_analysis, "数据分析");
     all_page->setCurrentWidget(data_analysis); // 跳转新建到的页面

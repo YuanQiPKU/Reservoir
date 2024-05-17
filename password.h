@@ -1,8 +1,6 @@
 #ifndef PASSWORD_H
 #define PASSWORD_H
 #include<QString>
-#include<algorithm>
-#include <numeric>
 #endif // PASSWORD_H
 // 密码应当在程序运行之初于文件中读取
 class password{
@@ -27,7 +25,7 @@ public:
     static int strength_calu(const QString& attempt_password){
         // 0-100
 
-        return attempt_password.size();
+        return attempt_password.size()*10;
     }
 };
 

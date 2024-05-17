@@ -62,20 +62,16 @@
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
+ border-radius: 15px;
 }
 
 QPushButton:hover {
-    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
-    color: #1e92ff; /* 文字颜色变浅 */
-}
-
-QPushButton:pressed {
-    border-style: solid; /* 按下时边框样式 */
+   background-color: rgba(227, 255, 133, 200);
+   border-style: solid; /* 按下时边框样式 */
     border-width: 1px; /* 按下时边框宽度 */
     border-color: #8c8884; /* 按下时边框颜色 */
-    border-radius: 5px; /* 边框圆角 */
-}
-</string>
+    border-radius: 15px; /* 边框圆角 */
+}</string>
       </property>
       <property name="text">
        <string>用户帮助</string>
@@ -103,20 +99,16 @@ QPushButton:pressed {
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
+ border-radius: 15px;
 }
 
 QPushButton:hover {
-    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
-    color: #1e92ff; /* 文字颜色变浅 */
-}
-
-QPushButton:pressed {
-    border-style: solid; /* 按下时边框样式 */
+    background-color: rgba(233, 202, 255, 200);
+   border-style: solid; /* 按下时边框样式 */
     border-width: 1px; /* 按下时边框宽度 */
     border-color: #8c8884; /* 按下时边框颜色 */
-    border-radius: 5px; /* 边框圆角 */
-}
-</string>
+    border-radius: 15px; /* 边框圆角 */
+}</string>
       </property>
       <property name="text">
        <string>设置</string>
@@ -147,20 +139,16 @@ QPushButton:pressed {
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
+ border-radius: 15px;
 }
 
 QPushButton:hover {
-    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
-    color: #1e92ff; /* 文字颜色变浅 */
-}
-
-QPushButton:pressed {
-    border-style: solid; /* 按下时边框样式 */
+    background-color: rgba(188, 255, 236, 200);
+   border-style: solid; /* 按下时边框样式 */
     border-width: 1px; /* 按下时边框宽度 */
     border-color: #8c8884; /* 按下时边框颜色 */
-    border-radius: 5px; /* 边框圆角 */
-}
-</string>
+    border-radius: 15px; /* 边框圆角 */
+}</string>
       </property>
       <property name="text">
        <string>管理账目</string>
@@ -189,20 +177,16 @@ QPushButton:pressed {
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
+ border-radius: 15px;
 }
 
 QPushButton:hover {
-    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
-    color: #1e92ff; /* 文字颜色变浅 */
-}
-
-QPushButton:pressed {
-    border-style: solid; /* 按下时边框样式 */
-    border-width: 1px; /* 按下时边框宽度 */
-    border-color: #8c8884; /* 按下时边框颜色 */
-    border-radius: 5px; /* 边框圆角 */
-}
-</string>
+background-color: rgba(255, 179, 0, 200);
+   border-style: solid; 
+    border-width: 1px; 
+    border-color: #8c8884;
+    border-radius: 15px; 
+}</string>
       </property>
       <property name="text">
        <string>数据分析</string>
@@ -225,25 +209,21 @@ QPushButton:pressed {
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-	background-color: rgb(255, 255, 129);
+	background-color: rgba(170, 80, 101, 125);
 	font: 290 14pt &quot;幼圆&quot;;
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
+ border-radius: 15px;
 }
 
 QPushButton:hover {
-    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
-    color: #1e92ff; /* 文字颜色变浅 */
-}
-
-QPushButton:pressed {
-    border-style: solid; /* 按下时边框样式 */
+   background-color: rgba(170, 80, 101, 200);
+   border-style: solid; /* 按下时边框样式 */
     border-width: 1px; /* 按下时边框宽度 */
     border-color: #8c8884; /* 按下时边框颜色 */
-    border-radius: 5px; /* 边框圆角 */
-}
-</string>
+    border-radius: 15px; /* 边框圆角 */
+}</string>
       </property>
       <property name="text">
        <string>小提示</string>
@@ -284,18 +264,14 @@ QPushButton:pressed {
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
+   border-radius: 15px;
 }
-
 QPushButton:hover {
-    text-decoration: underline; /* 鼠标悬浮文字加下划线 */
-    color: #1e92ff; /* 文字颜色变浅 */
-}
-
-QPushButton:pressed {
-    border-style: solid; /* 按下时边框样式 */
+	background-color: rgba(61, 203, 255,200);
+   border-style: solid; /* 按下时边框样式 */
     border-width: 1px; /* 按下时边框宽度 */
     border-color: #8c8884; /* 按下时边框颜色 */
-    border-radius: 5px; /* 边框圆角 */
+    border-radius: 15px; /* 边框圆角 */
 }
 </string>
       </property>

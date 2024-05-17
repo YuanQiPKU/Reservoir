@@ -8,6 +8,8 @@ add_account_page::add_account_page(QTabWidget* all_page,QWidget *parent)
     ui->setupUi(this);
     this->setMinimumSize(QSize(960, 540)); // 固定窗口大小
     this->setMaximumSize(QSize(960, 540)); // 固定窗口大小
+    ui->widget->setStyleSheet(":/pages/main_page/image/add_account_page.png");
+
 }
 
 add_account_page::~add_account_page()

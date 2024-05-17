@@ -11,6 +11,7 @@
 #include <QVector>
 #include <QWidget>
 #include <QMessageBox>
+#include<QDebug>
 #include"password.h"
 #endif // PAGES_H
 

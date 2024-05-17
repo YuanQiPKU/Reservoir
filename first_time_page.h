@@ -2,11 +2,6 @@
 #define FIRST_TIME_PAGE_H
 
 #include"pages.h"
-#include <QTimer>
-#include <QWidget>
-#include <QPainter>
-#include <QPaintEvent>
-#include<QString>
 
 
 
