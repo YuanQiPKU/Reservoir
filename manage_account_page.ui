@@ -28,13 +28,59 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QScrollArea" name="scrollArea">
+  <widget class="QWidget" name="widget_2" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-10</y>
+     <width>971</width>
+     <height>561</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/pages/main_page/image/add_account_page.png);</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
      <x>60</x>
+     <y>10</y>
+     <width>341</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton {
+	background-color: rgba(255, 255, 47, 55);
+	
+	font: 28pt &quot;楷体&quot;;
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+   border-radius: 15px;
+}
+QPushButton:hover {
+background-color: rgba(255, 255, 47, 200);
+   border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 15px; /* 边框圆角 */
+}
+</string>
+   </property>
+   <property name="text">
+    <string>支出</string>
+   </property>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
      <y>160</y>
      <width>851</width>
-     <height>371</height>
+     <height>351</height>
     </rect>
    </property>
    <property name="cursor" stdset="0">
@@ -85,21 +131,181 @@
     <layout class="QVBoxLayout" name="verticalLayout"/>
    </widget>
   </widget>
-  <widget class="QWidget" name="widget_2" native="true">
+  <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>-1</x>
-     <y>-1</y>
-     <width>961</width>
-     <height>541</height>
+     <x>590</x>
+     <y>10</y>
+     <width>341</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/pages/main_page/image/add_account_page.png);</string>
+    <string notr="true">
+QPushButton {
+	background-color: rgba(61, 203, 255, 125);
+	
+	font: 28pt &quot;楷体&quot;;
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+   border-radius: 15px;
+}
+QPushButton:hover {
+	background-color: rgba(61, 203, 255,200);
+   border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 15px; /* 边框圆角 */
+}
+</string>
+   </property>
+   <property name="text">
+    <string>收入</string>
    </property>
   </widget>
-  <zorder>widget_2</zorder>
-  <zorder>scrollArea</zorder>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>110</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton {
+	
+	background-color: rgba(213, 85, 255, 125);
+	
+	
+	font: 12pt &quot;楷体&quot;;
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+   border-radius: 15px;
+}
+QPushButton:hover {
+background-color: rgba(213, 85, 255, 200);
+   border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 15px; /* 边框圆角 */
+}
+</string>
+   </property>
+   <property name="text">
+    <string>金额</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>110</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton {
+	
+	background-color: rgba(76, 255, 76, 125);
+	
+	
+	font: 12pt &quot;楷体&quot;;
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+   border-radius: 15px;
+}
+QPushButton:hover {
+	
+	background-color: rgba(76, 255, 76, 200);
+   border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 15px; /* 边框圆角 */
+}
+</string>
+   </property>
+   <property name="text">
+    <string>类别</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>110</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton {
+	
+	background-color: rgba(255, 142, 142, 125);
+	
+	
+	font: 12pt &quot;楷体&quot;;
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+   border-radius: 15px;
+}
+QPushButton:hover {
+background-color: rgba(255, 142, 142, 200);
+   border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 15px; /* 边框圆角 */
+}
+</string>
+   </property>
+   <property name="text">
+    <string>默认</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_6">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>110</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton {
+	
+	
+	background-color: rgba(255, 223, 105, 125);
+	
+	
+	font: 12pt &quot;楷体&quot;;
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+   border-radius: 15px;
+}
+QPushButton:hover {
+	background-color: rgba(255, 223, 105, 200);
+   border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 15px; /* 边框圆角 */
+}
+</string>
+   </property>
+   <property name="text">
+    <string>时间</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
