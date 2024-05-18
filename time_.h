@@ -23,7 +23,7 @@ public:
     bool operator<(Time_);
     bool operator>(Time_);
     bool operator==(Time_);
-
+    QString toString();
 };
 
 #endif // TIME__H

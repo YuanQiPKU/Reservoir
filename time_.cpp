@@ -61,3 +61,12 @@ bool Time_::operator==(Time_ a)
 {
     return !((*this) > a) && !((*this) < a);
 }
+QString Time_::toString() {
+    return QString("%1/%2/%3 %4:%5:%6")
+        .arg(year, 4, 10, QChar('0'))  // 年份，最少4位，缺少部分以0填充
+        .arg(month, 2, 10, QChar('0')) // 月份，最少2位，缺少部分以0填充
+        .arg(day, 2, 10, QChar('0'))   // 日期，最少2位，缺少部分以0填充
+        .arg(hour, 2, 10, QChar('0'))  // 小时，最少2位，缺少部分以0填充
+        .arg(minute, 2, 10, QChar('0')) // 分钟，最少2位，缺少部分以0填充
+        .arg(second, 2, 10, QChar('0')); // 秒，最少2位，缺少部分以0填充
+}

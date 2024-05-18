@@ -48,6 +48,12 @@ QWidget:hover {
      <height>30</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="minimumSize">
     <size>
      <width>600</width>
@@ -79,6 +85,94 @@ QWidget:hover {
 }
 </string>
    </property>
+   <widget class="QLabel" name="labelName">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>172</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Qlabel:hover{
+	
+	background-color: rgba(216, 237, 255, 200);
+}
+Qlabel{
+	background-color: rgba(216, 237, 255, 125);
+}</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelTime">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>0</y>
+      <width>172</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Qlabel:hover{
+	
+	background-color: rgba(216, 237, 255, 200);
+}
+Qlabel{
+	background-color: rgba(216, 237, 255, 125);
+}</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelKind">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>0</y>
+      <width>172</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Qlabel:hover{
+	
+	background-color: rgba(216, 237, 255, 200);
+}
+Qlabel{
+	background-color: rgba(216, 237, 255, 125);
+}</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelMoney">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>0</y>
+      <width>172</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Qlabel:hover{
+	
+	background-color: rgba(216, 237, 255, 200);
+}
+Qlabel{
+	background-color: rgba(216, 237, 255, 125);
+}</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QPushButton" name="btnDelete">
    <property name="geometry">
