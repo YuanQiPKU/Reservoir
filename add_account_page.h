@@ -21,6 +21,8 @@ private slots:
 
     void on_btnYes_clicked();
 
+    void on_btnConfirm_clicked();
+
 private:
     Ui::add_account_page *ui;
 };

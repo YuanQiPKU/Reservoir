@@ -28,7 +28,7 @@
   <widget class="QWidget" name="backwidget" native="true">
    <property name="geometry">
     <rect>
-     <x>-40</x>
+     <x>0</x>
      <y>0</y>
      <width>960</width>
      <height>540</height>
@@ -49,38 +49,169 @@
    <property name="styleSheet">
     <string notr="true">background-color: rgba(153, 170, 160, 175);</string>
    </property>
-   <widget class="QDateEdit" name="dateEdit">
+   <widget class="QWidget" name="common_way_widget" native="true">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>260</y>
-      <width>110</width>
-      <height>22</height>
+      <x>20</x>
+      <y>310</y>
+      <width>851</width>
+      <height>121</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QProgressBar" name="progressBar">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>230</y>
-      <width>118</width>
-      <height>23</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+	background-color: rgba(170, 170, 127, 125);
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 25px; /* 边框圆角 */
+}
+
+QWidget:hover {
+
+  background-color: rgba(170, 170, 127, 75);
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius:25px; /* 边框圆角 */
+}
+</string>
     </property>
-    <property name="value">
-     <number>24</number>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="lcdNumber">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>50</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
+    <widget class="QDateEdit" name="dateEdit">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>151</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QDateEdit{
+	background-color: rgba(172, 222, 255, 125);
+   border-radius: 10px; /* 边框圆角 */
+}</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="btnIn">
+     <property name="geometry">
+      <rect>
+       <x>214</x>
+       <y>40</y>
+       <width>73</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>收入/IN</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="btnOut">
+     <property name="geometry">
+      <rect>
+       <x>214</x>
+       <y>80</y>
+       <width>73</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>支出/OUT</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>60</y>
+       <width>111</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QComboBox{
+	background-color: rgba(231, 255, 240, 125);
+   border-radius: 10px; /* 边框圆角 */
+}</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnConfirm">
+     <property name="geometry">
+      <rect>
+       <x>730</x>
+       <y>45</y>
+       <width>50</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>50</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>50</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	font: 10pt &quot;幼圆&quot;;
+	background-color: rgba(61, 203, 255, 125);
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+   border-radius: 15px; /* 边框圆角 */
+}
+
+QPushButton:hover {
+	background-color: rgba(61, 203, 255, 200);
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 15px; /* 边框圆角 */
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>添加</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>60</y>
+       <width>141</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+	background-color: rgba(246, 176, 255,125);
+   border-radius: 10px; /* 边框圆角 */
+}</string>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="progressBar">
+     <property name="geometry">
+      <rect>
+       <x>317</x>
+       <y>10</y>
+       <width>151</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QPushButton" name="btnYes">
@@ -110,7 +241,6 @@
    <property name="styleSheet">
     <string notr="true">QPushButton {
 	font: 10pt &quot;幼圆&quot;;
-	background-color: rgb(255, 157, 133);
 	background-color: rgba(61, 203, 255, 125);
     color: #000000; /* 文字颜色 */
     font-weight: normal;
@@ -119,18 +249,13 @@
 }
 
 QPushButton:hover {
+	background-color: rgba(61, 203, 255, 200);
     border-style: solid; /* 按下时边框样式 */
     border-width: 1px; /* 按下时边框宽度 */
     border-color: #8c8884; /* 按下时边框颜色 */
     border-radius: 15px; /* 边框圆角 */
 }
 
-QPushButton:pressed {
-    border-style: solid; /* 按下时边框样式 */
-    border-width: 1px; /* 按下时边框宽度 */
-    border-color: #8c8884; /* 按下时边框颜色 */
-    border-radius: 5px; /* 边框圆角 */
-}
 </string>
    </property>
    <property name="text">
@@ -169,14 +294,37 @@ QPushButton:pressed {
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>180</y>
+     <x>50</x>
+     <y>200</y>
      <width>281</width>
-     <height>51</height>
+     <height>71</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#fefefe;&quot;&gt;你也可以在这里手动添加账目&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#fefefe;&quot;&gt;只需要完成下面的几步操作就可以啦!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#fefefe;&quot;&gt;你也可以在这里手动添加账目&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#fefefe;&quot;&gt;只需要完成下面的几步操作就可以啦!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNumber">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>120</y>
+     <width>64</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>120</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;当前已记录的账目数量:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>
