@@ -2,7 +2,7 @@
 #define ACCOUNT_ITEM_H
 
 #include <QWidget>
-#include"transaction.h""
+#include"transaction.h"
 namespace Ui {
 class account_item;
 }
@@ -13,13 +13,20 @@ class account_item : public QWidget
 
 public:
 
-    explicit account_item(QWidget *parent = nullptr);
+
     explicit account_item(Transaction *account_item_message,QWidget* parent=nullptr);
     void change_time(Time_ t);
     void change_name(QString name);
     void change_money(double money);
     void change_kind(Kind kind);
     ~account_item();
+
+private slots:
+
+
+    void on_btnChange_clicked();
+
+    void on_btnRemove_clicked();
 
 private:
     Transaction account_item_message;

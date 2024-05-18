@@ -48,6 +48,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         password.h
         account_item.h account_item.cpp account_item.ui
         io.h
+        changepage.h changepage.cpp changepage.ui
 
 
     )

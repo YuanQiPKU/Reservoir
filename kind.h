@@ -8,4 +8,5 @@ namespace kind{
         return null;
     }
 }
+//写上从kind到QString的转换函数啊
 #endif // KIND_H

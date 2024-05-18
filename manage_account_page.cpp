@@ -2,7 +2,7 @@
 #include "ui_manage_account_page.h"
 #include "account_item.h"
 #include <QVBoxLayout>
-
+#include"transaction.h""
 manage_account_page::manage_account_page(QTabWidget* all_page, QWidget *parent)
     : all_page(all_page), QWidget(parent)
     , ui(new Ui::manage_account_page)
@@ -20,9 +20,12 @@ manage_account_page::manage_account_page(QTabWidget* all_page, QWidget *parent)
     scrollAreaWidget->setLayout(mainLayout); // 这行可以省略，构造函数中已经设置了布局
 
     for (int i = 0; i < 100; ++i) {
-        account_item* item = new account_item(this);
+        Transaction *account_item_message=new Transaction();
+        account_item* item = new account_item(account_item_message,this);
         mainLayout->addWidget(item);
+
     }
+
 }
 
 manage_account_page::~manage_account_page()
