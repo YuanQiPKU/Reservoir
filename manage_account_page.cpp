@@ -2,7 +2,7 @@
 #include "ui_manage_account_page.h"
 #include "account_item.h"
 #include <QVBoxLayout>
-#include"transaction.h""
+#include"transaction.h"
 manage_account_page::manage_account_page(QTabWidget* all_page, QWidget *parent)
     : all_page(all_page), QWidget(parent)
     , ui(new Ui::manage_account_page)

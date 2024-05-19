@@ -15,8 +15,8 @@ Time_::Time_(QString str) {
     minute = match.captured(4).toInt();
     second = match.captured(5).toInt();
   } else {
-    qDebug() << "error in do this" << str << reg;
-    throw "RegexError";
+      qDebug() << "ERROR 时间格式不正确" << str << reg << Qt::endl;
+    throw "TimeSyntaxError";
   }
 }
 Time_::Time_(int a, int b, int c, int d, int e, int f)

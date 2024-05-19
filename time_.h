@@ -5,7 +5,9 @@
  *********/
 #ifndef TIME__H
 #define	TIME__H
-#include "includes.h"
+#include <QString>
+#include<QRegularExpression>
+#include<QRegularExpressionMatch>
 
 class Time_
 {

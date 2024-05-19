@@ -24,7 +24,6 @@ set(PROJECT_SOURCES
         time_.cpp
         time_.h
         enumerations.h
-        includes.h
         kind.h
 )
 
@@ -35,7 +34,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         pages.h
         pages.cpp
         image.qrc
-        CMakeLists.txt CMakeLists.txt.user data_overview.cpp data_overview.h enumerations.h image.qrc includes.h kind.h learn.md main.cpp pages.cpp pages.h README.md time_.cpp time_.h transaction.cpp transaction.h widget.cpp widget.h widget.ui yuanqi.md
+        CMakeLists.txt CMakeLists.txt.user data_overview.cpp data_overview.h enumerations.h image.qrc  kind.h learn.md main.cpp pages.cpp pages.h README.md time_.cpp time_.h transaction.cpp transaction.h widget.cpp widget.h widget.ui yuanqi.md
         main_page.h main_page.cpp main_page.ui
         data_analysis_page.h data_analysis_page.cpp data_analysis_page.ui
 

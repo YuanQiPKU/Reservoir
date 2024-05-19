@@ -7,9 +7,11 @@
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 
-#include "includes.h"
-#include "time_.h"
+#include <QString>
+#include<QRegularExpression>
+#include<QRegularExpressionMatch>
 #include "enumerations.h"
+#include "time_.h"
 class Transaction
 {
 /******

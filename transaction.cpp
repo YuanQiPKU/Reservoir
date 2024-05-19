@@ -18,7 +18,7 @@ Transaction::Transaction(QString input){//从字符串初始化
         money_ = match.captured().toDouble();
     else
     {
-        qDebug() << "money mismatch \n" << input;
+        qDebug() << "ERROR money mismatch \n" << input;
         throw "MoneyMismatchError";//报错：money格式错误
     }
     if(inputs[4] == u"收入")
@@ -27,7 +27,7 @@ Transaction::Transaction(QString input){//从字符串初始化
         money_ = -money_;
     else
     {
-        qDebug() << "Unexpected in/out kind\n" << input <<"\n" << inputs[4];
+        qDebug() << "ERROR Unexpected in/out kind\n" << input <<"\n" << inputs[4];
         throw "in/outKindMismatchError";//报错：收支不正确
     }
 }

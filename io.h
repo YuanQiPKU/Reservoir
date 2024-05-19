@@ -5,24 +5,83 @@
  ******/
 #ifndef IO_H
 #define IO_H
-#include "includes.h"
+#include <QString>
+#include<QRegularExpression>
+#include<QRegularExpressionMatch>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlError>
 #include <QtSql/QSqlQuery>
+#include<QFile>
 #include <vector>
 #include "transaction.h"
 #include <memory>
 
 namespace IO{
+
+    bool is_wechat(QString path_){
+        QFile file(path_);
+        if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "ERROR 无法打开文件";
+            throw "UnableToOpenError";
+        }
+        QTextStream stream(&file);
+        QString line = stream.readLine();
+        if(line == "微信支付账单明细,,,,,,,,")
+            return true;
+        return false;
+    }
+    bool is_alipay(QString path_){
+        QFile file(path_);
+        if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "ERROR 无法打开文件";
+            throw "UnableToOpenError";
+        }
+        QTextStream stream(&file);
+        QString line = stream.readLine();
+        for(int i = 1;i < 4;i++)
+            line = stream.readLine();
+        if(line.startsWith("支"))
+            return true;
+        return false;
+    }
+    bool is_reservior(QString path_){
+        QFile file(path_);
+        if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qDebug() << "ERROR 无法打开文件";
+            throw "UnableToOpenError";
+        }
+        QTextStream stream(&file);
+        QString line = stream.readLine();
+        if(line.startsWith("Reservior 账单导出"))
+            return true;
+        return false;
+    }
     std::vector<std::shared_ptr<Transaction> > read_csv(QString path_)
     {
         /********
          * 输入：csv文件路径
          * 输出：一个存有csv中交易记录智能指针的vector
+         * 注意：异常处理！请使用try调用
          *******/
 
         std::vector<std::shared_ptr<Transaction> > result(0);
-        //TODO 完善读入，区分微信和支付宝
+        if(is_wechat(path_)){
+            qDebug() << "读取微信账单";
+            QFile file(path_);
+            QTextStream stream(&file);
+
+        } else if(is_alipay(path_)) {
+            qDebug() << "读取支付宝账单";
+        }else if(is_reservior(path_)){
+            qDebug() << "读取先前导出的账单";
+        }else{
+            qDebug() << "ERROR 导入账单类型错误：不是微信或支付宝";
+            throw "BillTypeError";
+            return result;
+        }
         return result;
     }
     void write_csv(std::vector<std::shared_ptr<Transaction> > data_,QString path_)
