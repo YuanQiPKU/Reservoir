@@ -22,6 +22,7 @@ manage_account_page::manage_account_page(QTabWidget* all_page, QWidget *parent)
     for (int i = 0; i < 100; ++i) {
         Transaction *account_item_message=new Transaction();
         account_item* item = new account_item(account_item_message,this);
+        connect(item, &account_item::removeRequested, this, &manage_account_page::removeItem);  // 连接信号
         mainLayout->addWidget(item);
 
     }
@@ -31,4 +32,19 @@ manage_account_page::manage_account_page(QTabWidget* all_page, QWidget *parent)
 manage_account_page::~manage_account_page()
 {
     delete ui;
+}
+void manage_account_page::removeItem(account_item* item)
+{
+    QVBoxLayout* layout = qobject_cast<QVBoxLayout*>(ui->scrollArea->widget()->layout());
+    if (layout) {
+        int index = layout->indexOf(item);
+        if (index != -1) {
+            // 移除item并删除
+            QLayoutItem* layoutItem = layout->takeAt(index);
+            if (layoutItem) {
+                delete layoutItem->widget(); // 删除小部件
+                delete layoutItem; // 删除布局项
+            }
+        }
+    }
 }

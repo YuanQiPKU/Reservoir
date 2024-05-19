@@ -67,5 +67,5 @@ void account_item::on_btnChange_clicked()
 
 void account_item::on_btnRemove_clicked()
 {
-
+    emit removeRequested(this);
 }

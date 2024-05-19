@@ -20,7 +20,8 @@ public:
     void change_money(double money);
     void change_kind(Kind kind);
     ~account_item();
-
+signals:
+    void removeRequested(account_item* item);
 private slots:
 
 
