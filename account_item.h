@@ -29,7 +29,7 @@ private slots:
 
     void on_btnRemove_clicked();
 
-private:
+public:
     Transaction account_item_message;
     Kind account_kind;
     Time_ account_time;
