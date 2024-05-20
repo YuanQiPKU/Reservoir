@@ -27,9 +27,9 @@ private:
     double money_;
 
 public:
-    Transaction();
-    Transaction(QString name,Time_ t,Kind k,double cost);
-    Transaction(QString);
+    Transaction(bool write_into_db = false);
+    Transaction(QString name,Time_ t,Kind k,double cost,bool write_into_db = false);
+    Transaction(QString,bool write_into_db = false);
     QString get_name()const;
     Time_ get_time()const;
     Kind get_kind()const;

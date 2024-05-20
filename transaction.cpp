@@ -1,13 +1,20 @@
 #include "transaction.h"
 #include "kind.h"
-
-Transaction::Transaction():name_(),transaction_kind_(null),transaction_time_(),money_(0){}
-Transaction::Transaction(QString name,Time_ t,Kind k,double cost):
-        name_(name),transaction_time_(t),transaction_kind_(k),money_(cost){
-
+#include "io.h"
+Transaction::Transaction(bool write_into_db)
+    :name_(),transaction_kind_(null),transaction_time_(),money_(0){
+    if(write_into_db){
+        IO::insert_db(std::shared_ptr<Transaction>(this));
     }
+}
+Transaction::Transaction(QString name,Time_ t,Kind k,double cost,bool write_into_db)
+    :name_(name),transaction_time_(t),transaction_kind_(k),money_(cost){
+    if(write_into_db){
+        IO::insert_db(std::shared_ptr<Transaction>(this));
+    }
+}
 
-Transaction::Transaction(QString input){//从字符串初始化
+Transaction::Transaction(QString input,bool write_into_db){//从字符串初始化
     auto inputs = input.split(",",Qt::SkipEmptyParts);
     this->transaction_time_ = Time_(inputs[0]);
     this->transaction_kind_ = kind::get_kind(inputs[1],inputs[2]);//从支付对象和描述得到类型
@@ -29,6 +36,9 @@ Transaction::Transaction(QString input){//从字符串初始化
     {
         qDebug() << "ERROR Unexpected in/out kind\n" << input <<"\n" << inputs[4];
         throw "in/outKindMismatchError";//报错：收支不正确
+    }
+    if(write_into_db){
+        IO::insert_db(std::shared_ptr<Transaction>(this));
     }
 }
 QString Transaction::get_name()const{

@@ -72,11 +72,42 @@ namespace IO{
             qDebug() << "读取微信账单";
             QFile file(path_);
             QTextStream stream(&file);
+            bool started = false;
+            while(!stream.atEnd())
+            {
+                QString line = stream.readLine();
+                if(started)
+                    result.push_back(std::shared_ptr<Transaction>(new Transaction(line,true)));
+                if(line.startsWith("交易时间"))
+                    started = true;
+            }
 
         } else if(is_alipay(path_)) {
             qDebug() << "读取支付宝账单";
+            QFile file(path_);
+            QTextStream stream(&file);
+            bool started = false;
+            while(!stream.atEnd())
+            {
+                QString line = stream.readLine();
+                if(started)
+                    result.push_back(std::shared_ptr<Transaction>(new Transaction(line,true)));
+                if(line.startsWith("交易时间"))
+                    started = true;
+            }
         }else if(is_reservior(path_)){
             qDebug() << "读取先前导出的账单";
+            QFile file(path_);
+            QTextStream stream(&file);
+            bool started = false;
+            while(!stream.atEnd())
+            {
+                QString line = stream.readLine();
+                if(started)
+                    result.push_back(std::shared_ptr<Transaction>(new Transaction(line,true)));
+                if(line.startsWith("交易时间"))
+                    started = true;
+            }
         }else{
             qDebug() << "ERROR 导入账单类型错误：不是微信或支付宝";
             throw "BillTypeError";
@@ -92,15 +123,33 @@ namespace IO{
          *******/
         return ;
     }
-    std::vector<std::shared_ptr<Transaction> > read_db()
+    std::vector<std::shared_ptr<Transaction> > qurey_db(Time_ t)
     {
         /********
-         * 输入：无
+         * 输入：查询的精准时间
          * 输出：一个存有数据库中交易记录智能指针的vector
          *******/
 
         std::vector<std::shared_ptr<Transaction> > result(0);
-        //TODO 完善
+        QString query_command = "SELECT * FROM maintable WHERE year==%1 AND month==%2 AND day==%3 AND hour==%4 AND minute==%5 AND second==%6;";
+        query_command = query_command.arg(t.year).arg(t.month).arg(t.day).arg(t.hour).arg(t.minute).arg(t.second);
+        QSqlQuery sql_query;
+        if(!sql_query.exec(query_command))
+        {
+            qDebug()<<sql_query.lastError();
+        }
+        else
+        {
+            while(sql_query.next())
+            {
+                Transaction* x = new Transaction();
+                x->change_name(sql_query.value(0).toString());
+                x->change_time(Time_(sql_query.value(1).toInt(),sql_query.value(2).toInt(),sql_query.value(3).toInt(),sql_query.value(4).toInt(),sql_query.value(5).toInt(),sql_query.value(6).toInt()));
+                x->change_kind((Kind)sql_query.value(7).toInt());
+                x->change_money(sql_query.value(8).toDouble());
+                result.push_back(std::shared_ptr<Transaction>(x));
+            }
+        }
         return result;
     }
     void update_db(std::vector<std::shared_ptr<Transaction> > data_)
@@ -111,21 +160,27 @@ namespace IO{
          *******/
         return ;
     }
-    void update_db(std::shared_ptr<Transaction> data_to_update_,std::shared_ptr<Transaction> data_updated)
-    {
-        /********
-         * 输入：要修改的数据，修改后的数据(要修改的数据若为nullptr，则为插入操作;修改后的数据若为nullptr，则为删除操作)
-         * 输出：无
-         *******/
-        return ;
-    }
     void insert_db(std::shared_ptr<Transaction> data_to_insert_)
     {
         /*****
          * 输入：插入的数据
          * 输出：无
          *****/
-        update_db(nullptr,data_to_insert_);
+        //防止注入
+        QRegularExpression reg("(.*\\=.*\\-\\-.*)|(.*(\\+|\\-).*)|(.*\\w+(%|\\$|#|&)\\w+.*)|(.*\\|\\|.*)|(.*\\s+(and|or)\\s+.*)|(.*\\b(select|update|union|and|or|delete|insert|trancate|char|into|substr|ascii|declare|exec|count|master|into|drop|execute)\\b.*)");
+        QString query_command = "INSERT INTO maintable (name,year,month,day,hour,minute,second,kind,money) VALUES (%1);";
+        QString to_append("%1,%2,%3,%4");
+        to_append = to_append.arg(data_to_insert_->get_name()).arg(data_to_insert_->get_time()).arg((int)data_to_insert_->get_kind()).arg(data_to_insert_->get_money());
+        QRegularExpressionMatch match = reg.match(to_append);
+        if(match.hasMatch())
+        {
+            qDebug() << "非法输入！";
+            throw "IlligalInput";
+        }
+        query_command = query_command.arg(to_append);
+        QSqlQuery sqlquery;
+        sqlquery.exec(query_command);
+        return ;
     }
     void delete_db(std::shared_ptr<Transaction> data_to_delete_)
     {
@@ -133,7 +188,22 @@ namespace IO{
          * 输入：删除的数据
          * 输出：无
          *****/
-        update_db(data_to_delete_,nullptr);
     }
+    void update_db(std::shared_ptr<Transaction> data_to_update_,std::shared_ptr<Transaction> data_updated)
+    {
+        /********
+         * 输入：要修改的数据，修改后的数据(要修改的数据若为nullptr，则为插入操作;修改后的数据若为nullptr，则为删除操作)
+         * 输出：无
+         *******/
+        try{
+            delete_db(data_to_update_);
+            insert_db(data_updated);
+        } catch(std::exception_ptr e){
+            qDebug() << "Error in update_db()";
+            std::rethrow_exception(e);
+        }
+        return ;
+    }
+
 };
 #endif // IO_H

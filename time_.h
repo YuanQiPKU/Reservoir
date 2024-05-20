@@ -25,6 +25,7 @@ public:
     bool operator<(Time_);
     bool operator>(Time_);
     bool operator==(Time_);
+    operator QString();
     QString toString();
 };
 
