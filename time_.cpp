@@ -4,7 +4,7 @@ Time_::Time_() : year(0), month(0), day(0), hour(0), minute(0), second(0) {
   qDebug() << "Waring: try to initialize Time_ as 0/0/0 0:0:0";
 };
 Time_::Time_(QString str) {
-  QString reg = "(\\d*)/(\\d*)/(\\d*) (\\d*):(\\d*):(\\d*)";
+  QString reg = "(\\d*)-(\\d*)-(\\d*) (\\d*):(\\d*):(\\d*)";
   QRegularExpression regex(reg);
   QRegularExpressionMatch match = regex.match(str);
   if (match.hasMatch()) {
@@ -69,4 +69,10 @@ QString Time_::toString() {
         .arg(hour, 2, 10, QChar('0'))  // 小时，最少2位，缺少部分以0填充
         .arg(minute, 2, 10, QChar('0')) // 分钟，最少2位，缺少部分以0填充
         .arg(second, 2, 10, QChar('0')); // 秒，最少2位，缺少部分以0填充
+}
+
+Time_::operator QString(){
+    //专门面向sql query的类型转换
+    return QString("%1,%2,%3,%4,%5,%6")
+        .arg(year).arg(month).arg(day).arg(hour).arg(minute).arg(second);
 }
