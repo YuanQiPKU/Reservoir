@@ -9,8 +9,14 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS PrintSupport)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS PrintSupport)
+
+
+
 
 set(PROJECT_SOURCES
         main.cpp
@@ -34,7 +40,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         pages.h
         pages.cpp
         image.qrc
-        CMakeLists.txt CMakeLists.txt.user data_overview.cpp data_overview.h enumerations.h image.qrc  kind.h learn.md main.cpp pages.cpp pages.h README.md time_.cpp time_.h transaction.cpp transaction.h widget.cpp widget.h widget.ui yuanqi.md
+        CMakeLists.txt CMakeLists.txt.user data_overview.cpp data_overview.h enumerations.h image.qrc  kind.h  main.cpp pages.cpp pages.h README.md time_.cpp time_.h transaction.cpp transaction.h widget.cpp widget.h widget.ui yuanqi.md
         main_page.h main_page.cpp main_page.ui
         data_analysis_page.h data_analysis_page.cpp data_analysis_page.ui
 
@@ -48,6 +54,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         account_item.h account_item.cpp account_item.ui
         io.h
         changepage.h changepage.cpp changepage.ui
+        qcustomplot.cpp qcustomplot.h
 
 
     )
@@ -70,6 +77,7 @@ else()
 endif()
 
 target_link_libraries(my_ui PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(my_ui PRIVATE Qt${QT_VERSION_MAJOR}::PrintSupport)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
