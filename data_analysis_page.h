@@ -2,7 +2,9 @@
 #define DATA_ANALYSIS_PAGE_H
 
 #include"pages.h"
-
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrinter>
+#include"qcustomplot.h"
 namespace Ui {
 class data_analysis_page;
 }

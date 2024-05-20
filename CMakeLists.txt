@@ -31,6 +31,8 @@ set(PROJECT_SOURCES
         time_.h
         enumerations.h
         kind.h
+        qcustomplot.cpp
+        qcustomplot.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
