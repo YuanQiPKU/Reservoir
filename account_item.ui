@@ -211,7 +211,7 @@ background-color: rgba(160, 247, 255, 125);
    <widget class="QPushButton" name="btnRemove">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>56</x>
       <y>0</y>
       <width>55</width>
       <height>30</height>

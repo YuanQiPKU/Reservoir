@@ -54,16 +54,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         account_item.h account_item.cpp account_item.ui
         io.h
         changepage.h changepage.cpp changepage.ui
-<<<<<<< HEAD
         qcustomplot.cpp qcustomplot.h
-=======
         account_item_money.h account_item_money.cpp account_item_money.ui
         account_item_name.h account_item_name.cpp account_item_name.ui
         account_item_kind.h account_item_kind.cpp account_item_kind.ui
         account_item_time.h account_item_time.cpp account_item_time.ui
->>>>>>> badaed2d17f433811f45a07fab59d90a9fc735ec
-
-
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET my_ui APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
