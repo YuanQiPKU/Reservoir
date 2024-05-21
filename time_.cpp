@@ -22,6 +22,8 @@ Time_::Time_(QString str) {
 Time_::Time_(int a, int b, int c, int d, int e, int f)
     : year(a), month(b), day(c), hour(d), minute(e), second(f){
 };
+Time_::Time_(QDate qda):year(qda.year()),month(qda.month()),day(qda.day()),minute(0),second(0){
+};
 
 bool Time_::operator<(Time_ a)
 {

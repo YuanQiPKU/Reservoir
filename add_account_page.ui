@@ -52,10 +52,10 @@
    <widget class="QWidget" name="common_way_widget" native="true">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>310</y>
-      <width>851</width>
-      <height>121</height>
+      <x>30</x>
+      <y>280</y>
+      <width>841</width>
+      <height>221</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -77,27 +77,11 @@ QWidget:hover {
 }
 </string>
     </property>
-    <widget class="QDateEdit" name="dateEdit">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>60</y>
-       <width>151</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QDateEdit{
-	background-color: rgba(172, 222, 255, 125);
-   border-radius: 10px; /* 边框圆角 */
-}</string>
-     </property>
-    </widget>
     <widget class="QRadioButton" name="btnIn">
      <property name="geometry">
       <rect>
-       <x>214</x>
-       <y>40</y>
+       <x>300</x>
+       <y>90</y>
        <width>73</width>
        <height>18</height>
       </rect>
@@ -109,8 +93,8 @@ QWidget:hover {
     <widget class="QRadioButton" name="btnOut">
      <property name="geometry">
       <rect>
-       <x>214</x>
-       <y>80</y>
+       <x>300</x>
+       <y>120</y>
        <width>73</width>
        <height>18</height>
       </rect>
@@ -122,9 +106,9 @@ QWidget:hover {
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>60</y>
-       <width>111</width>
+       <x>410</x>
+       <y>150</y>
+       <width>171</width>
        <height>22</height>
       </rect>
      </property>
@@ -138,8 +122,8 @@ QWidget:hover {
     <widget class="QPushButton" name="btnConfirm">
      <property name="geometry">
       <rect>
-       <x>730</x>
-       <y>45</y>
+       <x>740</x>
+       <y>80</y>
        <width>50</width>
        <height>50</height>
       </rect>
@@ -186,9 +170,9 @@ QPushButton:hover {
     <widget class="QLineEdit" name="lineEdit">
      <property name="geometry">
       <rect>
-       <x>510</x>
-       <y>60</y>
-       <width>141</width>
+       <x>550</x>
+       <y>95</y>
+       <width>161</width>
        <height>20</height>
       </rect>
      </property>
@@ -199,17 +183,30 @@ QPushButton:hover {
 }</string>
      </property>
     </widget>
-    <widget class="QProgressBar" name="progressBar">
+    <widget class="QCalendarWidget" name="calendarWidget">
      <property name="geometry">
       <rect>
-       <x>317</x>
-       <y>10</y>
-       <width>151</width>
+       <x>10</x>
+       <y>9</y>
+       <width>261</width>
+       <height>201</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>40</y>
+       <width>211</width>
        <height>20</height>
       </rect>
      </property>
-     <property name="value">
-      <number>24</number>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+	background-color: rgba(246, 176, 255,125);
+   border-radius: 10px; /* 边框圆角 */
+}</string>
      </property>
     </widget>
    </widget>
@@ -281,50 +278,27 @@ QPushButton:hover {
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>40</y>
-     <width>281</width>
-     <height>51</height>
+     <x>430</x>
+     <y>70</y>
+     <width>351</width>
+     <height>111</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;在这里导入csv文件&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;你可以将支付宝或者微信导出的账单文件拖拽到这里&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;在这里导入csv文件解析&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;你可以将支付宝或者微信导出的账单文件拖拽到这里&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>200</y>
-     <width>281</width>
+     <y>180</y>
+     <width>331</width>
      <height>71</height>
     </rect>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#fefefe;&quot;&gt;你也可以在这里手动添加账目&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#fefefe;&quot;&gt;只需要完成下面的几步操作就可以啦!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
-  <widget class="QLCDNumber" name="lcdNumber">
-   <property name="geometry">
-    <rect>
-     <x>660</x>
-     <y>120</y>
-     <width>64</width>
-     <height>23</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>530</x>
-     <y>120</y>
-     <width>111</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;当前已记录的账目数量:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>

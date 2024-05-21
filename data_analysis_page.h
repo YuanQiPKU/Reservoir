@@ -5,6 +5,8 @@
 #include <QtPrintSupport/QPrintDialog>
 #include <QtPrintSupport/QPrinter>
 #include"qcustomplot.h"
+#include"io.h"
+#include<map>
 namespace Ui {
 class data_analysis_page;
 }
@@ -17,6 +19,13 @@ public:
     QTabWidget* all_page;
     explicit data_analysis_page(QTabWidget* all_page,QWidget *parent = nullptr);
     ~data_analysis_page();
+
+
+
+    std::vector<std::shared_ptr<Transaction> > all_account;
+    std::map<Kind,std::vector<std::shared_ptr<Transaction> > > kind_account;
+
+
 
 private:
     Ui::data_analysis_page *ui;

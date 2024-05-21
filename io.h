@@ -15,6 +15,7 @@
 #include <vector>
 #include "transaction.h"
 #include <memory>
+#include<QDate>
 
 namespace IO{
 
@@ -62,7 +63,7 @@ namespace IO{
     std::vector<std::shared_ptr<Transaction> > read_csv(QString path_)
     {
         /********
-         * 输入：csv文件路径
+         * 输入：csv文件路径(QString)
          * 输出：一个存有csv中交易记录智能指针的vector
          * 注意：异常处理！请使用try调用
          *******/
