@@ -23,8 +23,6 @@ set(PROJECT_SOURCES
         widget.cpp
         widget.h
         widget.ui
-        data_overview.cpp
-        data_overview.h
         transaction.cpp
         transaction.h
         time_.cpp
@@ -42,7 +40,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         pages.h
         pages.cpp
         image.qrc
-        CMakeLists.txt CMakeLists.txt.user data_overview.cpp data_overview.h enumerations.h image.qrc  kind.h  main.cpp pages.cpp pages.h README.md time_.cpp time_.h transaction.cpp transaction.h widget.cpp widget.h widget.ui yuanqi.md
+        CMakeLists.txt CMakeLists.txt.user enumerations.h image.qrc  kind.h  main.cpp pages.cpp pages.h README.md time_.cpp time_.h transaction.cpp transaction.h widget.cpp widget.h widget.ui yuanqi.md
         main_page.h main_page.cpp main_page.ui
         data_analysis_page.h data_analysis_page.cpp data_analysis_page.ui
 
