@@ -2,13 +2,8 @@
 #include "ui_account_item_kind.h"
 
 account_item_kind::account_item_kind(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::account_item_kind)
-{
-    ui->setupUi(this);
+    : QWidget(parent), ui(new Ui::account_item_kind) {
+  ui->setupUi(this);
 }
 
-account_item_kind::~account_item_kind()
-{
-    delete ui;
-}
+account_item_kind::~account_item_kind() { delete ui; }
