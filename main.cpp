@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
   Widget w(nullptr); // 考虑在本地读取密码
   w.show();
   // 以下：查询数据库是否存在，若存在就打开，否则新建数据库
-  static QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+  QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
   db.setDatabaseName("transaction_db.dat");
   if (!db.open()) {
     qDebug() << "无法打开数据库！";
