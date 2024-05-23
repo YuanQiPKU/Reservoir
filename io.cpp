@@ -1,4 +1,5 @@
 #include "io.h"
+
 bool IO::is_wechat(QString path_) {
   QFile file(path_);
   if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -13,6 +14,7 @@ bool IO::is_wechat(QString path_) {
       return true;
   return false;
 }
+
 bool IO::is_alipay(QString path_) {
   QFile file(path_);
   if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -39,6 +41,7 @@ bool IO::is_reservior(QString path_) {
     return true;
   return false;
 }
+
 std::vector<std::shared_ptr<Transaction>> IO::read_csv(QString path_) {
   /********
    * 输入：csv文件路径(QString)
@@ -50,40 +53,48 @@ std::vector<std::shared_ptr<Transaction>> IO::read_csv(QString path_) {
   if (is_wechat(path_)) {
     qDebug() << "读取微信账单";
     QFile file(path_);
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream stream(&file);
     bool started = false;
     while (!stream.atEnd()) {
       QString line = stream.readLine();
-      if (started)
-        result.push_back(
-            std::shared_ptr<Transaction>(new Transaction(line, true)));
-      if (line.startsWith("交易时间"))
-        started = true;
+        if (started){
+          try{
+              result.push_back(std::shared_ptr<Transaction>(new Transaction(line, true)));
+              qDebug() << "创建新数据" << result.back()->get_name() << Qt::endl;
+          }
+          catch(...){
+              qDebug() << "创建类型失败！";
+          }
+        }
+        if (line.startsWith("交易时间"))
+          started = true;
     }
-
   } else if (is_alipay(path_)) {
     qDebug() << "读取支付宝账单";
     QFile file(path_);
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream stream(&file);
     bool started = false;
     while (!stream.atEnd()) {
       QString line = stream.readLine();
       if (started)
         result.push_back(std::shared_ptr<Transaction>(
-            new Transaction(line, true))); // 需要进入数据库
+            new Transaction(line, true))),qDebug() << "创建新数据" << result.back()->get_name() << Qt::endl; // 需要进入数据库
       if (line.startsWith("交易时间"))
         started = true;
     }
   } else if (is_reservior(path_)) {
     qDebug() << "读取先前导出的账单";
     QFile file(path_);
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream stream(&file);
     bool started = false;
     while (!stream.atEnd()) {
       QString line = stream.readLine();
       if (started)
         result.push_back(
-            std::shared_ptr<Transaction>(new Transaction(line, true)));
+              std::shared_ptr<Transaction>(new Transaction(line, true))),qDebug() << "创建新数据" << result.back()->get_name() << Qt::endl;
       if (line.startsWith("交易时间"))
         started = true;
     }
@@ -94,14 +105,17 @@ std::vector<std::shared_ptr<Transaction>> IO::read_csv(QString path_) {
   }
   return result;
 }
+
 void IO::write_csv(std::vector<std::shared_ptr<Transaction>> data_,
                    QString path_) {
   /********
    * 输入：要导出的内容,csv文件路径
    * 输出：无
    *******/
+    //TODO
   return;
 }
+
 std::vector<std::shared_ptr<Transaction>> qurey_db(Time_ t) {
   /********
    * 输入：查询的精准时间
@@ -136,6 +150,7 @@ std::vector<std::shared_ptr<Transaction>> qurey_db(Time_ t) {
   }
   return result;
 }
+
 std::vector<std::shared_ptr<Transaction>> IO::qurey_db(Kind kind) {
   /********
    * 输入：查询的精准时间
@@ -164,6 +179,7 @@ std::vector<std::shared_ptr<Transaction>> IO::qurey_db(Kind kind) {
   }
   return result;
 }
+
 std::vector<std::shared_ptr<Transaction>> IO::query_db(bool order_by_time_reverse, bool order_by_money_reverse) {
   /***********
    * 输入：两个bool，分别代表是否按照time/money升序排列，默认降序
@@ -201,21 +217,21 @@ std::vector<std::shared_ptr<Transaction>> IO::query_db(bool order_by_time_revers
   }
   return result;
 }
-void IO::insert_db(std::shared_ptr<Transaction> data_to_insert_) {
+
+void IO::insert_db(const Transaction* data_to_insert_) {
   /*****
    * 输入：插入的数据
    * 输出：无
    *****/
   // 防止注入
   QRegularExpression reg(
-      "(.*\\=.*\\-\\-.*)|(.*(\\+|\\-).*)|(.*\\w+(%|\\$|#|&)\\w+.*)|(.*\\|\\|.*)"
-      "|(.*\\s+(and|or)\\s+.*)|(.*\\b(select|update|union|and|or|delete|insert|"
+      "(.*\\b(select|update|union|and|or|delete|insert|"
       "trancate|char|into|substr|ascii|declare|exec|count|master|into|drop|"
       "execute)\\b.*)");
   QString query_command =
       "INSERT INTO maintable "
       "(name,year,month,day,hour,minute,second,kind,money) VALUES (%1);";
-  QString to_append("%1,%2,%3,%4");
+  QString to_append("\'%1\',%2,%3,%4");
   to_append = to_append.arg(data_to_insert_->get_name())
                   .arg(data_to_insert_->get_time())
                   .arg((int)data_to_insert_->get_kind())
@@ -223,22 +239,24 @@ void IO::insert_db(std::shared_ptr<Transaction> data_to_insert_) {
   QRegularExpressionMatch match = reg.match(to_append);
   if (match.hasMatch()) {
     qDebug() << "非法输入！";
+      qDebug() << match.captured();
     throw "IlligalInput";
   }
   query_command = query_command.arg(to_append);
+  qDebug().noquote().nospace() << query_command;
   QSqlQuery sqlquery;
   sqlquery.exec(query_command);
   return;
 }
-void IO::delete_db(std::shared_ptr<Transaction> data_to_delete_)
+
+void IO::delete_db(const Transaction* data_to_delete_)
 {
   /*****
    * 输入：删除的数据
    * 输出：无
    *****/
   QRegularExpression reg(
-      "(.*\\=.*\\-\\-.*)|(.*(\\+|\\-).*)|(.*\\w+(%|\\$|#|&)\\w+.*)|(.*\\|\\|.*)"
-      "|(.*\\s+(and|or)\\s+.*)|(.*\\b(select|update|union|and|or|delete|insert|"
+      "(.*\\b(select|update|union|and|or|delete|insert|"
       "trancate|char|into|substr|ascii|declare|exec|count|master|into|drop|"
       "execute)\\b.*)");
   QString query_command =
@@ -251,7 +269,7 @@ void IO::delete_db(std::shared_ptr<Transaction> data_to_delete_)
                       .arg(t.hour)
                       .arg(t.minute)
                       .arg(t.second);
-  QString to_append = " AND name==%1 AND kind==%2 AND money==%3";
+  QString to_append = " AND name==\'%1\' AND kind==%2 AND money==%3";
   QRegularExpressionMatch match = reg.match(data_to_delete_->get_name());
   if (match.hasMatch()) {
     qDebug() << "非法输入！";
@@ -261,12 +279,19 @@ void IO::delete_db(std::shared_ptr<Transaction> data_to_delete_)
                   .arg((int)data_to_delete_->get_kind())
                   .arg(data_to_delete_->get_money());
   query_command.append(to_append);
+  QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+  db.setDatabaseName("transaction_db.dat");
+  if (!db.open()) {
+      qDebug() << "无法打开数据库！";
+      throw "UnableToOpenDatabaseError";
+  }
   QSqlQuery sqlquery;
   sqlquery.exec(query_command);
   return;
 }
-void IO::update_db(std::shared_ptr<Transaction> data_to_update_,
-                   std::shared_ptr<Transaction> data_updated) {
+
+void IO::update_db(const Transaction* data_to_update_,
+                   const Transaction* data_updated) {
   /********
    * 输入：要修改的数据，修改后的数据(要修改的数据若为nullptr，则为插入操作;修改后的数据若为nullptr，则为删除操作)
    * 输出：无
