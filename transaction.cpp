@@ -1,7 +1,7 @@
 #include"io.h"
 #include "transaction.h"
 Transaction::Transaction(bool write_into_db)
-    : name_(), transaction_kind_(null), transaction_time_(), money_(0) {
+    : name_(), transaction_kind_(), transaction_time_(), money_(0) {
   if (write_into_db) {
     IO::insert_db(this);
   }

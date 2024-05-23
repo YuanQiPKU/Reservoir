@@ -84,3 +84,33 @@ void add_account_page::on_btnOut_clicked() {
 void add_account_page::on_lineEdit_2_editingFinished() {
   account_name = ui->lineEdit_2->text(); // 账目名称
 }
+
+void add_account_page::on_consume_clicked()
+{
+    account_kind = consume;
+}
+
+
+void add_account_page::on_maintain_clicked()
+{
+    account_kind = maintain;
+}
+
+
+void add_account_page::on_social_clicked()
+{
+    account_kind = social;
+}
+
+
+void add_account_page::on_develop_clicked()
+{
+    account_kind = develop;
+}
+
+
+void add_account_page::on_other_clicked()
+{
+    account_kind = other;
+}
+

@@ -42,7 +42,17 @@ private slots:
 
   void on_lineEdit_2_editingFinished();
 
-private:
+  void on_consume_clicked();
+
+  void on_maintain_clicked();
+
+  void on_social_clicked();
+
+  void on_develop_clicked();
+
+  void on_other_clicked();
+
+  private:
   Ui::add_account_page *ui;
 };
 

@@ -52,10 +52,10 @@
    <widget class="QWidget" name="common_way_widget" native="true">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>280</y>
-      <width>841</width>
-      <height>221</height>
+      <x>20</x>
+      <y>260</y>
+      <width>901</width>
+      <height>241</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -101,22 +101,6 @@ QWidget:hover {
      </property>
      <property name="text">
       <string>支出/OUT</string>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="comboBox">
-     <property name="geometry">
-      <rect>
-       <x>410</x>
-       <y>150</y>
-       <width>171</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QComboBox{
-	background-color: rgba(231, 255, 240, 125);
-   border-radius: 10px; /* 边框圆角 */
-}</string>
      </property>
     </widget>
     <widget class="QPushButton" name="btnConfirm">
@@ -186,8 +170,8 @@ QPushButton:hover {
     <widget class="QCalendarWidget" name="calendarWidget">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>9</y>
+       <x>20</x>
+       <y>20</y>
        <width>261</width>
        <height>201</height>
       </rect>
@@ -208,6 +192,53 @@ QPushButton:hover {
    border-radius: 10px; /* 边框圆角 */
 }</string>
      </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>80</y>
+       <width>81</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QRadioButton" name="consume">
+        <property name="text">
+         <string>消费性</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="maintain">
+        <property name="text">
+         <string>维持性</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="social">
+        <property name="text">
+         <string>社会性</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="develop">
+        <property name="text">
+         <string>发展性</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="other">
+        <property name="text">
+         <string>其他</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
   </widget>

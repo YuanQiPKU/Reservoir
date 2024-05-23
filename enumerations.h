@@ -2,7 +2,12 @@
 #define ENUMERATIONS_H
 #pragma once
 enum Kind { // TODO: 将kind分类好
-  null = 0
+        maintain,
+        consume,
+        social,
+        develop,
+        other
+
 };
 
 #endif // ENUMERATIONS_H
