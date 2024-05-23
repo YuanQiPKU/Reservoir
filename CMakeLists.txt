@@ -61,6 +61,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         account_item_time.h account_item_time.cpp account_item_time.ui
         io.cpp
         kind.cpp
+        waterprocess.cpp waterprocess.h
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET my_ui APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

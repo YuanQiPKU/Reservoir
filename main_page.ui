@@ -291,7 +291,7 @@ QPushButton:hover {
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-10</x>
      <y>0</y>
      <width>960</width>
      <height>540</height>
@@ -321,8 +321,45 @@ QPushButton:hover {
 background-image: url(:/pages/main_page/image/background_page.png);</string>
    </property>
   </widget>
+  <widget class="QWidget" name="water" native="true">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>83</y>
+     <width>400</width>
+     <height>200</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>400</width>
+     <height>200</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>400</width>
+     <height>200</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(233, 249, 255, 120);</string>
+   </property>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-1</y>
+      <width>401</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="water_layout"/>
+   </widget>
+  </widget>
   <zorder>widget</zorder>
   <zorder>gridLayoutWidget</zorder>
+  <zorder>water</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -1,6 +1,5 @@
 #include "main_page.h"
 #include "ui_main_page.h"
-#include "widget.h"
 
 main_page::main_page(QTabWidget *all_page, QWidget *parent)
     : all_page(all_page), QWidget(parent), ui(new Ui::main_page) {
@@ -33,6 +32,12 @@ main_page::main_page(QTabWidget *all_page, QWidget *parent)
   要么改为：connect(ui->btn,signal(pressed()),this,slot(btn_pressed()));
   通过修改名字避免QT翻译器翻译成两次执行.
   */
+  WaterProcess *my_water = new WaterProcess;
+  my_water->setBorderWidth(10);
+  my_water->setUsedColor(QColor(160, 247, 255, 20));
+  my_water->setMinimumSize(QSize(400, 200));
+  my_water->setMaximumSize(QSize(400, 200));
+  ui->water_layout->addWidget(my_water);
 }
 
 main_page::~main_page() { delete ui; }
