@@ -1,5 +1,5 @@
-#include "io.h"
-#include "kind.h"
+#include"io.h"
+#include "transaction.h"
 Transaction::Transaction(bool write_into_db)
     : name_(), transaction_kind_(null), transaction_time_(), money_(0) {
   if (write_into_db) {
@@ -36,6 +36,7 @@ Transaction::Transaction(QString input, bool write_into_db) { // 从字符串初
     qDebug() << "ERROR Unexpected in/out kind\n" << input << "\n" << inputs[4];
     throw "in/outKindMismatchError"; // 报错：收支不正确
   }
+  qDebug() << name_ << transaction_time_ << money_ << transaction_kind_;
   if (write_into_db) {
     IO::insert_db(std::shared_ptr<Transaction>(this));
   }

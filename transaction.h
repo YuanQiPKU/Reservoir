@@ -12,6 +12,7 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QString>
+#include "kind.h"
 
 class Transaction {
   /******

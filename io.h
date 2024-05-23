@@ -18,6 +18,8 @@
 #include <map>
 #include <memory>
 #include <vector>
+#include"kind.h"
+
 
 
 namespace IO {

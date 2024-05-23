@@ -7,8 +7,10 @@ bool IO::is_wechat(QString path_) {
   }
   QTextStream stream(&file);
   QString line = stream.readLine();
-  if (line == "微信支付账单明细,,,,,,,,")
-    return true;
+  // if (line == "微信支付账单明细,,,,,,,,")
+  //   return true;
+  if (line.startsWith("微信"))  // 修改了这里
+      return true;
   return false;
 }
 bool IO::is_alipay(QString path_) {
@@ -148,6 +150,7 @@ std::vector<std::shared_ptr<Transaction>> IO::qurey_db(Kind kind) {
     qDebug() << sql_query.lastError();
   } else {
     while (sql_query.next()) {
+          qDebug() << "new X" << Qt::endl;
       Transaction *x = new Transaction();
       x->change_name(sql_query.value(0).toString());
       x->change_time(
@@ -169,7 +172,7 @@ std::vector<std::shared_ptr<Transaction>> IO::query_db(bool order_by_time_revers
   std::vector<std::shared_ptr<Transaction>> result(0);
   QString query_command = "SELECT * FROM maintable %1;";
   QString to_append =
-      "ORDER BY year %1,month %1,day %1,hour %1,minute %1,second%1,money %2";
+      "ORDER BY year %1,month %1,day %1,hour %1,minute %1,second %1,money %2";
   if (order_by_time_reverse)
     to_append = to_append.arg("DESC");
   else
@@ -178,6 +181,8 @@ std::vector<std::shared_ptr<Transaction>> IO::query_db(bool order_by_time_revers
     to_append = to_append.arg("DESC");
   else
     to_append = to_append.arg("ASC");
+  query_command = query_command.arg(to_append);
+  qDebug() << query_command << Qt::endl;
   QSqlQuery sql_query;
   if (!sql_query.exec(query_command)) {
     qDebug() << sql_query.lastError();
