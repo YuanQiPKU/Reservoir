@@ -21,6 +21,7 @@ public:
   void change_money(double money);
   void change_kind(Kind kind);
   ~account_item();
+  bool make_sure_or=false;
 signals:
   void removeRequested(account_item *item);
 private slots:
@@ -28,9 +29,9 @@ private slots:
   void on_btnChange_clicked();
 
   void on_btnRemove_clicked();
-
+  void make_sure(bool make);
 public:
-  Transaction account_item_message;
+  std::shared_ptr<Transaction> account_item_message;
   Kind account_kind;
   Time_ account_time;
   QString account_name;
