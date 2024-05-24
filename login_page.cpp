@@ -23,7 +23,7 @@ void login_page::on_lineEdit_editingFinished() {
   QString attempt_password = ui->lineEdit->text();
   if (my_password->password_validation(attempt_password)) {
     // 生成"主页面"页面
-    QWidget *main_page = pages_creator::only_main_page(all_page);
+    QWidget *main_page = pages_creator::only_main_page(all_page,my_password);
     all_page->addTab(main_page, "主页面");
     all_page->setCurrentWidget(main_page); // 跳转新建到的页面
     all_page->removeTab(all_page->currentIndex() - 1);

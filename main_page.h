@@ -11,9 +11,10 @@ class main_page : public QWidget {
   Q_OBJECT
 
 public:
-  int target_amount = 10000;
+  static int target_amount;
   QTabWidget *all_page;
-  explicit main_page(QTabWidget *all_page, QWidget *parent = nullptr);
+  password* my_password;
+  explicit main_page(QTabWidget *all_page, password* my_password,QWidget *parent = nullptr);
   ~main_page();
 
 private slots:

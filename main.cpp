@@ -1,13 +1,26 @@
 #include "pages.h"
 #include "qsqlquery.h"
 #include "widget.h"
+#include"main_page.h"
 #include <QApplication>
 #include <QtSql/QSqlDatabase>
 
 int password::password_count = 0;
+int main_page::target_amount = 100000;
 int main(int argc, char *argv[]) {
   QApplication a(argc, argv);
-  Widget w(nullptr); // 考虑在本地读取密码
+QString save_password = password::password_load();
+
+// 读取本地的密码，根据是否存在初始化密码
+  password* local_password = nullptr;
+  if(save_password.size()!=0){
+       local_password = new password(save_password);
+    }
+
+  Widget w(local_password);
+
+
+
   w.show();
   // 以下：查询数据库是否存在，若存在就打开，否则新建数据库
   QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");

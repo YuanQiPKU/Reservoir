@@ -28,6 +28,7 @@ void first_time_page::on_lineEdit_editingFinished()
 {
     qDebug()<<"输入完成被触发";
     my_password = new password(ui->lineEdit->text());
+    my_password->password_save();
     QWidget* login_page = pages_creator::login_page(all_page,my_password);
     all_page->addTab(login_page,"登录");
     all_page->setCurrentWidget(login_page);

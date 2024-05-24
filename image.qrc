@@ -7,6 +7,6 @@
         <file>image/page1.png</file>
         <file>image/page2.png</file>
         <file>image/page3.png</file>
+        <file>image/m_联想截图_20240524202000.png</file>
     </qresource>
-    <qresource prefix="/new/prefix1"/>
 </RCC>

@@ -25,6 +25,79 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>100</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+	background-color: rgba(246, 176, 255,125);
+
+</string>
+   </property>
+   <property name="text">
+    <string>更     改     密      码</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="password_change">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>100</y>
+     <width>281</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	background-color: rgba(246, 176, 255,125);
+   border-radius: 15px; /* 边框圆角 */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>300</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+	background-color: rgba(246, 176, 255,125);
+
+</string>
+   </property>
+   <property name="text">
+    <string>修    改     目      标</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="target_change">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>300</y>
+     <width>281</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	background-color: rgba(246, 176, 255,125);
+   border-radius: 15px; /* 边框圆角 */
+}</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

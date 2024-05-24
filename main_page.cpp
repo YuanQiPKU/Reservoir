@@ -1,8 +1,8 @@
 #include "main_page.h"
 #include "ui_main_page.h"
 
-main_page::main_page(QTabWidget *all_page, QWidget *parent)
-    : all_page(all_page), QWidget(parent), ui(new Ui::main_page) {
+main_page::main_page(QTabWidget *all_page, password* my_password, QWidget *parent)
+    : all_page(all_page), QWidget(parent), my_password(my_password),ui(new Ui::main_page) {
 
   ui->setupUi(this);
   this->setMinimumSize(QSize(960, 540)); // 固定窗口大小
@@ -73,7 +73,7 @@ void main_page::on_btnManageAccount_clicked() {
 }
 void main_page::on_btnSettings_clicked() {
   // 点击生成“设置”页面
-  QWidget *setting = pages_creator::setting_page(all_page);
+  QWidget *setting = pages_creator::setting_page(all_page,my_password);
   all_page->addTab(setting, "设置");
   all_page->setCurrentWidget(setting); // 跳转新建到的页面
 }
