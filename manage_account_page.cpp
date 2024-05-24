@@ -47,19 +47,28 @@ manage_account_page::manage_account_page(QTabWidget *all_page, QWidget *parent)
 
 manage_account_page::~manage_account_page() { delete ui; }
 void manage_account_page::removeItem(account_item *item) {
-  QVBoxLayout *layout =
-      qobject_cast<QVBoxLayout *>(ui->scrollArea->widget()->layout());
-  if (layout) {
-    int index = layout->indexOf(item);
-    if (index != -1) {
-      // 移除item并删除
-      QLayoutItem *layoutItem = layout->takeAt(index);
-      if (layoutItem) {
-        delete layoutItem->widget(); // 删除小部件
-        delete layoutItem;           // 删除布局项
-      }
+    // 从布局中移除并删除小部件
+    if (QVBoxLayout *layout = qobject_cast<QVBoxLayout *>(ui->scrollArea->widget()->layout())) {
+        int index = layout->indexOf(item);
+        if (index != -1) {
+            QLayoutItem *layoutItem = layout->takeAt(index);
+            if (layoutItem) {
+                delete layoutItem->widget(); // 删除小部件
+                delete layoutItem;
+            }
+        }
     }
-  }
+
+    // 从容器中移除项目
+    auto it = std::find(accountItems.begin(), accountItems.end(), item);
+    if (it != accountItems.end()) {
+        accountItems.erase(it);
+    }
+
+    it = std::find(total_accountItems.begin(), total_accountItems.end(), item);
+    if (it != total_accountItems.end()) {
+        total_accountItems.erase(it);
+    }
 }
 
 void manage_account_page::on_manage_money_clicked() {
