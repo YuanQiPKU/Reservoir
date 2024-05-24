@@ -7,7 +7,7 @@
 #define IO_H
 #pragma once
 #include "transaction.h"
-#include <QDate>
+#include <QDateTime>
 #include <QFile>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>

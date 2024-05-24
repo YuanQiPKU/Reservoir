@@ -21,7 +21,7 @@ public:
 
   Transaction *one_account;
   double account_amount = 0;
-  QDate account_date;
+  QDateTime account_date;
   bool is_positive = true;
   Kind account_kind;
   QString account_name;
@@ -33,8 +33,6 @@ private slots:
   void on_btnConfirm_clicked();
 
   void on_btnIn_clicked();
-
-  void on_calendarWidget_clicked(const QDate &date);
 
   void on_lineEdit_editingFinished();
 
@@ -51,6 +49,8 @@ private slots:
   void on_develop_clicked();
 
   void on_other_clicked();
+
+  void on_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime);
 
   private:
   Ui::add_account_page *ui;

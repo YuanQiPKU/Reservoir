@@ -21,9 +21,9 @@ Time_::Time_(QString str) {
 }
 Time_::Time_(int a, int b, int c, int d, int e, int f)
     : year(a), month(b), day(c), hour(d), minute(e), second(f){};
-Time_::Time_(QDate qda)
-    : year(qda.year()), month(qda.month()), day(qda.day()), minute(0),
-      second(0){};
+Time_::Time_(QDateTime qdat)
+    : year(qdat.date().year()), month(qdat.date().month()), day(qdat.date().day()),hour(qdat.time().hour()), minute(qdat.time().minute()),
+    second(qdat.time().second()){};
 
 bool Time_::operator<(Time_ a) {
   if (this->year != a.year)
@@ -79,38 +79,6 @@ Time_::operator QString() {
       .arg(second);
 }
 
-int daysBeforeThisMonth(int year, int month) {
-  int days = 0;
-  for (int m = 1; m < month; ++m) {
-    days +=
-        (m == 2)
-            ? (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0) ? 29 : 28)
-        : ((m == 4) || (m == 6) || (m == 9) || (m == 11)) ? 30
-                                                          : 31;
-  }
-  return days;
-}
-
-// 将年月日时分秒转换为Unix时间
-long long convertToUnixTime(int year, int month, int day, int hour, int minute,
-                            int second) {
-  // 1970年1月1日到指定日期的总天数
-  int daysSince1970 = (year - 1970) * 365 + (year - 1969) / 4 -
-                      (year - 1901) / 100 + (year - 1601) / 400;
-  daysSince1970 += daysBeforeThisMonth(year, month);
-  daysSince1970 += day - 1; // 因为1月1日是第0天
-
-  // 将天数转换为秒
-  long long secondsSince1970 = daysSince1970 * 86400LL; // 一天有86400秒
-
-  // 加上从午夜到指定时间的秒数
-  secondsSince1970 += hour * 3600 + minute * 60 + second;
-
-  return secondsSince1970;
-}
-
-long long Time_::c_to_second() {
-  long long unixTime =
-      convertToUnixTime(year, month, day, hour, minute, second);
-  return unixTime;
+QDateTime Time_::mytime_to_qdatetime(){  // 转换到QDateTime
+    return QDateTime(QDate(year,  month, day), QTime(hour, minute, second));
 }

@@ -39,7 +39,7 @@ void WaterProcess::paintEvent(QPaintEvent *ev) {
   drawProcess(&painter);
 
   // 进度数字
-  drawValue(&painter);
+  drawValue(&painter,"当前的储蓄金额为"+display_text);
 }
 
 void WaterProcess::drawBg(QPainter *painter) {
@@ -137,7 +137,7 @@ void WaterProcess::drawProcess(QPainter *painter) {
   painter->restore();
 }
 
-void WaterProcess::drawValue(QPainter *painter) {
+void WaterProcess::drawValue(QPainter *painter,QString text) {
   // 保存画布
   painter->save();
   // 获取控件宽度和高度
@@ -151,7 +151,7 @@ void WaterProcess::drawValue(QPainter *painter) {
   int startY = (height - side) * 0.5;
 
   // 计算字体大小
-  int fontSize = side / 10;
+  int fontSize = side / 15;
 
   // 设置字体
   QFont font;
@@ -164,7 +164,7 @@ void WaterProcess::drawValue(QPainter *painter) {
   painter->setPen(Qt::white);
   // 绘制文本
   painter->drawText(QRectF(startX, startY, side, side), Qt::AlignCenter,
-                    "测试专用");
+                    text);
 
   // 恢复画布
   painter->restore();

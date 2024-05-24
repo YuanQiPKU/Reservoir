@@ -11,7 +11,7 @@ public:
     explicit WaterProcess(QWidget *parent = nullptr);
 
     ~WaterProcess(){}
-
+    QString display_text;
     void setUsedColor (const QColor color);
 
 protected:
@@ -25,7 +25,7 @@ private:
     void drawProcess(QPainter *painter);
 
     //画文字
-    void drawValue(QPainter *painter);
+    void drawValue(QPainter *painter,QString text);
 
 public Q_SLOTS:
     void setMinValue(int value);

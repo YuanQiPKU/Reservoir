@@ -38,6 +38,16 @@ main_page::main_page(QTabWidget *all_page, QWidget *parent)
   my_water->setMinimumSize(QSize(400, 200));
   my_water->setMaximumSize(QSize(400, 200));
   ui->water_layout->addWidget(my_water);
+  double global_left = 0; // 存下的金额
+  std::vector<std::shared_ptr<Transaction>> all_account;
+  all_account = IO::query_db();
+  for(int i = 0;i<all_account.size();i++){
+      global_left+=all_account[i]->get_money();
+  }
+  global_left = 5000;
+  my_water->display_text = QString::number(global_left);
+
+  my_water->setValue((global_left/10000)*100);
 }
 
 main_page::~main_page() { delete ui; }

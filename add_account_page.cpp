@@ -51,9 +51,6 @@ void add_account_page::on_btnIn_clicked() {
   is_positive = true; // 收入为正
 }
 
-void add_account_page::on_calendarWidget_clicked(const QDate &date) {
-  account_date = date; // 日期
-}
 void add_account_page::on_lineEdit_editingFinished() {
   account_amount = ui->lineEdit->text().toDouble(); // 金额
 }
@@ -112,5 +109,11 @@ void add_account_page::on_develop_clicked()
 void add_account_page::on_other_clicked()
 {
     account_kind = other;
+}
+
+
+void add_account_page::on_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime)
+{
+    account_date = dateTime;
 }
 

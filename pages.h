@@ -15,6 +15,7 @@
 #include <QVector>
 #include <QWidget>
 #include"waterprocess.h"
+#include"io.h"
 
 #endif // PAGES_H
 

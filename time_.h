@@ -26,12 +26,12 @@ public:
     int year, month, day, hour, minute, second;
     Time_();
     Time_(QString);//传参格式：yyyy/mm/dd hh:mm:ss
-    Time_(QDate);
+    Time_(QDateTime);
     Time_(int, int, int, int, int, int);//传参格式：m y d h min s
     bool operator<(Time_);
     bool operator>(Time_);
     bool operator==(Time_);
-    long long c_to_second();
+    QDateTime mytime_to_qdatetime();
     operator QString();
     QString toString();
 };
