@@ -153,7 +153,7 @@ std::vector<std::shared_ptr<Transaction>> qurey_db(Time_ t) {
 
 std::vector<std::shared_ptr<Transaction>> IO::qurey_db(Kind kind) {
   /********
-   * 输入：查询的精准时间
+   * 输入：查询的类别
    * 输出：一个存有数据库中交易记录智能指针的vector
    *******/
 
@@ -204,7 +204,7 @@ std::vector<std::shared_ptr<Transaction>> IO::query_db(bool order_by_time_revers
     qDebug() << sql_query.lastError();
   } else {
     while (sql_query.next()) {
-      Transaction *x = new Transaction();
+      std::shared_ptr<Transaction> x(new Transaction());
       x->change_name(sql_query.value(0).toString());
       x->change_time(
           Time_(sql_query.value(1).toInt(), sql_query.value(2).toInt(),
@@ -212,7 +212,8 @@ std::vector<std::shared_ptr<Transaction>> IO::query_db(bool order_by_time_revers
                 sql_query.value(5).toInt(), sql_query.value(6).toInt()));
       x->change_kind((Kind)sql_query.value(7).toInt());
       x->change_money(sql_query.value(8).toDouble());
-      result.push_back(std::shared_ptr<Transaction>(x));
+      result.push_back(x);
+      qDebug() << x->get_name();
     }
   }
   return result;
@@ -261,7 +262,7 @@ void IO::delete_db(const Transaction* data_to_delete_)
       "execute)\\b.*)");
   QString query_command =
       "DELETE FROM maintable WHERE year==%1 AND month==%2 AND day==%3 AND "
-      "hour==%4 AND minute==%5 AND second==%6;";
+      "hour==%4 AND minute==%5 AND second==%6";
   Time_ t = data_to_delete_->get_time();
   query_command = query_command.arg(t.year)
                       .arg(t.month)
@@ -269,23 +270,19 @@ void IO::delete_db(const Transaction* data_to_delete_)
                       .arg(t.hour)
                       .arg(t.minute)
                       .arg(t.second);
-  QString to_append = " AND name==\'%1\' AND kind==%2 AND money==%3";
+  QString to_append = " AND name==\'%1\' AND kind==%2 AND money==%3;";
   QRegularExpressionMatch match = reg.match(data_to_delete_->get_name());
   if (match.hasMatch()) {
     qDebug() << "非法输入！";
+      qDebug() << match.captured();
     throw "IlligalInput";
   }
   to_append = to_append.arg(data_to_delete_->get_name())
                   .arg((int)data_to_delete_->get_kind())
                   .arg(data_to_delete_->get_money());
   query_command.append(to_append);
-  QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-  db.setDatabaseName("transaction_db.dat");
-  if (!db.open()) {
-      qDebug() << "无法打开数据库！";
-      throw "UnableToOpenDatabaseError";
-  }
   QSqlQuery sqlquery;
+  qDebug().noquote().nospace() << query_command;
   sqlquery.exec(query_command);
   return;
 }
@@ -300,7 +297,7 @@ void IO::update_db(const Transaction* data_to_update_,
     delete_db(data_to_update_);
     insert_db(data_updated);
   } catch (std::exception_ptr e) {
-    qDebug() << "Error in update_db()";
+    qDebug() << "Error in update_db)";
     std::rethrow_exception(e);
   }
   return;

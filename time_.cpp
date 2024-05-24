@@ -4,16 +4,16 @@ Time_::Time_() : year(0), month(0), day(0), hour(0), minute(0), second(0) {
   qDebug() << "Waring: try to initialize Time_ as 0/0/0 0:0:0";
 };
 Time_::Time_(QString str) {
-  QString reg = "(\\d*)-(\\d*)-(\\d*) (\\d*):(\\d*):(\\d*)";
-  QRegularExpression regex(reg);
-  QRegularExpressionMatch match = regex.match(str);
+  QString reg = "(\\d+)-(\\d+)-(\\d+) (\\d+):(\\d+):(\\d+)";
+  static QRegularExpression data_regex(reg);
+  QRegularExpressionMatch match = data_regex.match(str);
   if (match.hasMatch()) {
-    year = match.captured(0).toInt();
-    month = match.captured(1).toInt();
-    day = match.captured(2).toInt();
-    hour = match.captured(3).toInt();
-    minute = match.captured(4).toInt();
-    second = match.captured(5).toInt();
+    year = match.captured(1).toInt();
+    month = match.captured(2).toInt();
+    day = match.captured(3).toInt();
+    hour = match.captured(4).toInt();
+    minute = match.captured(5).toInt();
+    second = match.captured(6).toInt();
   } else {
     qDebug() << "ERROR 时间格式不正确" << str << reg << Qt::endl;
     throw "TimeSyntaxError";
@@ -59,6 +59,7 @@ bool Time_::operator>(Time_ a) {
 
 bool Time_::operator==(Time_ a) { return !((*this) > a) && !((*this) < a); }
 QString Time_::toString() {
+    qDebug() << *this;
   return QString("%1/%2/%3 %4:%5:%6")
       .arg(year, 4, 10, QChar('0')) // 年份，最少4位，缺少部分以0填充
       .arg(month, 2, 10, QChar('0')) // 月份，最少2位，缺少部分以0填充
