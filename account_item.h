@@ -14,6 +14,8 @@ class account_item : public QWidget {
 public:
   explicit account_item(Transaction *account_item_message,
                         QWidget *parent = nullptr);
+    explicit account_item(std::shared_ptr<Transaction> account_item_message,
+                          QWidget *parent = nullptr);
   void change_time(Time_ t);
   void change_name(QString name);
   void change_money(double money);

@@ -41,7 +41,7 @@
     <string notr="true">image: url(:/pages/main_page/image/page3.png);</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="manage_out">
    <property name="geometry">
     <rect>
      <x>60</x>
@@ -106,7 +106,7 @@ background-color: rgba(255, 255, 47, 200);
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>839</width>
+      <width>828</width>
       <height>1000</height>
      </rect>
     </property>
@@ -131,7 +131,7 @@ background-color: rgba(255, 255, 47, 200);
     <layout class="QVBoxLayout" name="verticalLayout"/>
    </widget>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="manage_in">
    <property name="geometry">
     <rect>
      <x>590</x>

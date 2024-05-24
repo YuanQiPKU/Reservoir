@@ -161,7 +161,7 @@ void WaterProcess::drawValue(QPainter *painter,QString text) {
 
   // 设置画笔
   painter->setFont(font);
-  painter->setPen(Qt::white);
+  painter->setPen(Qt::black);
   // 绘制文本
   painter->drawText(QRectF(startX, startY, side, side), Qt::AlignCenter,
                     text);

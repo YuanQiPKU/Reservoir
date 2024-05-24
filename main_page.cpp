@@ -44,10 +44,9 @@ main_page::main_page(QTabWidget *all_page, QWidget *parent)
   for(int i = 0;i<all_account.size();i++){
       global_left+=all_account[i]->get_money();
   }
-  global_left = 5000;
   my_water->display_text = QString::number(global_left);
-
-  my_water->setValue((global_left/10000)*100);
+  ui->lcdNumber->display(target_amount);
+  my_water->setValue((global_left/target_amount)*100);
 }
 
 main_page::~main_page() { delete ui; }

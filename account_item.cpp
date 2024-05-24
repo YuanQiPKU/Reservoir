@@ -23,7 +23,24 @@ account_item::account_item(Transaction *account_item_message, QWidget *parent)
 
   // 连接按钮点击信号与槽函数
 }
+account_item::account_item(std::shared_ptr<Transaction> account_item_message, QWidget *parent)
+    : QWidget(parent), ui(new Ui::account_item),
+    account_item_message(*account_item_message) {
+    ui->setupUi(this);
+    account_name = account_item_message->get_name();
+    account_time = account_item_message->get_time();
+    account_kind = account_item_message->get_kind();
+    account_money = account_item_message->get_money();
 
+    // 设置标签的文本
+    ui->labelName->setText(account_name);
+    ui->labelTime->setText(account_time.toString()); // Time_类型有toString方法
+    ui->labelKind->setText(QString::number(
+        static_cast<int>(account_kind))); // 假设Kind是一个枚举，可以转换为整型
+    ui->labelMoney->setText(QString::number(account_money));
+
+    // 连接按钮点击信号与槽函数
+}
 account_item::~account_item() { delete ui; }
 
 void account_item::change_time(Time_ t) {

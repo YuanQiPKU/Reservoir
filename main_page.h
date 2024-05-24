@@ -11,6 +11,7 @@ class main_page : public QWidget {
   Q_OBJECT
 
 public:
+  int target_amount = 10000;
   QTabWidget *all_page;
   explicit main_page(QTabWidget *all_page, QWidget *parent = nullptr);
   ~main_page();

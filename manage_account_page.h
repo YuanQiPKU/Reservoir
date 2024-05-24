@@ -4,8 +4,9 @@
 #include "QVector"
 #include "account_item.h"
 #include "pages.h"
-
-
+#include"kind.h"
+#include"io.h"
+#include"transact.h"
 namespace Ui {
 class manage_account_page;
 }
@@ -14,6 +15,7 @@ class manage_account_page : public QWidget {
 
 public:
   QTabWidget *all_page;
+    std::vector<std::shared_ptr<Transaction>>account_tansaction;
   explicit manage_account_page(QTabWidget *all_page, QWidget *parent = nullptr);
   ~manage_account_page();
 private slots:
@@ -23,10 +25,19 @@ private slots:
   void on_manage_time_clicked();
 
   void on_manage_name_clicked();
+    void sortAccountItems(bool descending);//按金额
+  void sort_time_AccountItems(bool descending);//按时间
+    void sort_kind_AccountItems(Kind t);
+  void on_manage_kind_clicked();
 
-private:
+    void on_manage_out_clicked();
+
+  void on_manage_in_clicked();
+
+  private:
   Ui::manage_account_page *ui;
   QVector<account_item *> accountItems; // 添加一个 vector 来存储 account_item
+  QVector<account_item *> total_accountItems;
 };
 
 #endif // MANAGE_ACCOUNT_PAGE_H

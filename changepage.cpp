@@ -24,8 +24,10 @@ void changepage::on_change_name_line_editingFinished() {
 
 void changepage::on_change_time_line_editingFinished() {
   QString time = ui->change_time_line->text();
+    qDebug()<<time;
   if (my_account_item) {
     Time_ tim(time); // 使用栈分配而不是堆分配
+      qDebug()<<tim.toString();
     my_account_item->change_time(tim);
   }
 }
