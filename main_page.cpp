@@ -34,6 +34,7 @@ main_page::main_page(QTabWidget *all_page, password *my_password,
   要么改为：connect(ui->btn,signal(pressed()),this,slot(btn_pressed()));
   通过修改名字避免QT翻译器翻译成两次执行.
   */
+  connect(all_page, &QTabWidget::tabCloseRequested, this, &main_page::on_account_tab_close_requested);//连接关闭页面和槽函数
   WaterProcess *my_water = new WaterProcess;
   my_water->setBorderWidth(10);
   my_water->setUsedColor(QColor(160, 247, 255, 20));
@@ -84,4 +85,43 @@ void main_page::on_btnUserHelp_clicked() {
   QWidget *user_help = pages_creator::user_help_page(all_page);
   all_page->addTab(user_help, "用户帮助");
   all_page->setCurrentWidget(user_help); // 跳转新建到的页面
+}
+void main_page::on_account_tab_close_requested(int index) {
+    QWidget *widget = all_page->widget(index);
+    QString tabText = all_page->tabText(index);
+
+    if (index!=0) {
+        qDebug() << "账目管理页面被关闭";
+        // 执行刷新主页面的逻辑
+        // 删除账目管理页面
+        all_page->removeTab(index);
+        // 清除`水波进度条`的所有子部件
+        QLayoutItem *item;
+        while ((item = ui->water_layout->takeAt(0)) != nullptr) {
+            delete item->widget(); // 删除子部件
+            delete item; // 删除布局项
+        }
+        // 刷新主页面逻辑
+        double global_left = 0;
+        std::vector<std::shared_ptr<Transaction>> all_account;
+        all_account = IO::query_db();
+        for (int i = 0; i < all_account.size(); i++) {
+            global_left += all_account[i]->get_money();
+        }
+
+        // 更新water process组件
+        WaterProcess *my_water = new WaterProcess;
+        my_water->setBorderWidth(10);
+        my_water->setUsedColor(QColor(160, 247, 255, 20));
+        my_water->setMinimumSize(QSize(400, 200));
+        my_water->setMaximumSize(QSize(400, 200));
+        ui->water_layout->addWidget(my_water);
+
+        my_water->display_text = QString::number(global_left);
+        my_water->setValue(fmax((global_left / my_password->target_amount) * 100 - 10, 10));
+        ui->lcdNumber->display(my_password->target_amount);
+
+    } else {
+        if(index!=0)all_page->removeTab(index);
+    }
 }

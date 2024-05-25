@@ -83,15 +83,17 @@ Sheet）来设置`QTabBar`控件的样式。下面是对每一行代码的解释
 Widget::~Widget() { delete ui; }
 
 // 用于删除标签页的槽函数
-void Widget::closeTab() {
-  int cur_index = all_page->currentIndex();
-  if (cur_index == 0) {
-    all_page->removeTab(cur_index);
-    QWidget *main_page = pages_creator::only_main_page(all_page, my_password);
-    all_page->addTab(main_page, "主页面");
-    all_page->setCurrentWidget(main_page); // 跳转新建到的页面
-    // 关闭主页面之后重新加载主页面
-    return;
-  }
-  all_page->removeTab(cur_index);
+void Widget::closeTab(int index) {
+    QWidget *widget = all_page->widget(index);
+    QString tabText = all_page->tabText(index);
+
+    if (tabText == "主页面") {
+        // 关闭主页面时的刷新操作
+        all_page->removeTab(index);
+        QWidget *main_page = pages_creator::only_main_page(all_page, my_password);
+        all_page->addTab(main_page, "主页面");
+        all_page->setCurrentWidget(main_page); // 跳转新建到的页面
+        return;
+    }
+    all_page->removeTab(index);
 }

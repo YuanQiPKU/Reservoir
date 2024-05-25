@@ -12,7 +12,7 @@ class Widget : public QWidget {
   Q_OBJECT
   // 槽函数的声明
 public slots:
-  void closeTab();
+  void closeTab(int index);
   // 构造函数和析构函数
 public:
   Widget(password *my_password, QWidget *parent = nullptr);

@@ -23,6 +23,7 @@ private slots:
   void on_btnManageAccount_clicked();
   void on_btnSettings_clicked();
   void on_btnUserHelp_clicked();
+   void on_account_tab_close_requested(int index); // 用于关闭主窗口后刷新
 
 private:
   Ui::main_page *ui;
