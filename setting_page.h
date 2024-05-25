@@ -12,14 +12,13 @@ class setting_page : public QWidget {
 
 public:
   QTabWidget *all_page;
-    password* my_password;
+  password* my_password;
   explicit setting_page(QTabWidget *all_page,password* my_password, QWidget *parent = nullptr);
   ~setting_page();
 
   private slots:
-  void on_password_change_editingFinished();
-
-      void on_target_change_editingFinished();
+  void on_l1_editingFinished();
+  void on_l2_editingFinished();
 
   private:
   Ui::setting_page *ui;

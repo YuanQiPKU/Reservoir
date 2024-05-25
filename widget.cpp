@@ -69,7 +69,7 @@ Sheet）来设置`QTabBar`控件的样式。下面是对每一行代码的解释
 
 这种链式设置样式表的方法允许你逐步构建和修改控件的样式，而不必一次性定义所有样式规则。这样做的好处是可以更容易地管理和调整样式，特别是当你需要对特定状态（如选中状态）应用不同的样式时。
 */
-  if (password::password_count > 0) {
+  if (password::password_count > 0&&my_password->password_size()>0) {
     QWidget *login_page = pages_creator::login_page(all_page, my_password);
     all_page->addTab(login_page, "登录");
     all_page->setCurrentWidget(login_page); // 跳转新建到的页面
@@ -86,7 +86,11 @@ Widget::~Widget() { delete ui; }
 void Widget::closeTab() {
   int cur_index = all_page->currentIndex();
   if (cur_index == 0) {
-    // 不可关闭第一个主页面
+      all_page->removeTab(cur_index);
+      QWidget *main_page = pages_creator::only_main_page(all_page,my_password);
+      all_page->addTab(main_page, "主页面");
+      all_page->setCurrentWidget(main_page); // 跳转新建到的页面
+    // 关闭主页面之后重新加载主页面
     return;
   }
   all_page->removeTab(cur_index);

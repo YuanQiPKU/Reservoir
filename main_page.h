@@ -11,7 +11,6 @@ class main_page : public QWidget {
   Q_OBJECT
 
 public:
-  static int target_amount;
   QTabWidget *all_page;
   password* my_password;
   explicit main_page(QTabWidget *all_page, password* my_password,QWidget *parent = nullptr);

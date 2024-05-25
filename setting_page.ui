@@ -31,23 +31,29 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>110</x>
      <y>100</y>
      <width>141</width>
      <height>51</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-	background-color: rgba(246, 176, 255,125);
+    <string notr="true">QLabel {
+	background-color: rgba(227, 255, 133, 125);
+	font: 290 14pt &quot;幼圆&quot;;
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+ border-radius: 15px;
+}
 
 </string>
    </property>
    <property name="text">
-    <string>更     改     密      码</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;更改密码&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="password_change">
+  <widget class="QLineEdit" name="l1">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -66,23 +72,31 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>110</x>
      <y>300</y>
      <width>141</width>
      <height>51</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-	background-color: rgba(246, 176, 255,125);
+    <string notr="true">QLabel {
+	background-color: rgba(227, 255, 133, 125);
+	font: 290 14pt &quot;幼圆&quot;;
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+ border-radius: 15px;
+}
+
+
 
 </string>
    </property>
    <property name="text">
-    <string>修    改     目      标</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;修改目标&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="target_change">
+  <widget class="QLineEdit" name="l2">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -96,6 +110,92 @@
 	background-color: rgba(246, 176, 255,125);
    border-radius: 15px; /* 边框圆角 */
 }</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnUserHelp">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>100</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>100</width>
+     <height>100</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	background-color: rgba(227, 255, 133, 125);
+	font: 290 14pt &quot;幼圆&quot;;
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+ border-radius: 15px;
+}
+
+QPushButton:hover {
+   background-color: rgba(227, 255, 133, 200);
+   border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 15px; /* 边框圆角 */
+}</string>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnUserHelp_2">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>300</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>100</width>
+     <height>100</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	background-color: rgba(227, 255, 133, 125);
+	font: 290 14pt &quot;幼圆&quot;;
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+ border-radius: 15px;
+}
+
+QPushButton:hover {
+   background-color: rgba(227, 255, 133, 200);
+   border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 15px; /* 边框圆角 */
+}</string>
+   </property>
+   <property name="text">
+    <string>确定</string>
    </property>
   </widget>
  </widget>
