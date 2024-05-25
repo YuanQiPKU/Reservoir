@@ -1,21 +1,22 @@
+#include "main_page.h"
 #include "pages.h"
 #include "qsqlquery.h"
 #include "widget.h"
-#include"main_page.h"
 #include <QApplication>
 #include <QtSql/QSqlDatabase>
+
 
 int password::password_count = 0;
 int main(int argc, char *argv[]) {
   QApplication a(argc, argv);
- QString save_password = password::password_load();
+  QString save_password = password::password_load();
   double target = password::target_amount_load();
-// 读取本地的密码，根据是否存在初始化密码
-  password* local_password = nullptr;
-  if(save_password.size()!=0){
-       local_password = new password(save_password,target);
-  }else{
-       local_password = new password("",0);
+  // 读取本地的密码，根据是否存在初始化密码
+  password *local_password = nullptr;
+  if (save_password.size() != 0) {
+    local_password = new password(save_password, target);
+  } else {
+    local_password = new password("", 0);
   }
 
   Widget w(local_password);

@@ -10,8 +10,8 @@ bool IO::is_wechat(QString path_) {
   QString line = stream.readLine();
   // if (line == "微信支付账单明细,,,,,,,,")
   //   return true;
-  if (line.startsWith("微信"))  // 修改了这里
-      return true;
+  if (line.startsWith("微信")) // 修改了这里
+    return true;
   return false;
 }
 
@@ -58,17 +58,17 @@ std::vector<std::shared_ptr<Transaction>> IO::read_csv(QString path_) {
     bool started = false;
     while (!stream.atEnd()) {
       QString line = stream.readLine();
-        if (started){
-          try{
-              result.push_back(std::shared_ptr<Transaction>(new Transaction(line, true)));
-              qDebug() << "创建新数据" << result.back()->get_name() << Qt::endl;
-          }
-          catch(...){
-              qDebug() << "创建类型失败！";
-          }
+      if (started) {
+        try {
+          result.push_back(
+              std::shared_ptr<Transaction>(new Transaction(line, true)));
+          qDebug() << "创建新数据" << result.back()->get_name() << Qt::endl;
+        } catch (...) {
+          qDebug() << "创建类型失败！";
         }
-        if (line.startsWith("交易时间"))
-          started = true;
+      }
+      if (line.startsWith("交易时间"))
+        started = true;
     }
   } else if (is_alipay(path_)) {
     qDebug() << "读取支付宝账单";
@@ -79,8 +79,10 @@ std::vector<std::shared_ptr<Transaction>> IO::read_csv(QString path_) {
     while (!stream.atEnd()) {
       QString line = stream.readLine();
       if (started)
-        result.push_back(std::shared_ptr<Transaction>(
-            new Transaction(line, true))),qDebug() << "创建新数据" << result.back()->get_name() << Qt::endl; // 需要进入数据库
+        result.push_back(
+            std::shared_ptr<Transaction>(new Transaction(line, true))),
+            qDebug() << "创建新数据" << result.back()->get_name()
+                     << Qt::endl; // 需要进入数据库
       if (line.startsWith("交易时间"))
         started = true;
     }
@@ -94,7 +96,8 @@ std::vector<std::shared_ptr<Transaction>> IO::read_csv(QString path_) {
       QString line = stream.readLine();
       if (started)
         result.push_back(
-              std::shared_ptr<Transaction>(new Transaction(line, true))),qDebug() << "创建新数据" << result.back()->get_name() << Qt::endl;
+            std::shared_ptr<Transaction>(new Transaction(line, true))),
+            qDebug() << "创建新数据" << result.back()->get_name() << Qt::endl;
       if (line.startsWith("交易时间"))
         started = true;
     }
@@ -112,7 +115,7 @@ void IO::write_csv(std::vector<std::shared_ptr<Transaction>> data_,
    * 输入：要导出的内容,csv文件路径
    * 输出：无
    *******/
-    //TODO
+  // TODO
   return;
 }
 
@@ -165,7 +168,7 @@ std::vector<std::shared_ptr<Transaction>> IO::qurey_db(Kind kind) {
     qDebug() << sql_query.lastError();
   } else {
     while (sql_query.next()) {
-          qDebug() << "new X" << Qt::endl;
+      qDebug() << "new X" << Qt::endl;
       Transaction *x = new Transaction();
       x->change_name(sql_query.value(0).toString());
       x->change_time(
@@ -180,7 +183,8 @@ std::vector<std::shared_ptr<Transaction>> IO::qurey_db(Kind kind) {
   return result;
 }
 
-std::vector<std::shared_ptr<Transaction>> IO::query_db(bool order_by_time_reverse, bool order_by_money_reverse) {
+std::vector<std::shared_ptr<Transaction>>
+IO::query_db(bool order_by_time_reverse, bool order_by_money_reverse) {
   /***********
    * 输入：两个bool，分别代表是否按照time/money升序排列，默认降序
    * 输出：一个存有数据库中交易记录智能指针的vector
@@ -219,7 +223,7 @@ std::vector<std::shared_ptr<Transaction>> IO::query_db(bool order_by_time_revers
   return result;
 }
 
-void IO::insert_db(const Transaction* data_to_insert_) {
+void IO::insert_db(const Transaction *data_to_insert_) {
   /*****
    * 输入：插入的数据
    * 输出：无
@@ -240,7 +244,7 @@ void IO::insert_db(const Transaction* data_to_insert_) {
   QRegularExpressionMatch match = reg.match(to_append);
   if (match.hasMatch()) {
     qDebug() << "非法输入！";
-      qDebug() << match.captured();
+    qDebug() << match.captured();
     throw "IlligalInput";
   }
   query_command = query_command.arg(to_append);
@@ -250,8 +254,7 @@ void IO::insert_db(const Transaction* data_to_insert_) {
   return;
 }
 
-void IO::delete_db(const Transaction* data_to_delete_)
-{
+void IO::delete_db(const Transaction *data_to_delete_) {
   /*****
    * 输入：删除的数据
    * 输出：无
@@ -274,7 +277,7 @@ void IO::delete_db(const Transaction* data_to_delete_)
   QRegularExpressionMatch match = reg.match(data_to_delete_->get_name());
   if (match.hasMatch()) {
     qDebug() << "非法输入！";
-      qDebug() << match.captured();
+    qDebug() << match.captured();
     throw "IlligalInput";
   }
   to_append = to_append.arg(data_to_delete_->get_name())
@@ -287,8 +290,8 @@ void IO::delete_db(const Transaction* data_to_delete_)
   return;
 }
 
-void IO::update_db(const Transaction* data_to_update_,
-                   const Transaction* data_updated) {
+void IO::update_db(const Transaction *data_to_update_,
+                   const Transaction *data_updated) {
   /********
    * 输入：要修改的数据，修改后的数据(要修改的数据若为nullptr，则为插入操作;修改后的数据若为nullptr，则为删除操作)
    * 输出：无

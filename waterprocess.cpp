@@ -11,9 +11,9 @@ WaterProcess::WaterProcess(QWidget *parent) : QWidget(parent) {
   m_offset = 0.6;
 
   m_bgColor = QColor(211, 211, 211, 30);
-  m_borderColor = QColor(80, 80, 80,75);
-  m_usedColor = QColor(235, 106, 106,50);
-  m_textColor = QColor(255, 255, 255,50);
+  m_borderColor = QColor(80, 80, 80, 75);
+  m_usedColor = QColor(235, 106, 106, 50);
+  m_textColor = QColor(255, 255, 255, 50);
 
   // 波浪
   m_timer = new QTimer(this);
@@ -39,7 +39,7 @@ void WaterProcess::paintEvent(QPaintEvent *ev) {
   drawProcess(&painter);
 
   // 进度数字
-  drawValue(&painter,"当前的储蓄金额为"+display_text);
+  drawValue(&painter, "当前的储蓄金额为" + display_text);
 }
 
 void WaterProcess::drawBg(QPainter *painter) {
@@ -58,7 +58,7 @@ void WaterProcess::drawBg(QPainter *painter) {
     QBrush brush(m_borderColor);
     painter->setPen(QPen(brush, m_borderWidth, Qt::SolidLine));
   }
-    painter->drawRect(startX, startY, width, height);
+  painter->drawRect(startX, startY, width, height);
   painter->restore();
 }
 
@@ -68,8 +68,8 @@ void WaterProcess::drawProcess(QPainter *painter) {
 
   int startX = 0;
   int startY = 0;
-  int endX = width ;
-  int endY = height ;
+  int endX = width;
+  int endY = height;
 
   double percent = (m_value * 1.0) / (m_maxValue - m_minValue);
 
@@ -137,7 +137,7 @@ void WaterProcess::drawProcess(QPainter *painter) {
   painter->restore();
 }
 
-void WaterProcess::drawValue(QPainter *painter,QString text) {
+void WaterProcess::drawValue(QPainter *painter, QString text) {
   // 保存画布
   painter->save();
   // 获取控件宽度和高度
@@ -163,8 +163,7 @@ void WaterProcess::drawValue(QPainter *painter,QString text) {
   painter->setFont(font);
   painter->setPen(Qt::black);
   // 绘制文本
-  painter->drawText(QRectF(startX, startY, side, side), Qt::AlignCenter,
-                    text);
+  painter->drawText(QRectF(startX, startY, side, side), Qt::AlignCenter, text);
 
   // 恢复画布
   painter->restore();

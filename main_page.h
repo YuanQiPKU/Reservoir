@@ -12,8 +12,9 @@ class main_page : public QWidget {
 
 public:
   QTabWidget *all_page;
-  password* my_password;
-  explicit main_page(QTabWidget *all_page, password* my_password,QWidget *parent = nullptr);
+  password *my_password;
+  explicit main_page(QTabWidget *all_page, password *my_password,
+                     QWidget *parent = nullptr);
   ~main_page();
 
 private slots:

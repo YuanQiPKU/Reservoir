@@ -7,7 +7,6 @@
 #include <QtPrintSupport/QPrintDialog>
 #include <QtPrintSupport/QPrinter>
 
-
 namespace Ui {
 class data_analysis_page;
 }

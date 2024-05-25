@@ -13,14 +13,14 @@ class account_item_money : public QWidget {
 public:
   explicit account_item_money(QWidget *parent = nullptr);
   ~account_item_money();
-  signals:
+signals:
   void sortItems(bool descending);
-  private slots:
+private slots:
   void on_money_down_sort_clicked();
 
-      void on_money_up_sort_clicked();
+  void on_money_up_sort_clicked();
 
-  private:
+private:
   Ui::account_item_money *ui;
 };
 

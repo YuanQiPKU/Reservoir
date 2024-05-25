@@ -4,7 +4,6 @@
 #include "io.h"
 #include "pages.h"
 
-
 namespace Ui {
 class add_account_page;
 }
@@ -52,7 +51,7 @@ private slots:
 
   void on_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime);
 
-  private:
+private:
   Ui::add_account_page *ui;
 };
 

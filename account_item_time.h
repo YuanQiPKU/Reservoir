@@ -13,16 +13,15 @@ class account_item_time : public QWidget {
 public:
   explicit account_item_time(QWidget *parent = nullptr);
   ~account_item_time();
-  signals:
+signals:
   void sortItems(bool descending);
 
-
-  private slots:
+private slots:
   void on_time_down_sort_clicked();
 
-      void on_time_up_sort_clicked();
+  void on_time_up_sort_clicked();
 
-  private:
+private:
   Ui::account_item_time *ui;
 };
 

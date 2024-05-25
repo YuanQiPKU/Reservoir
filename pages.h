@@ -2,7 +2,9 @@
 #ifndef PAGES_H
 #define PAGES_H
 #pragma once
+#include "io.h"
 #include "password.h"
+#include "waterprocess.h"
 #include <QApplication>
 #include <QDebug>
 #include <QMessageBox>
@@ -14,8 +16,7 @@
 #include <QVBoxLayout>
 #include <QVector>
 #include <QWidget>
-#include "waterprocess.h"
-#include"io.h"
+
 
 #endif // PAGES_H
 

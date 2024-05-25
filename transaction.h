@@ -8,11 +8,12 @@
 #define TRANSACTION_H
 #pragma once
 #include "enumerations.h"
+#include "kind.h"
 #include "time_.h"
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QString>
-#include "kind.h"
+
 
 class Transaction {
   /******

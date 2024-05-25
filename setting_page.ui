@@ -28,52 +28,36 @@
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>100</y>
-     <width>141</width>
-     <height>51</height>
+     <x>0</x>
+     <y>0</y>
+     <width>960</width>
+     <height>540</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel {
-	background-color: rgba(227, 255, 133, 125);
-	font: 290 14pt &quot;幼圆&quot;;
-    color: #000000; /* 文字颜色 */
-    font-weight: normal;
-    padding: 5px; /* 按需调整内边距 */
- border-radius: 15px;
-}
-
-</string>
+   <property name="minimumSize">
+    <size>
+     <width>960</width>
+     <height>540</height>
+    </size>
    </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;更改密码&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="l1">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>100</y>
-     <width>281</width>
-     <height>51</height>
-    </rect>
+   <property name="maximumSize">
+    <size>
+     <width>960</width>
+     <height>540</height>
+    </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{
-	background-color: rgba(246, 176, 255,125);
-   border-radius: 15px; /* 边框圆角 */
-}</string>
+    <string notr="true">background-image: url(:/pages/main_page/image/P1.jpg);</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>300</y>
+     <x>170</x>
+     <y>271</y>
      <width>141</width>
      <height>51</height>
     </rect>
@@ -96,11 +80,11 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;修改目标&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="l2">
+  <widget class="QLineEdit" name="l1">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>300</y>
+     <x>330</x>
+     <y>150</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -115,8 +99,8 @@
   <widget class="QPushButton" name="btnUserHelp">
    <property name="geometry">
     <rect>
-     <x>570</x>
-     <y>100</y>
+     <x>640</x>
+     <y>270</y>
      <width>51</width>
      <height>51</height>
     </rect>
@@ -158,8 +142,8 @@ QPushButton:hover {
   <widget class="QPushButton" name="btnUserHelp_2">
    <property name="geometry">
     <rect>
-     <x>570</x>
-     <y>300</y>
+     <x>640</x>
+     <y>150</y>
      <width>51</width>
      <height>51</height>
     </rect>
@@ -196,6 +180,47 @@ QPushButton:hover {
    </property>
    <property name="text">
     <string>确定</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="l2">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>270</y>
+     <width>281</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit{
+	background-color: rgba(246, 176, 255,125);
+   border-radius: 15px; /* 边框圆角 */
+}</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>149</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+	background-color: rgba(227, 255, 133, 125);
+	font: 290 14pt &quot;幼圆&quot;;
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+ border-radius: 15px;
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;更改密码&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>

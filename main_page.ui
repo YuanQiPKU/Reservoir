@@ -291,7 +291,7 @@ QPushButton:hover {
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>-10</x>
+     <x>-30</x>
      <y>0</y>
      <width>960</width>
      <height>540</height>
@@ -317,32 +317,9 @@ QPushButton:hover {
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-background-image: url(:/pages/main_page/image/background_page.png);</string>
+    <string notr="true">background-image: url(:/pages/main_page/image/P3.jpg);
+</string>
    </property>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>474</x>
-      <y>350</y>
-      <width>101</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;当前目标：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="lcdNumber">
-    <property name="geometry">
-     <rect>
-      <x>600</x>
-      <y>345</y>
-      <width>101</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
   </widget>
   <widget class="QWidget" name="water" native="true">
    <property name="geometry">
@@ -380,9 +357,34 @@ background-image: url(:/pages/main_page/image/background_page.png);</string>
     <layout class="QVBoxLayout" name="water_layout"/>
    </widget>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>451</x>
+     <y>337</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; color:#000000;&quot;&gt;当前储蓄目标：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNumber">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>330</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>widget</zorder>
   <zorder>gridLayoutWidget</zorder>
   <zorder>water</zorder>
+  <zorder>label</zorder>
+  <zorder>lcdNumber</zorder>
  </widget>
  <resources/>
  <connections/>

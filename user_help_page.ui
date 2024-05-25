@@ -47,8 +47,36 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/pages/main_page/image/m_联想截图_20240524202000.png);</string>
+    <string notr="true">background-color: rgba(255, 231, 245, 120);</string>
    </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>960</width>
+      <height>540</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>960</width>
+      <height>540</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>960</width>
+      <height>540</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;h2 align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:122.5%; font-size:x-large; font-weight:700;&quot;&gt;&lt;br/&gt;&lt;/h2&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','Clear Sans','Helvetica Neue','Helvetica','Arial','Segoe UI Emoji','sans-serif'; font-size:16pt; color:#333333;&quot;&gt;水库&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','Clear Sans','Helvetica Neue','Helvetica','Arial','Segoe UI Emoji','sans-serif'; font-size:16pt; color:#777777;&quot;&gt;我们的财政状况就像一个水库,有收入作为入水,有支出作为出水,而水库就是我们的储蓄&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','Clear Sans','Helvetica Neue','Helvetica','Arial','Segoe UI Emoji','sans-serif'; font-size:16pt; color:#777777;&quot;&gt;通过这样形象化的表达可以更加便于用户理解自己的财政状况&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','Clear Sans','Helvetica Neue','Helvetica','Arial','Segoe UI Emoji','sans-serif'; font-size:16pt; color:#777777;&quot;&gt;同时具有一定的比喻意义使得程序更加的有趣而不是像传统记账软件那样枯燥无味&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::MarkdownText</enum>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

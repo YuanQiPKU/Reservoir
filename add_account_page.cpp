@@ -16,21 +16,18 @@ add_account_page::~add_account_page() { delete ui; }
 void add_account_page::
     on_btnYes_clicked() // 用于响应解析操作,在add_account_page类中的公有成员变量file_address中存储文件地址;
 {
-    file_address = ui->textEdit->toPlainText(); // 获取其中的文本
-    ui->textEdit->clear();
-    if(file_address.size()>8){
-        ui->textEdit->setPlaceholderText("收到你的文件啦!!");
-        file_address.erase(file_address.begin(),file_address.begin()+8);
-        qDebug() << file_address;
-        try{
-            IO::read_csv(file_address);
-        }
-        catch (...) {
-            qDebug()<<"读取csv文件失败";
-        }
-
+  file_address = ui->textEdit->toPlainText(); // 获取其中的文本
+  ui->textEdit->clear();
+  if (file_address.size() > 8) {
+    ui->textEdit->setPlaceholderText("收到你的文件啦!!");
+    file_address.erase(file_address.begin(), file_address.begin() + 8);
+    qDebug() << file_address;
+    try {
+      IO::read_csv(file_address);
+    } catch (...) {
+      qDebug() << "读取csv文件失败";
     }
-
+  }
 }
 
 void add_account_page::on_btnConfirm_clicked() {
@@ -39,9 +36,10 @@ void add_account_page::on_btnConfirm_clicked() {
     account_amount *= -1;
   }
   try {
-       one_account = new Transaction(account_name,account_date,account_kind,account_amount,true);
+    one_account = new Transaction(account_name, account_date, account_kind,
+                                  account_amount, true);
   } catch (...) {
-      qDebug()<<"新建账目失败";
+    qDebug() << "新建账目失败";
   }
 
   qDebug() << "新建账目完成";
@@ -82,38 +80,17 @@ void add_account_page::on_lineEdit_2_editingFinished() {
   account_name = ui->lineEdit_2->text(); // 账目名称
 }
 
-void add_account_page::on_consume_clicked()
-{
-    account_kind = consume;
+void add_account_page::on_consume_clicked() { account_kind = consume; }
+
+void add_account_page::on_maintain_clicked() { account_kind = maintain; }
+
+void add_account_page::on_social_clicked() { account_kind = social; }
+
+void add_account_page::on_develop_clicked() { account_kind = develop; }
+
+void add_account_page::on_other_clicked() { account_kind = other; }
+
+void add_account_page::on_dateTimeEdit_dateTimeChanged(
+    const QDateTime &dateTime) {
+  account_date = dateTime;
 }
-
-
-void add_account_page::on_maintain_clicked()
-{
-    account_kind = maintain;
-}
-
-
-void add_account_page::on_social_clicked()
-{
-    account_kind = social;
-}
-
-
-void add_account_page::on_develop_clicked()
-{
-    account_kind = develop;
-}
-
-
-void add_account_page::on_other_clicked()
-{
-    account_kind = other;
-}
-
-
-void add_account_page::on_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime)
-{
-    account_date = dateTime;
-}
-

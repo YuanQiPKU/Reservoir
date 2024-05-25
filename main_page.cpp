@@ -1,8 +1,10 @@
 #include "main_page.h"
 #include "ui_main_page.h"
 
-main_page::main_page(QTabWidget *all_page, password* my_password, QWidget *parent)
-    : all_page(all_page), QWidget(parent), my_password(my_password),ui(new Ui::main_page) {
+main_page::main_page(QTabWidget *all_page, password *my_password,
+                     QWidget *parent)
+    : all_page(all_page), QWidget(parent), my_password(my_password),
+      ui(new Ui::main_page) {
 
   ui->setupUi(this);
   this->setMinimumSize(QSize(960, 540)); // 固定窗口大小
@@ -41,12 +43,12 @@ main_page::main_page(QTabWidget *all_page, password* my_password, QWidget *paren
   double global_left = 0; // 存下的金额
   std::vector<std::shared_ptr<Transaction>> all_account;
   all_account = IO::query_db();
-  for(int i = 0;i<all_account.size();i++){
-      global_left+=all_account[i]->get_money();
+  for (int i = 0; i < all_account.size(); i++) {
+    global_left += all_account[i]->get_money();
   }
   my_water->display_text = QString::number(global_left);
   ui->lcdNumber->display(my_password->target_amount);
-  my_water->setValue((global_left/my_password->target_amount)*100);
+  my_water->setValue(fmax((global_left / my_password->target_amount) * 100-10,10));
 }
 
 main_page::~main_page() { delete ui; }
@@ -73,7 +75,7 @@ void main_page::on_btnManageAccount_clicked() {
 }
 void main_page::on_btnSettings_clicked() {
   // 点击生成“设置”页面
-  QWidget *setting = pages_creator::setting_page(all_page,my_password);
+  QWidget *setting = pages_creator::setting_page(all_page, my_password);
   all_page->addTab(setting, "设置");
   all_page->setCurrentWidget(setting); // 跳转新建到的页面
 }

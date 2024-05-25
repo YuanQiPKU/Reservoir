@@ -22,8 +22,9 @@ Time_::Time_(QString str) {
 Time_::Time_(int a, int b, int c, int d, int e, int f)
     : year(a), month(b), day(c), hour(d), minute(e), second(f){};
 Time_::Time_(QDateTime qdat)
-    : year(qdat.date().year()), month(qdat.date().month()), day(qdat.date().day()),hour(qdat.time().hour()), minute(qdat.time().minute()),
-    second(qdat.time().second()){};
+    : year(qdat.date().year()), month(qdat.date().month()),
+      day(qdat.date().day()), hour(qdat.time().hour()),
+      minute(qdat.time().minute()), second(qdat.time().second()){};
 
 bool Time_::operator<(Time_ a) {
   if (this->year != a.year)
@@ -59,7 +60,7 @@ bool Time_::operator>(Time_ a) {
 
 bool Time_::operator==(Time_ a) { return !((*this) > a) && !((*this) < a); }
 QString Time_::toString() {
-    qDebug() << *this;
+  qDebug() << *this;
   return QString("%1/%2/%3 %4:%5:%6")
       .arg(year, 4, 10, QChar('0')) // 年份，最少4位，缺少部分以0填充
       .arg(month, 2, 10, QChar('0')) // 月份，最少2位，缺少部分以0填充
@@ -80,6 +81,6 @@ Time_::operator QString() {
       .arg(second);
 }
 
-QDateTime Time_::mytime_to_qdatetime(){  // 转换到QDateTime
-    return QDateTime(QDate(year,  month, day), QTime(hour, minute, second));
+QDateTime Time_::mytime_to_qdatetime() { // 转换到QDateTime
+  return QDateTime(QDate(year, month, day), QTime(hour, minute, second));
 }

@@ -120,7 +120,7 @@ QPushButton:pressed {
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/pages/main_page/image/main_page.png);</string>
+    <string notr="true">background-image: url(:/pages/main_page/image/P5.png);</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">

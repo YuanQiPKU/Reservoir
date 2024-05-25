@@ -1,5 +1,6 @@
-#include"io.h"
 #include "transaction.h"
+#include "io.h"
+
 Transaction::Transaction(bool write_into_db)
     : name_(), transaction_kind_(), transaction_time_(), money_(0) {
   if (write_into_db) {
@@ -18,13 +19,13 @@ Transaction::Transaction(QString input, bool write_into_db) { // 从字符串初
   auto inputs = input.split(",", Qt::SkipEmptyParts);
   qDebug() << inputs;
   qDebug() << inputs.at(0);
-    this->transaction_time_ = Time_(inputs.at(0));
+  this->transaction_time_ = Time_(inputs.at(0));
   this->transaction_kind_ =
-        kind::get_kind(inputs.at(1), inputs.at(2)); // 从支付对象和描述得到类型
-    this->name_ = inputs.at(3);
+      kind::get_kind(inputs.at(1), inputs.at(2)); // 从支付对象和描述得到类型
+  this->name_ = inputs.at(3);
   this->name_.remove('\"').remove('\\');
   qDebug() << inputs.at(5);
-    money_ = inputs.at(5).sliced(1).toDouble();
+  money_ = inputs.at(5).sliced(1).toDouble();
   if (inputs.at(4) == u"收入")
     money_ = money_;
   else if (inputs.at(4) == u"支出")

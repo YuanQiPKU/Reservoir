@@ -47,7 +47,7 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/pages/main_page/image/first_time_page.png);</string>
+    <string notr="true">background-image: url(:/pages/main_page/image/P4.jpg);</string>
    </property>
    <widget class="QProgressBar" name="progressBar">
     <property name="geometry">
@@ -169,17 +169,24 @@ QPushButton:pressed {
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>50</y>
+     <x>37</x>
+     <y>29</y>
      <width>301</width>
-     <height>181</height>
+     <height>211</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+	font: 290 12pt &quot;幼圆&quot;;
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+}</string>
    </property>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700; color:#ffffff;&quot;&gt;我知道这可能是你第一次尝试记账&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;我也明白你觉得这就像小孩子过家家一样&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;但是钱就像流水&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;这也是我们为什么要用水库作为我们这款软件的象征&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700; color:#ffffff;&quot;&gt;希望你有所收获&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;请在下方键入你的密码&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700; color:#000000;&quot;&gt;我知道这可能是你第一次尝试记账&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#000000;&quot;&gt;我也明白你觉得这就像小孩子过家家一样&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;但是钱就像流水&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;这也是我们为什么要用水库作为我们这款软件的象征&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700; color:#000000;&quot;&gt;希望你有所收获&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;请在下方键入你的密码&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;右边是你的密码强度 ==&amp;gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>

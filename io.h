@@ -6,6 +6,7 @@
 #ifndef IO_H
 #define IO_H
 #pragma once
+#include "kind.h"
 #include "transaction.h"
 #include <QDateTime>
 #include <QFile>
@@ -18,9 +19,6 @@
 #include <map>
 #include <memory>
 #include <vector>
-#include"kind.h"
-
-
 
 namespace IO {
 
@@ -34,10 +32,10 @@ std::vector<std::shared_ptr<Transaction>> qurey_db(Kind kind);
 std::vector<std::shared_ptr<Transaction>>
 query_db(bool order_by_time_reverse = false,
          bool order_by_money_reverse = false);
-void insert_db(const Transaction* data_to_insert_);
-void delete_db(const Transaction* data_to_delete_);
-void update_db(const Transaction* data_to_update_,
-               const Transaction* data_updated);
+void insert_db(const Transaction *data_to_insert_);
+void delete_db(const Transaction *data_to_delete_);
+void update_db(const Transaction *data_to_update_,
+               const Transaction *data_updated);
 
 };     // namespace IO
 #endif // IO_H
