@@ -1,6 +1,6 @@
 #include "main_page.h"
 #include "ui_main_page.h"
-
+#include"tip.h"
 main_page::main_page(QTabWidget *all_page, password *my_password,
                      QWidget *parent)
     : all_page(all_page), QWidget(parent), my_password(my_password),
@@ -55,7 +55,7 @@ main_page::main_page(QTabWidget *all_page, password *my_password,
 main_page::~main_page() { delete ui; }
 void main_page::on_btnAddAccount_clicked() {
   // 点击生成“新增账目”页面
-  qDebug() << "新增页面被触发";
+  qDebug() << "新增账目被触发";
   QWidget *add_account = pages_creator::add_account_page(all_page);
   all_page->addTab(add_account, "新增账目");
   all_page->setCurrentWidget(add_account); // 跳转新建到的页面
@@ -125,3 +125,18 @@ void main_page::on_account_tab_close_requested(int index) {
         if(index!=0)all_page->removeTab(index);
     }
 }
+
+void main_page::on_btnTip_clicked()
+{
+    //qDebug() << "更改浮窗";
+
+    // 测试消息框显示
+
+    //changepage *changeWidget = new changepage(this);
+    //changeWidget->setWindowTitle("更改浮窗"); // 设置浮窗的标题
+    //changeWidget->show();
+    tip *ti=new tip();
+    ti->setWindowTitle("小提示");
+    ti->show();
+}
+

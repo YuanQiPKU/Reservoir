@@ -63,6 +63,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         kind.cpp
         waterprocess.cpp waterprocess.h
         remove_make_sure.h remove_make_sure.cpp remove_make_sure.ui
+        tip.h tip.cpp tip.ui
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET my_ui APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

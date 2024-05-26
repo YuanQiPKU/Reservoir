@@ -25,7 +25,9 @@ private slots:
   void on_btnUserHelp_clicked();
    void on_account_tab_close_requested(int index); // 用于关闭主窗口后刷新
 
-private:
+  void on_btnTip_clicked();
+
+  private:
   Ui::main_page *ui;
 };
 
