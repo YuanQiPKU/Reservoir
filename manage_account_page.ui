@@ -55,7 +55,7 @@
 QPushButton {
 	background-color: rgba(255, 255, 47, 55);
 	
-	font: 28pt &quot;楷体&quot;;
+	font: 28pt &quot;幼圆&quot;;
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
@@ -145,7 +145,7 @@ background-color: rgba(255, 255, 47, 200);
 QPushButton {
 	background-color: rgba(61, 203, 255, 125);
 	
-	font: 28pt &quot;楷体&quot;;
+	font: 28pt &quot;幼圆&quot;;
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
@@ -180,7 +180,7 @@ QPushButton {
 	background-color: rgba(213, 85, 255, 125);
 	
 	
-	font: 12pt &quot;楷体&quot;;
+	font: 12pt &quot;幼圆&quot;;
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
@@ -215,7 +215,7 @@ QPushButton {
 	background-color: rgba(76, 255, 76, 125);
 	
 	
-	font: 12pt &quot;楷体&quot;;
+font: 12pt &quot;幼圆&quot;;
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
@@ -251,7 +251,7 @@ QPushButton {
 	background-color: rgba(255, 142, 142, 125);
 	
 	
-	font: 12pt &quot;楷体&quot;;
+font: 12pt &quot;幼圆&quot;;
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
@@ -287,7 +287,7 @@ QPushButton {
 	background-color: rgba(255, 223, 105, 125);
 	
 	
-	font: 12pt &quot;楷体&quot;;
+font: 12pt &quot;幼圆&quot;;
     color: #000000; /* 文字颜色 */
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */

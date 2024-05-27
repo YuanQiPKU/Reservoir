@@ -23,7 +23,9 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(125, 116, 255);</string>
+    <string notr="true">background-color: rgb(125, 116, 255);
+   border-radius: 15px; /* 边框圆角 */
+</string>
    </property>
    <property name="text">
     <string>  名 字</string>
@@ -39,7 +41,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(131, 234, 255);</string>
+    <string notr="true">background-color: rgb(131, 234, 255); border-radius: 15px; /* 边框圆角 */</string>
    </property>
    <property name="text">
     <string>  时 间 </string>
@@ -55,7 +57,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(221, 255, 110);</string>
+    <string notr="true">background-color: rgb(221, 255, 110); border-radius: 15px; /* 边框圆角 */</string>
    </property>
    <property name="text">
     <string>  类 型</string>
@@ -71,7 +73,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 153, 185);</string>
+    <string notr="true">background-color: rgb(255, 153, 185); border-radius: 15px; /* 边框圆角 */</string>
    </property>
    <property name="text">
     <string>  金 额</string>

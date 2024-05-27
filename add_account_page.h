@@ -23,9 +23,16 @@ public:
   QDateTime account_date;
   bool is_positive = true;
   Kind account_kind;
+
   QString account_name;
 
 private slots:
+  void kind_choose(Kind mykind){
+      account_kind = mykind;
+  }
+  void time_choose(QDateTime a){
+      account_date = a;
+  }
 
   void on_btnYes_clicked();
 
@@ -39,19 +46,12 @@ private slots:
 
   void on_lineEdit_2_editingFinished();
 
-  void on_consume_clicked();
 
-  void on_maintain_clicked();
+  void on_btnTime_clicked();
 
-  void on_social_clicked();
+  void on_btnKind_clicked();
 
-  void on_develop_clicked();
-
-  void on_other_clicked();
-
-  void on_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime);
-
-private:
+  private:
   Ui::add_account_page *ui;
 };
 

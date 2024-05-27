@@ -47,200 +47,8 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(153, 170, 160, 175);</string>
+    <string notr="true">background-image: url(:/pages/main_page/image/P3.jpg);</string>
    </property>
-   <widget class="QWidget" name="common_way_widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>260</y>
-      <width>901</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget {
-	background-color: rgba(170, 170, 127, 125);
-    border-style: solid; /* 按下时边框样式 */
-    border-width: 1px; /* 按下时边框宽度 */
-    border-color: #8c8884; /* 按下时边框颜色 */
-    border-radius: 25px; /* 边框圆角 */
-}
-
-QWidget:hover {
-
-  background-color: rgba(170, 170, 127, 75);
-    border-style: solid; /* 按下时边框样式 */
-    border-width: 1px; /* 按下时边框宽度 */
-    border-color: #8c8884; /* 按下时边框颜色 */
-    border-radius:25px; /* 边框圆角 */
-}
-</string>
-    </property>
-    <widget class="QRadioButton" name="btnIn">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>90</y>
-       <width>73</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>收入/IN</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="btnOut">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>120</y>
-       <width>73</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>支出/OUT</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btnConfirm">
-     <property name="geometry">
-      <rect>
-       <x>740</x>
-       <y>80</y>
-       <width>50</width>
-       <height>50</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>50</width>
-       <height>50</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>50</width>
-       <height>50</height>
-      </size>
-     </property>
-     <property name="contextMenuPolicy">
-      <enum>Qt::DefaultContextMenu</enum>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-	font: 10pt &quot;幼圆&quot;;
-	background-color: rgba(61, 203, 255, 125);
-    color: #000000; /* 文字颜色 */
-    font-weight: normal;
-    padding: 5px; /* 按需调整内边距 */
-   border-radius: 15px; /* 边框圆角 */
-}
-
-QPushButton:hover {
-	background-color: rgba(61, 203, 255, 200);
-    border-style: solid; /* 按下时边框样式 */
-    border-width: 1px; /* 按下时边框宽度 */
-    border-color: #8c8884; /* 按下时边框颜色 */
-    border-radius: 15px; /* 边框圆角 */
-}
-
-</string>
-     </property>
-     <property name="text">
-      <string>添加</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit">
-     <property name="geometry">
-      <rect>
-       <x>550</x>
-       <y>95</y>
-       <width>161</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLineEdit{
-	background-color: rgba(246, 176, 255,125);
-   border-radius: 10px; /* 边框圆角 */
-}</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
-     <property name="geometry">
-      <rect>
-       <x>420</x>
-       <y>20</y>
-       <width>211</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLineEdit{
-	background-color: rgba(246, 176, 255,125);
-   border-radius: 10px; /* 边框圆角 */
-}</string>
-     </property>
-    </widget>
-    <widget class="QWidget" name="verticalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>70</y>
-       <width>81</width>
-       <height>131</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QRadioButton" name="consume">
-        <property name="text">
-         <string>消费性</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="maintain">
-        <property name="text">
-         <string>维持性</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="social">
-        <property name="text">
-         <string>社会性</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="develop">
-        <property name="text">
-         <string>发展性</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="other">
-        <property name="text">
-         <string>其他</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QDateTimeEdit" name="dateTimeEdit">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>90</y>
-       <width>211</width>
-       <height>51</height>
-      </rect>
-     </property>
-    </widget>
-   </widget>
   </widget>
   <widget class="QPushButton" name="btnYes">
    <property name="geometry">
@@ -311,12 +119,15 @@ QPushButton:hover {
     <rect>
      <x>430</x>
      <y>70</y>
-     <width>351</width>
+     <width>461</width>
      <height>111</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;幼圆&quot;;</string>
+   </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;在这里导入csv文件解析&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;你可以将支付宝或者微信导出的账单文件拖拽到这里&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#000000;&quot;&gt;在这里导入csv文件解析&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#000000;&quot;&gt;你可以将支付宝或者微信导出的账单文件拖拽到这里&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -324,13 +135,253 @@ QPushButton:hover {
     <rect>
      <x>50</x>
      <y>180</y>
-     <width>331</width>
+     <width>411</width>
      <height>71</height>
     </rect>
    </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#fefefe;&quot;&gt;你也可以在这里手动添加账目&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#fefefe;&quot;&gt;只需要完成下面的几步操作就可以啦!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;幼圆&quot;;</string>
    </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#000000;&quot;&gt;你也可以在这里手动添加账目&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#000000;&quot;&gt;只需要完成下面的几步操作就可以啦!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="common_way_widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>270</y>
+     <width>901</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+	background-color: rgba(170, 170, 127, 125);
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 25px; /* 边框圆角 */
+}
+
+QWidget:hover {
+
+  background-color: rgba(170, 170, 127, 75);
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius:25px; /* 边框圆角 */
+}
+</string>
+   </property>
+   <widget class="QRadioButton" name="btnIn">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>90</y>
+      <width>73</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 5px; /* 边框圆角 */</string>
+    </property>
+    <property name="text">
+     <string>收入/IN</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="btnOut">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>120</y>
+      <width>73</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 5px; /* 边框圆角 */</string>
+    </property>
+    <property name="text">
+     <string>支出/OUT</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnConfirm">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>86</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font: 10pt &quot;幼圆&quot;;
+	background-color: rgba(61, 203, 255, 125);
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+   border-radius: 15px; /* 边框圆角 */
+}
+
+QPushButton:hover {
+	background-color: rgba(61, 203, 255, 200);
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 15px; /* 边框圆角 */
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>添加</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>96</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	background-color: rgba(246, 176, 255,125);
+   border-radius: 10px; /* 边框圆角 */
+}</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>324</x>
+      <y>96</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	background-color: rgba(246, 176, 255,125);
+   border-radius: 10px; /* 边框圆角 */
+}</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnKind">
+    <property name="geometry">
+     <rect>
+      <x>105</x>
+      <y>128</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font: 10pt &quot;幼圆&quot;;
+	background-color: rgba(255, 151, 153,120);
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+   border-radius: 15px; /* 边框圆角 */
+}
+
+QPushButton:hover {
+	background-color: rgba(255, 151, 153, 200);
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 15px; /* 边框圆角 */
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>类型</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnTime">
+    <property name="geometry">
+     <rect>
+      <x>105</x>
+      <y>43</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font: 10pt &quot;幼圆&quot;;
+	background-color: rgba(255, 253, 183, 150);
+    color: #000000; /* 文字颜色 */
+    font-weight: normal;
+    padding: 5px; /* 按需调整内边距 */
+   border-radius: 15px; /* 边框圆角 */
+}
+
+QPushButton:hover {
+	background-color: rgba(255, 253, 183, 200);
+    border-style: solid; /* 按下时边框样式 */
+    border-width: 1px; /* 按下时边框宽度 */
+    border-color: #8c8884; /* 按下时边框颜色 */
+    border-radius: 15px; /* 边框圆角 */
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>时间</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

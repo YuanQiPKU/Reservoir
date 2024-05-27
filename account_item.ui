@@ -100,6 +100,7 @@ QWidget:hover {
 	background-color: rgba(216, 237, 255, 200);
 }
 Qlabel{
+	font: 700 9pt &quot;Microsoft YaHei UI&quot;;
 	background-color: rgba(216, 237, 255, 125);
 }</string>
     </property>
@@ -123,6 +124,7 @@ Qlabel{
 	alternate-background-color: rgba(130, 153, 255, 200);
 }
 Qlabel{
+	font: 700 9pt &quot;Microsoft YaHei UI&quot;;
 	background-color: rgba(216, 237, 255, 125);
 }</string>
     </property>
@@ -145,6 +147,7 @@ Qlabel{
 	background-color: rgba(216, 237, 255, 200);
 }
 Qlabel{
+	font: 700 9pt &quot;Microsoft YaHei UI&quot;;
 	background-color: rgba(216, 237, 255, 125);
 }</string>
     </property>
@@ -167,6 +170,7 @@ Qlabel{
 	background-color: rgba(216, 237, 255, 200);
 }
 Qlabel{
+	font: 700 9pt &quot;Microsoft YaHei UI&quot;;
 	background-color: rgba(216, 237, 255, 125);
 }</string>
     </property>

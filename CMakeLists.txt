@@ -64,6 +64,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         waterprocess.cpp waterprocess.h
         remove_make_sure.h remove_make_sure.cpp remove_make_sure.ui
         tip.h tip.cpp tip.ui
+        time_choose.h time_choose.cpp time_choose.ui
 
     )
 # Define target properties for Android with Qt 6 as:

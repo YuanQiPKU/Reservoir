@@ -1,6 +1,7 @@
 #include "add_account_page.h"
 #include "ui_add_account_page.h"
-
+#include "account_item_kind.h"
+#include"time_choose.h"
 add_account_page::add_account_page(QTabWidget *all_page, QWidget *parent)
     : all_page(all_page), QWidget(parent), ui(new Ui::add_account_page) {
   qDebug() << "新增账目页面生成";
@@ -9,6 +10,8 @@ add_account_page::add_account_page(QTabWidget *all_page, QWidget *parent)
   this->setMaximumSize(QSize(960, 540)); // 固定窗口大小
   ui->textEdit->setPlaceholderText("请将文件拖动到这里");
   ui->lineEdit->setPlaceholderText("请输入金额");
+  ui->lineEdit_2->setPlaceholderText("请输入账目的备注");
+
 }
 
 add_account_page::~add_account_page() { delete ui; }
@@ -80,17 +83,23 @@ void add_account_page::on_lineEdit_2_editingFinished() {
   account_name = ui->lineEdit_2->text(); // 账目名称
 }
 
-void add_account_page::on_consume_clicked() { account_kind = consume; }
 
-void add_account_page::on_maintain_clicked() { account_kind = maintain; }
-
-void add_account_page::on_social_clicked() { account_kind = social; }
-
-void add_account_page::on_develop_clicked() { account_kind = develop; }
-
-void add_account_page::on_other_clicked() { account_kind = other; }
-
-void add_account_page::on_dateTimeEdit_dateTimeChanged(
-    const QDateTime &dateTime) {
-  account_date = dateTime;
+void add_account_page::on_btnTime_clicked()
+{
+    class time_choose *new_time_choose = new class time_choose();
+    connect(new_time_choose, &time_choose::time_emit, this,
+            &add_account_page::time_choose);
+    new_time_choose->setWindowTitle("类别排序");
+    new_time_choose->show();
 }
+
+
+void add_account_page::on_btnKind_clicked()
+{
+    account_item_kind *new_kind_sort = new account_item_kind();
+    connect(new_kind_sort, &account_item_kind::kind_sort, this,
+            &add_account_page::kind_choose);
+    new_kind_sort->setWindowTitle("选择类别");
+    new_kind_sort->show();
+}
+

@@ -10,8 +10,10 @@ account_item_time::~account_item_time() { delete ui; }
 
 void account_item_time::on_time_down_sort_clicked() {
   emit sortItems(true); // 发送降序排序信号
+    this->close();
 }
 
 void account_item_time::on_time_up_sort_clicked() {
   emit sortItems(false); // 发送升序排序信号
+    this->close();
 }
