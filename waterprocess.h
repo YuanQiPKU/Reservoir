@@ -30,7 +30,6 @@ public Q_SLOTS:
   void setMinValue(int value);
   void setMaxValue(int value);
   void setValue(int v);
-
   void setBorderWidth(int width);
   void setWaterHeight(int height);
 

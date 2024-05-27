@@ -20,6 +20,7 @@ int main(int argc, char *argv[]) {
   }
 
   Widget w(local_password);
+  w.setWindowTitle("水库"); // 设置标题
   w.show();
   // 以下：查询数据库是否存在，若存在就打开，否则新建数据库
   QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");

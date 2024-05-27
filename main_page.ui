@@ -291,7 +291,7 @@ QPushButton:hover {
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>-30</x>
+     <x>0</x>
      <y>0</y>
      <width>960</width>
      <height>540</height>

@@ -37,19 +37,25 @@ main_page::main_page(QTabWidget *all_page, password *my_password,
   connect(all_page, &QTabWidget::tabCloseRequested, this, &main_page::on_account_tab_close_requested);//连接关闭页面和槽函数
   WaterProcess *my_water = new WaterProcess;
   my_water->setBorderWidth(10);
-  my_water->setUsedColor(QColor(160, 247, 255, 20));
-  my_water->setMinimumSize(QSize(400, 200));
-  my_water->setMaximumSize(QSize(400, 200));
-  ui->water_layout->addWidget(my_water);
   double global_left = 0; // 存下的金额
   std::vector<std::shared_ptr<Transaction>> all_account;
   all_account = IO::query_db();
   for (int i = 0; i < all_account.size(); i++) {
-    global_left += all_account[i]->get_money();
+      global_left += all_account[i]->get_money();
   }
+
+  my_water->setMinimumSize(QSize(400, 200));
+  my_water->setMaximumSize(QSize(400, 200));
+  ui->water_layout->addWidget(my_water);
+
   my_water->display_text = QString::number(global_left);
   ui->lcdNumber->display(my_password->target_amount);
   my_water->setValue(fmax((global_left / my_password->target_amount) * 100-10,10));
+  if(global_left>0){
+      my_water->setUsedColor(QColor(160, 247, 255, 120));
+  }else{
+      my_water->setUsedColor(QColor(255, 151, 153,120));
+  }
 }
 
 main_page::~main_page() { delete ui; }
@@ -112,14 +118,20 @@ void main_page::on_account_tab_close_requested(int index) {
         // 更新water process组件
         WaterProcess *my_water = new WaterProcess;
         my_water->setBorderWidth(10);
-        my_water->setUsedColor(QColor(160, 247, 255, 20));
+
         my_water->setMinimumSize(QSize(400, 200));
         my_water->setMaximumSize(QSize(400, 200));
         ui->water_layout->addWidget(my_water);
 
         my_water->display_text = QString::number(global_left);
+
         my_water->setValue(fmax((global_left / my_password->target_amount) * 100 - 10, 10));
         ui->lcdNumber->display(my_password->target_amount);
+        if(global_left>0){
+            my_water->setUsedColor(QColor(160, 247, 255, 120));
+        }else{
+            my_water->setUsedColor(QColor(255, 151, 153,120));
+        }
 
     } else {
         if(index!=0)all_page->removeTab(index);
