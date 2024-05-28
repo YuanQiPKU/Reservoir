@@ -7,7 +7,7 @@
 #include <QDebug>
 #include <QMessageBox> // 添加消息框支持
 #include <QWidget>
-
+#include"kind.h"
 account_item::account_item(Transaction *account_item_message, QWidget *parent)
     : QWidget(parent), ui(new Ui::account_item),
       account_item_message(account_item_message) {
@@ -39,8 +39,7 @@ account_item::account_item(std::shared_ptr<Transaction> account_item_message,
   // 设置标签的文本
   ui->labelName->setText(account_name);
   ui->labelTime->setText(account_time.toString()); // Time_类型有toString方法
-  ui->labelKind->setText(QString::number(
-      static_cast<int>(account_kind))); // 假设Kind是一个枚举，可以转换为整型
+  ui->labelKind->setText(kind::kind_to_string(account_kind)); // 假设Kind是一个枚举，可以转换为整型
   ui->labelMoney->setText(QString::number(account_money));
 
   // 连接按钮点击信号与槽函数
