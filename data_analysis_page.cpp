@@ -7,8 +7,10 @@ data_analysis_page::data_analysis_page(QTabWidget *all_page, QWidget *parent)
     ui->setupUi(this);
     this->setMinimumSize(QSize(960, 540)); // 固定窗口大小
     this->setMaximumSize(QSize(960, 540)); // 固定窗口大小
+
+    // 获取并对数据分类计数
     try {
-        all_account = IO::query_db(); // 获取所有数据
+        all_account = IO::query_db();
     } catch (...) {
         qDebug() << "获取所有数据失败";
     }
@@ -16,66 +18,49 @@ data_analysis_page::data_analysis_page(QTabWidget *all_page, QWidget *parent)
         ui->lcdNumber->display((int)all_account.size()); // 设置显示数据数目
         qDebug() << "读取了不少于一条数据";
     }
+    int in_size = 0,out_size = 0;
+    for(int i = 0;i<all_account.size();i++){
+        if(all_account[i]->get_money()>0){
+            ++in_size;
+        }else{
+            ++out_size;
+        }
+    }
 
-    // 多分类日期比较
-    QCustomPlot *plot_1_in = new QCustomPlot; // 创建一个QCustomPlot对象
-    ui->ver1->addWidget(plot_1_in); // 将QCustomPlot对象添加到ver1布局中
-    // 设置图表的区域设置为中文（中国），这样日期和时间的显示会使用中文。
+    // 收入数据图,调用第三方库QCustomPlot
+plot_1_in = new QCustomPlot;
+    ui->ver1->addWidget(plot_1_in);
     plot_1_in->setLocale(QLocale(QLocale::Chinese, QLocale::China));
-
-    qDebug() << "pass1";
-    int gi = 0; // 用于控制颜色变化
+    // 记录数据范围,用于初始化图表
     double min_value = std::numeric_limits<double>::max();
     double max_value = std::numeric_limits<double>::min();
     int max_time = std::numeric_limits<int>::min();
     int min_time = std::numeric_limits<int>::max();
+    plot_1_in->addGraph();
+    plot_1_in->graph()->setName("收入");
+    QColor color1(55, 213, 20);
+    plot_1_in->graph()->setLineStyle(QCPGraph::lsLine);
+    QPen pen1(color1);
+    pen1.setWidth(1);
+    plot_1_in->graph()->setPen(pen1);
+    QCPScatterStyle scatterStyle1(QCPScatterStyle::ssCircle, QPen(Qt::black), QBrush(Qt::white), 6);
+    plot_1_in->graph()->setScatterStyle(scatterStyle1);
 
-    for (int i = 0; i < kind::kind_number(); i++) {
-        Kind t_kind = kind::index_to_kind(i);
-        qDebug() << kind::kind_to_string(t_kind);
-        plot_1_in->addGraph();
-        plot_1_in->graph()->setName(kind::kind_to_string(t_kind));
-        QColor color_t(20 + 200 / 4.0 * gi, 70 * (1.6 - gi / 4.0), 150, 150);
-        plot_1_in->graph()->setLineStyle(QCPGraph::lsLine);
-        // 创建一个颜色较亮的 QPen 对象，并设置线条宽度
-        QPen pen1(color_t.lighter(200));
-        pen1.setWidth(2); // 设置线条宽度为2（根据需要调整宽度）
-        plot_1_in->graph()->setPen(pen1);
-        // plot_1_in->graph()->setBrush(QBrush(color_t)); // 注释掉这行,该行决定是否为面积图
-        try {
-            kind_account[t_kind] = IO::qurey_db(kind::index_to_kind(i));
-        } catch (...) {
-            qDebug() << "按分类读取数据失败";
+    QVector<QCPGraphData> time_data_in(in_size);
+    int pi = 0;
+    for (int i = 0; i < all_account.size(); ++i) {
+        if (all_account[i]->get_money() > 0) {
+            QDateTime qdatetime = all_account[i]->get_time().mytime_to_qdatetime();
+            time_data_in[pi].key = qdatetime.toSecsSinceEpoch(); // 转化成unix时间
+            time_data_in[pi].value = all_account[i]->get_money();
+            min_time = fmin(min_time, time_data_in[pi].key);
+            max_time = fmax(max_time, time_data_in[pi].key);
+            min_value = fmin(min_value, (int)time_data_in[pi].value);
+            max_value = fmax(max_value, (int)time_data_in[pi].value);
+            ++pi;
         }
-        int t_size = kind_account[kind::index_to_kind(i)].size();
-        if (t_size > 0) {
-            qDebug() << "按分类读取了不少于一条数据";
-        }
-
-        QVector<QCPGraphData> kind_data(t_size);
-        for (int j = 0; j < t_size; j++) {
-            try {
-                QDateTime qdatetime = kind_account[t_kind][j]->get_time().mytime_to_qdatetime();
-                kind_data[j].key = qdatetime.toSecsSinceEpoch();
-                min_time = fmin(min_time, kind_data[j].key);
-                max_time = fmax(max_time, kind_data[j].key);
-
-            } catch (...) {
-                qDebug() << "设置时间失败";
-            }
-            kind_data[j].value = kind_account[t_kind][j]->get_money();
-            min_value = fmin(min_value, (int)kind_data[j].value);
-            max_value = fmax(max_value, (int)kind_data[j].value);
-        }
-        try {
-            plot_1_in->graph()->data()->set(kind_data);
-            qDebug() << "绘图成功1";
-        } catch (...) {
-            qDebug() << "绘图失败1";
-        }
-
-        gi += 1;
     }
+    plot_1_in->graph()->data()->set(time_data_in);
     // 创建一个日期时间刻度生成器
     QSharedPointer<QCPAxisTickerDateTime> dateTicker1(new QCPAxisTickerDateTime);
     dateTicker1->setDateTimeFormat("d. MMMM\nyyyy");
@@ -95,6 +80,7 @@ data_analysis_page::data_analysis_page(QTabWidget *all_page, QWidget *parent)
     // 设置x轴的第二条轴线不显示刻度标签
     plot_1_in->xAxis2->setTickLabels(false);
     // 设置y轴的第二条轴线显示刻度标签
+    plot_1_in->yAxis2->setTickLabels(true);
     plot_1_in->xAxis->setRange(min_time - 60 * 3600 * 12, max_time + 60 * 3600 * 12);
     plot_1_in->yAxis->setRange(min_value-100, max_value+100);
     // 设置图例为可见
@@ -105,37 +91,29 @@ data_analysis_page::data_analysis_page(QTabWidget *all_page, QWidget *parent)
             SLOT(setRange(QCPRange))); // 连接x轴和x轴2的范围变化信号
     connect(plot_1_in->yAxis, SIGNAL(rangeChanged(QCPRange)), plot_1_in->yAxis2,
             SLOT(setRange(QCPRange))); // 连接y轴和y轴2的范围变化信号
-    plot_1_in->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom |
-                               QCP::iSelectPlottables); // 设置交互方式
+    plot_1_in->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom); // 设置交互方式
 
-    int in_size = 0,out_size = 0;
-    for(int i = 0;i<all_account.size();i++){
-        if(all_account[i]->get_money()>0){
-            ++in_size;
-        }else{
-            ++out_size;
-        }
-    }
-    // 收支日期比较
+
+
+    // 支出数据图
     QCustomPlot *plot_2_in = new QCustomPlot; // 创建一个QCustomPlot对象
     ui->ver2->addWidget(plot_2_in); // 将QCustomPlot对象添加到ver2布局中
     // 设置图表的区域设置为中文（中国），这样日期和时间的显示会使用中文。
     plot_2_in->setLocale(QLocale(QLocale::Chinese, QLocale::China));
-    double global_left = 0; // 存下的金额
-    int ri = 0;             // 用于控制颜色变化
+
     min_value = std::numeric_limits<double>::max();
     max_value = std::numeric_limits<double>::min();
     max_time = std::numeric_limits<int>::min();
     min_time = std::numeric_limits<int>::max();
-
-    // 支出数据图
     plot_2_in->addGraph();
     plot_2_in->graph()->setName("支出");
-    QColor color1(20 + 200 / 4.0 * ri, 70 * (1.6 - ri / 4.0), 150, 150);
+    QColor color2(255, 112, 17);
     plot_2_in->graph()->setLineStyle(QCPGraph::lsLine);
-    QPen pen1(color1.lighter(200));
-    pen1.setWidth(2); // 设置线条宽度为2（根据需要调整宽度）
-    plot_2_in->graph()->setPen(pen1);
+    QPen pen2(color2);
+    pen2.setWidth(1); // 设置线条宽度为1
+    plot_2_in->graph()->setPen(pen2);
+    QCPScatterStyle scatterStyle2(QCPScatterStyle::ssCircle, QPen(Qt::black), QBrush(Qt::white), 6);
+    plot_2_in->graph()->setScatterStyle(scatterStyle2);
 
     QVector<QCPGraphData> time_data_out(out_size);
     int qi = 0;
@@ -144,8 +122,7 @@ data_analysis_page::data_analysis_page(QTabWidget *all_page, QWidget *parent)
             if (all_account[i]->get_money() < 0) {
                 QDateTime qdatetime = all_account[i]->get_time().mytime_to_qdatetime();
                 time_data_out[qi].key = qdatetime.toSecsSinceEpoch(); // 转化成unix时间
-                time_data_out[qi].value = all_account[i]->get_money();
-                global_left += time_data_out[qi].value;
+                time_data_out[qi].value = -all_account[i]->get_money();
                 min_time = fmin(min_time, time_data_out[qi].key);
                 max_time = fmax(max_time, time_data_out[qi].key);
                 min_value = fmin(min_value, (int)time_data_out[qi].value);
@@ -156,35 +133,7 @@ data_analysis_page::data_analysis_page(QTabWidget *all_page, QWidget *parent)
             qDebug() << "添加到待显示数据 in fail";
         }
     }
-    plot_2_in->graph()->data()->set(time_data_out); // 将生成的数据设置到当前数据图中
-    ri++;
-    // 收入数据图
-    plot_2_in->addGraph();
-    plot_2_in->graph()->setName("收入");
-    QColor color2(20 + 200 / 4.0 * ri, 70 * (1.6 - ri / 4.0), 150, 150);
-    plot_2_in->graph()->setLineStyle(QCPGraph::lsLine);
-    QPen pen2(color2.lighter(200));
-    pen2.setWidth(2); // 设置线条宽度为2（根据需要调整宽度）
-    plot_2_in->graph()->setPen(pen2);
-
-    QVector<QCPGraphData> time_data_in(in_size);
-    int pi = 0;
-    for (int i = 0; i < all_account.size(); ++i) {
-        if (all_account[i]->get_money() > 0) {
-            QDateTime qdatetime = all_account[i]->get_time().mytime_to_qdatetime();
-            time_data_in[pi].key = qdatetime.toSecsSinceEpoch(); // 转化成unix时间
-            time_data_in[pi].value = all_account[i]->get_money();
-            global_left += time_data_in[i].value;
-            min_time = fmin(min_time, time_data_in[pi].key);
-            max_time = fmax(max_time, time_data_in[pi].key);
-            min_value = fmin(min_value, (int)time_data_in[pi].value);
-            max_value = fmax(max_value, (int)time_data_in[pi].value);
-            ++pi;
-        }
-    }
-    plot_2_in->graph()->data()->set(time_data_in);
-    ri++;
-
+    plot_2_in->graph()->data()->set(time_data_out);
     // 创建一个日期时间刻度生成器
     QSharedPointer<QCPAxisTickerDateTime> dateTicker(new QCPAxisTickerDateTime);
     dateTicker->setDateTimeFormat("d. MMMM\nyyyy");
@@ -215,8 +164,8 @@ data_analysis_page::data_analysis_page(QTabWidget *all_page, QWidget *parent)
             SLOT(setRange(QCPRange))); // 连接x轴和x轴2的范围变化信号
     connect(plot_2_in->yAxis, SIGNAL(rangeChanged(QCPRange)), plot_2_in->yAxis2,
             SLOT(setRange(QCPRange))); // 连接y轴和y轴2的范围变化信号
-    plot_2_in->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom |
-                               QCP::iSelectPlottables); // 设置交互方式
+    plot_2_in->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom ); // 设置交互方式
+
 }
 
 data_analysis_page::~data_analysis_page() { delete ui; }

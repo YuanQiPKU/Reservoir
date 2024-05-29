@@ -47,7 +47,7 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(255, 231, 245, 120);</string>
+    <string notr="true">background-color: rgba(255, 231, 245, 70);</string>
    </property>
    <widget class="QLabel" name="label">
     <property name="geometry">

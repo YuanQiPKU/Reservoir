@@ -16,7 +16,7 @@ private:
   int _password_size;
 
 public:
-  double target_amount = 0;
+  double target_amount = 10000;
   static int password_count;
   password(QString set_password, double target) {
     ++password_count;

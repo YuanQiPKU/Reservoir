@@ -211,7 +211,8 @@ background-color: rgba(255, 179, 0, 200);
        <string notr="true">QPushButton {
 	background-color: rgba(170, 80, 101, 125);
 	font: 290 14pt &quot;幼圆&quot;;
-    color: #000000; /* 文字颜色 */
+    
+	color: rgb(255, 255, 255);
     font-weight: normal;
     padding: 5px; /* 按需调整内边距 */
  border-radius: 15px;

@@ -11,6 +11,9 @@ add_account_page::add_account_page(QTabWidget *all_page, QWidget *parent)
   ui->textEdit->setPlaceholderText("请将文件拖动到这里");
   ui->lineEdit->setPlaceholderText("请输入金额");
   ui->lineEdit_2->setPlaceholderText("请输入账目的备注");
+  account_date = QDateTime(QDateTime::currentDateTime()); // 默认初始化时间
+
+   ui->statement->setText("未完成新建账目");
 
 }
 
@@ -41,10 +44,13 @@ void add_account_page::on_btnConfirm_clicked() {
   try {
     one_account = new Transaction(account_name, account_date, account_kind,
                                   account_amount, true);
+
   } catch (...) {
     qDebug() << "新建账目失败";
   }
-
+  ui->statement->setText("新建账目完成");
+  ui->lineEdit_2->clear();
+  ui->textEdit->clear();
   qDebug() << "新建账目完成";
 }
 
@@ -86,6 +92,7 @@ void add_account_page::on_lineEdit_2_editingFinished() {
 
 void add_account_page::on_btnTime_clicked()
 {
+     ui->statement->setText("未完成新建账目");
     class time_choose *new_time_choose = new class time_choose();
     connect(new_time_choose, &time_choose::time_emit, this,
             &add_account_page::time_choose);

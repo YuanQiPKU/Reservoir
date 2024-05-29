@@ -21,6 +21,7 @@ public:
 
   std::vector<std::shared_ptr<Transaction>> all_account;
   std::map<Kind, std::vector<std::shared_ptr<Transaction>>> kind_account;
+  QCustomPlot *plot_1_in; QCustomPlot *plot_2_in;
 
 private:
   Ui::data_analysis_page *ui;
