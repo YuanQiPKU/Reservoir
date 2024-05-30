@@ -178,7 +178,7 @@ QWidget:hover {
    <widget class="QRadioButton" name="btnIn">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>220</x>
       <y>90</y>
       <width>73</width>
       <height>18</height>
@@ -194,7 +194,7 @@ QWidget:hover {
    <widget class="QRadioButton" name="btnOut">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>220</x>
       <y>120</y>
       <width>73</width>
       <height>18</height>
@@ -210,7 +210,7 @@ QWidget:hover {
    <widget class="QPushButton" name="btnConfirm">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>790</x>
       <y>86</y>
       <width>50</width>
       <height>50</height>
@@ -258,9 +258,9 @@ QPushButton:hover {
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>560</x>
       <y>96</y>
-      <width>161</width>
+      <width>191</width>
       <height>31</height>
      </rect>
     </property>
@@ -274,7 +274,7 @@ QPushButton:hover {
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>324</x>
+      <x>330</x>
       <y>96</y>
       <width>211</width>
       <height>31</height>
@@ -290,8 +290,8 @@ QPushButton:hover {
    <widget class="QPushButton" name="btnKind">
     <property name="geometry">
      <rect>
-      <x>105</x>
-      <y>128</y>
+      <x>140</x>
+      <y>150</y>
       <width>50</width>
       <height>50</height>
      </rect>
@@ -338,8 +338,8 @@ QPushButton:hover {
    <widget class="QPushButton" name="btnTime">
     <property name="geometry">
      <rect>
-      <x>105</x>
-      <y>43</y>
+      <x>140</x>
+      <y>50</y>
       <width>50</width>
       <height>50</height>
      </rect>
@@ -398,6 +398,32 @@ background-color: rgba(255, 170, 0, 120);</string>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="timedisplay">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>211</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;已选择的时间&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="kindDisplay">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>120</y>
+      <width>151</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;已选择的类型&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>

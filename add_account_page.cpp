@@ -110,3 +110,11 @@ void add_account_page::on_btnKind_clicked()
     new_kind_sort->show();
 }
 
+void add_account_page::kind_choose(Kind mykind){
+    account_kind = mykind;
+    ui->kindDisplay->setText(kind::kind_to_string(account_kind));
+}
+void add_account_page::time_choose(QDateTime a){
+    account_date = a;
+    ui->timedisplay->setText(account_date.toString());
+}

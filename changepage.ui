@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(196, 196, 196);</string>
+  </property>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
@@ -23,12 +26,13 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(125, 116, 255);
+    <string notr="true">background-color: rgba(132, 191, 187, 180);
+font: 10pt &quot;幼圆&quot;;
    border-radius: 15px; /* 边框圆角 */
 </string>
    </property>
    <property name="text">
-    <string>  名 字</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;备注&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -41,10 +45,13 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(131, 234, 255); border-radius: 15px; /* 边框圆角 */</string>
+    <string notr="true">background-color: rgba(132, 191, 187, 180);
+font: 10pt &quot;幼圆&quot;;
+   border-radius: 15px; /* 边框圆角 */
+</string>
    </property>
    <property name="text">
-    <string>  时 间 </string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;  时间 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
@@ -57,10 +64,13 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(221, 255, 110); border-radius: 15px; /* 边框圆角 */</string>
+    <string notr="true">background-color: rgba(132, 191, 187, 180);
+font: 10pt &quot;幼圆&quot;;
+   border-radius: 15px; /* 边框圆角 */
+</string>
    </property>
    <property name="text">
-    <string>  类 型</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt; 类型&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
@@ -73,10 +83,13 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 153, 185); border-radius: 15px; /* 边框圆角 */</string>
+    <string notr="true">background-color: rgba(132, 191, 187, 180);
+font: 10pt &quot;幼圆&quot;;
+   border-radius: 15px; /* 边框圆角 */
+</string>
    </property>
    <property name="text">
-    <string>  金 额</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;  金额&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="change_name_line">
@@ -90,7 +103,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit{
-	background-color: rgb(125, 116, 255);
+	background-color: rgba(248, 238, 255, 200);
    border-radius: 15px; /* 边框圆角 */
 }</string>
    </property>
@@ -106,7 +119,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit{
-background-color: rgb(131, 234, 255);
+	background-color: rgba(248, 238, 255, 200);
    border-radius: 15px; /* 边框圆角 */
 }</string>
    </property>
@@ -122,7 +135,7 @@ background-color: rgb(131, 234, 255);
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit{
-	background-color: rgb(221, 255, 110);
+	background-color: rgba(248, 238, 255, 200);
    border-radius: 15px; /* 边框圆角 */
 }</string>
    </property>
@@ -138,7 +151,7 @@ background-color: rgb(131, 234, 255);
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit{
-background-color: rgb(255, 153, 185);
+	background-color: rgba(248, 238, 255, 200);
    border-radius: 15px; /* 边框圆角 */
 }</string>
    </property>

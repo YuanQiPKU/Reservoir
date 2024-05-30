@@ -27,12 +27,8 @@ public:
   QString account_name;
 
 private slots:
-  void kind_choose(Kind mykind){
-      account_kind = mykind;
-  }
-  void time_choose(QDateTime a){
-      account_date = a;
-  }
+  void kind_choose(Kind mykind);
+ void time_choose(QDateTime a);
 
   void on_btnYes_clicked();
 
