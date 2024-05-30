@@ -99,8 +99,8 @@ void main_page::on_account_tab_close_requested(int index) {
   QWidget *widget = all_page->widget(index);
   QString tabText = all_page->tabText(index);
 
-  if (index != 0) {
-    qDebug() << "账目管理页面被关闭";
+  if (index != 0&&tabText!="主页面") {
+    qDebug() << "页面被关闭";
     // 执行刷新主页面的逻辑
     // 删除账目管理页面
     all_page->removeTab(index);
@@ -138,7 +138,7 @@ void main_page::on_account_tab_close_requested(int index) {
     }
 
   } else {
-    if (index != 0)
+    if (index != 0&&tabText!="主页面")
       all_page->removeTab(index);
   }
 }
