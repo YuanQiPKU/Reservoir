@@ -28,7 +28,7 @@ public:
 
 private slots:
   void kind_choose(Kind mykind);
- void time_choose(QDateTime a);
+  void time_choose(QDateTime a);
 
   void on_btnYes_clicked();
 
@@ -42,12 +42,11 @@ private slots:
 
   void on_lineEdit_2_editingFinished();
 
-
   void on_btnTime_clicked();
 
   void on_btnKind_clicked();
 
-  private:
+private:
   Ui::add_account_page *ui;
 };
 

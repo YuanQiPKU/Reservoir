@@ -17,7 +17,6 @@
 #include <QVector>
 #include <QWidget>
 
-
 #endif // PAGES_H
 
 // 页面生成器的声明

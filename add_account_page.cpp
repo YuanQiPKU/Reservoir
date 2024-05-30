@@ -1,7 +1,8 @@
 #include "add_account_page.h"
-#include "ui_add_account_page.h"
 #include "account_item_kind.h"
-#include"time_choose.h"
+#include "time_choose.h"
+#include "ui_add_account_page.h"
+
 add_account_page::add_account_page(QTabWidget *all_page, QWidget *parent)
     : all_page(all_page), QWidget(parent), ui(new Ui::add_account_page) {
   qDebug() << "新增账目页面生成";
@@ -13,8 +14,7 @@ add_account_page::add_account_page(QTabWidget *all_page, QWidget *parent)
   ui->lineEdit_2->setPlaceholderText("请输入账目的备注");
   account_date = QDateTime(QDateTime::currentDateTime()); // 默认初始化时间
 
-   ui->statement->setText("未完成新建账目");
-
+  ui->statement->setText("未完成新建账目");
 }
 
 add_account_page::~add_account_page() { delete ui; }
@@ -89,32 +89,28 @@ void add_account_page::on_lineEdit_2_editingFinished() {
   account_name = ui->lineEdit_2->text(); // 账目名称
 }
 
-
-void add_account_page::on_btnTime_clicked()
-{
-     ui->statement->setText("未完成新建账目");
-    class time_choose *new_time_choose = new class time_choose();
-    connect(new_time_choose, &time_choose::time_emit, this,
-            &add_account_page::time_choose);
-    new_time_choose->setWindowTitle("类别排序");
-    new_time_choose->show();
+void add_account_page::on_btnTime_clicked() {
+  ui->statement->setText("未完成新建账目");
+  class time_choose *new_time_choose = new class time_choose();
+  connect(new_time_choose, &time_choose::time_emit, this,
+          &add_account_page::time_choose);
+  new_time_choose->setWindowTitle("类别排序");
+  new_time_choose->show();
 }
 
-
-void add_account_page::on_btnKind_clicked()
-{
-    account_item_kind *new_kind_sort = new account_item_kind();
-    connect(new_kind_sort, &account_item_kind::kind_sort, this,
-            &add_account_page::kind_choose);
-    new_kind_sort->setWindowTitle("选择类别");
-    new_kind_sort->show();
+void add_account_page::on_btnKind_clicked() {
+  account_item_kind *new_kind_sort = new account_item_kind();
+  connect(new_kind_sort, &account_item_kind::kind_sort, this,
+          &add_account_page::kind_choose);
+  new_kind_sort->setWindowTitle("选择类别");
+  new_kind_sort->show();
 }
 
-void add_account_page::kind_choose(Kind mykind){
-    account_kind = mykind;
-    ui->kindDisplay->setText(kind::kind_to_string(account_kind));
+void add_account_page::kind_choose(Kind mykind) {
+  account_kind = mykind;
+  ui->kindDisplay->setText(kind::kind_to_string(account_kind));
 }
-void add_account_page::time_choose(QDateTime a){
-    account_date = a;
-    ui->timedisplay->setText(account_date.toString());
+void add_account_page::time_choose(QDateTime a) {
+  account_date = a;
+  ui->timedisplay->setText(account_date.toString());
 }

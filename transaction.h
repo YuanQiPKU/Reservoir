@@ -14,7 +14,6 @@
 #include <QRegularExpressionMatch>
 #include <QString>
 
-
 class Transaction {
   /******
    * 交易记录类
