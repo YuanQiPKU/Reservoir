@@ -15,24 +15,46 @@ Transaction::Transaction(QString name, Time_ t, Kind k, double cost,
   }
 }
 
-Transaction::Transaction(QString input, bool write_into_db) { // 从字符串初始化
+Transaction::Transaction(QString input, bool write_into_db,bool is_alipay) { // 从字符串初始化
   auto inputs = input.split(",", Qt::SkipEmptyParts);
   qDebug() << inputs;
   qDebug() << inputs.at(0);
   this->transaction_time_ = Time_(inputs.at(0));
-  this->transaction_kind_ =
-      kind::get_kind(inputs.at(1), inputs.at(2)); // 从支付对象和描述得到类型
-  this->name_ = inputs.at(3);
+  if(!is_alipay)
+    this->transaction_kind_ =
+          kind::get_kind(inputs.at(1), inputs.at(2)); // 从支付对象和描述得到类型
+  else
+      this->transaction_kind_ = kind::get_kind(input.at(1));
+  if(!is_alipay)
+    this->name_ = inputs.at(3);
+  else
+      this->name_ = inputs.at(4);
   this->name_.remove('\"').remove('\\');
-  qDebug() << inputs.at(5);
-  money_ = inputs.at(5).sliced(1).toDouble();
-  if (inputs.at(4) == u"收入")
-    money_ = money_;
-  else if (inputs.at(4) == u"支出")
-    money_ = -money_;
-  else {
-    qDebug() << "ERROR Unexpected in/out kind\n" << input << "\n" << inputs[4];
-    throw "in/outKindMismatchError"; // 报错：收支不正确
+  if(!is_alipay)
+    money_ = inputs.at(5).sliced(1).toDouble();
+  else
+    money_ = inputs.at(6).toDouble();
+  if(!is_alipay)
+  {
+    if (inputs.at(4) == u"收入")
+      money_ = money_;
+    else if (inputs.at(4) == u"支出")
+      money_ = -money_;
+    else {
+        qDebug() << "ERROR Unexpected in/out kind\n" << input << "\n" << inputs[4];
+        throw "in/outKindMismatchError"; // 报错：收支不正确
+    }
+  }
+  else
+  {
+      if (inputs.at(5) == u"收入")
+          money_ = money_;
+      else if (inputs.at(5) == u"支出")
+          money_ = -money_;
+      else {
+          qDebug() << "ERROR Unexpected in/out kind\n" << input << "\n" << inputs[5];
+          throw "in/outKindMismatchError"; // 报错：收支不正确
+      }
   }
   qDebug() << name_ << transaction_time_ << money_ << transaction_kind_;
   if (write_into_db) {

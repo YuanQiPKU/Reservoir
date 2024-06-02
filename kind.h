@@ -11,6 +11,8 @@ namespace kind {
 
 Kind get_kind(QString transaction_kind, QString to_whom);
 
+Kind get_kind(QString);
+
 int kind_number();
 
 Kind index_to_kind(int);

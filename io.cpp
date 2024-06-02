@@ -79,10 +79,16 @@ std::vector<std::shared_ptr<Transaction>> IO::read_csv(QString path_) {
     while (!stream.atEnd()) {
       QString line = stream.readLine();
       if (started)
+          try{
         result.push_back(
-            std::shared_ptr<Transaction>(new Transaction(line, true))),
+            std::shared_ptr<Transaction>(new Transaction(line, true,true))),
             qDebug() << "创建新数据" << result.back()->get_name()
                      << Qt::endl; // 需要进入数据库
+          }
+          catch(...){
+              qDebug() <<"创建类型失败！";
+          }
+
       if (line.startsWith("交易时间"))
         started = true;
     }

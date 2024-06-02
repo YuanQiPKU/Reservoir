@@ -6,7 +6,11 @@ Kind kind::get_kind(QString transaction_kind, QString to_whom) {
   // 从收付款类型和对象猜测账单类型
   return maintain;
 }
-
+Kind kind::get_kind(QString transaction_kind)
+{
+    //支付宝
+    return maintain;
+}
 int kind::kind_number() { return kind_count; }
 
 Kind kind::index_to_kind(int a) { return Kind(a); }

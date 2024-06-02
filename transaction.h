@@ -32,7 +32,7 @@ public:
   Transaction(bool write_into_db = false);
   Transaction(QString name, Time_ t, Kind k, double cost,
               bool write_into_db = false);
-  Transaction(QString, bool write_into_db = false);
+  Transaction(QString, bool write_into_db = false,bool is_alipay = false);
   QString get_name() const;
   Time_ get_time() const;
   Kind get_kind() const;
