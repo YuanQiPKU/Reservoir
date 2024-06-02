@@ -25,57 +25,95 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="widget" native="true">
+  <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>960</width>
-     <height>540</height>
+     <x>-10</x>
+     <y>-10</y>
+     <width>971</width>
+     <height>541</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>960</width>
+     <width>950</width>
      <height>540</height>
     </size>
    </property>
-   <property name="maximumSize">
-    <size>
-     <width>960</width>
-     <height>540</height>
-    </size>
+   <property name="cursor" stdset="0">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="mouseTracking">
+    <bool>false</bool>
+   </property>
+   <property name="tabletTracking">
+    <bool>false</bool>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(255, 231, 245, 70);</string>
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
    </property>
-   <widget class="QLabel" name="label">
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="widget">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
-      <width>960</width>
-      <height>540</height>
+      <y>-539</y>
+      <width>959</width>
+      <height>6000</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>960</width>
-      <height>540</height>
+      <width>940</width>
+      <height>6000</height>
      </size>
     </property>
-    <property name="maximumSize">
-     <size>
-      <width>960</width>
-      <height>540</height>
-     </size>
+    <property name="mouseTracking">
+     <bool>true</bool>
     </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;h2 align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:122.5%; font-size:x-large; font-weight:700;&quot;&gt;&lt;br/&gt;&lt;/h2&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','Clear Sans','Helvetica Neue','Helvetica','Arial','Segoe UI Emoji','sans-serif'; font-size:16pt; color:#333333;&quot;&gt;水库&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','Clear Sans','Helvetica Neue','Helvetica','Arial','Segoe UI Emoji','sans-serif'; font-size:16pt; color:#777777;&quot;&gt;我们的财政状况就像一个水库,有收入作为入水,有支出作为出水,而水库就是我们的储蓄&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','Clear Sans','Helvetica Neue','Helvetica','Arial','Segoe UI Emoji','sans-serif'; font-size:16pt; color:#777777;&quot;&gt;通过这样形象化的表达可以更加便于用户理解自己的财政状况&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','Clear Sans','Helvetica Neue','Helvetica','Arial','Segoe UI Emoji','sans-serif'; font-size:16pt; color:#777777;&quot;&gt;同时具有一定的比喻意义使得程序更加的有趣而不是像传统记账软件那样枯燥无味&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <property name="tabletTracking">
+     <bool>true</bool>
     </property>
-    <property name="textFormat">
-     <enum>Qt::MarkdownText</enum>
+    <property name="acceptDrops">
+     <bool>true</bool>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(217, 254, 255, 125);</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="minimumSize">
+        <size>
+         <width>940</width>
+         <height>6000</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <stylestrategy>NoAntialias</stylestrategy>
+        </font>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Panel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;水库&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;每次我下定决心要存钱的时候，总有个声音对我说，人生很苦，对自己好点。这大概就是我存不住钱的原因。&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;我和我的组员们设计了这个程序帮助你攒下你的点点滴滴,希望以水库这个简单形象的隐喻带给你我们最诚挚的祝愿!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;新的开始&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;为本程序设置一个密码&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;在密码栏目的上侧可以显示你的密码强度&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;密码的长度被限制在16个字符之内,当然你可以将其设为空&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;在完成设置你的密码之后,点击右侧的`IN`(或者键入`Enter`)进入登录页面&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;该页面只在你第一次打开软件时出现&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;如果你想再次看到这个也页面,请删除程序根目录下的`b1.bin`,`b2.bin`&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;删除之后在下一次打开时就可以出现该页面并重新设定密码&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;:/pages/main_page/image/help/help (1).png&quot;/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;登录&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;在此页面,你可以输入你设置的密码,点击`IN`或者键入`Enter`尝试登录&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;在输入错误时,程序会在密码输入栏目提示你的密码输入错误,并清空你的输入等待下一次尝试.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;在密码输入正确时,将进入程序的主页面&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;:/pages/main_page/image/help/help (3).png&quot;/&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;主页面&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-style:italic;&quot;&gt;操作逻辑:类似与网页的tabbar,可以在上面选择关闭&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;该页面的左侧为一些按钮,用于唤起不同的页面&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;右侧为水库的形象化表示,当储蓄金额为0或者为负值时,水的颜色是红色的,为正则为蓝色&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;右下方的储蓄目标为你自行设定的值,你可以在设置页面设置目标值,它和水库中水量有着密切的关系&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;:/pages/main_page/image/help/help (4).png&quot;/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;新建账目&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;在这个页面可以选择手动新建账目,也可以选择使用指定平台的csv文件导入&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;img src=&quot;:/pages/main_page/image/help/help (2).png&quot;/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;数据分析&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;可以看到收入和支出的可视化分析,以及已记录的账目的数量&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;图表支持放缩和拖拽&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;:/pages/main_page/image/help/help (5).png&quot;/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;设置&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;可以设置密码和储蓄目标&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;:/pages/main_page/image/help/help (7).png&quot;/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;账目管理&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;在这个页面可以选择不同的方式对账目进行排序&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;可以在这进行删除和修改&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;:/pages/main_page/image/help/help (6).png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::MarkdownText</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>

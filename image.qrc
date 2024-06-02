@@ -5,5 +5,12 @@
         <file>image/P3.jpg</file>
         <file>image/P4.jpg</file>
         <file>image/P5.png</file>
+        <file>image/help/help (1).png</file>
+        <file>image/help/help (3).png</file>
+        <file>image/help/help (4).png</file>
+        <file>image/help/help (5).png</file>
+        <file>image/help/help (6).png</file>
+        <file>image/help/help (7).png</file>
+        <file>image/help/help (2).png</file>
     </qresource>
 </RCC>
